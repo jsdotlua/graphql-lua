@@ -112,8 +112,7 @@ return function()
 		end)
 
 		it("should contain isExecutableDefinitionNode function", function()
-			local isExecutableDefinitionNode =
-				require("..").isExecutableDefinitionNode
+			local isExecutableDefinitionNode = require("..").isExecutableDefinitionNode
 			expect(isExecutableDefinitionNode).to.be.a("function")
 		end)
 
@@ -133,8 +132,7 @@ return function()
 		end)
 
 		it("should contain isTypeSystemDefinitionNode function", function()
-			local isTypeSystemDefinitionNode =
-				require("..").isTypeSystemDefinitionNode
+			local isTypeSystemDefinitionNode = require("..").isTypeSystemDefinitionNode
 			expect(isTypeSystemDefinitionNode).to.be.a("function")
 		end)
 
@@ -144,8 +142,7 @@ return function()
 		end)
 
 		it("should contain isTypeSystemExtensionNode function", function()
-			local isTypeSystemExtensionNode =
-				require("..").isTypeSystemExtensionNode
+			local isTypeSystemExtensionNode = require("..").isTypeSystemExtensionNode
 			expect(isTypeSystemExtensionNode).to.be.a("function")
 		end)
 

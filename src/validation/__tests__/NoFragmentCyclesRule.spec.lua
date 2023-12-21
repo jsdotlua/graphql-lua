@@ -7,8 +7,7 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/NoFragmentCyclesRule-test.js
 
 return function()
-	local NoFragmentCyclesRule =
-		require("../rules/NoFragmentCyclesRule").NoFragmentCyclesRule
+	local NoFragmentCyclesRule = require("../rules/NoFragmentCyclesRule").NoFragmentCyclesRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 

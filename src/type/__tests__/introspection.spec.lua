@@ -9,7 +9,8 @@
 return function()
 	local invariant = require("../../jsutils/invariant").invariant
 	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
-	local getIntrospectionQuery = require("../../utilities/getIntrospectionQuery").getIntrospectionQuery
+	local getIntrospectionQuery =
+		require("../../utilities/getIntrospectionQuery").getIntrospectionQuery
 	local graphql = require("../../graphql")
 	local graphqlSync = graphql.graphqlSync
 

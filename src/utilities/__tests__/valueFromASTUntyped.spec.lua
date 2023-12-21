@@ -12,8 +12,7 @@ return function()
 	local NaN = Number.NaN
 
 	local parseValue = require("../../language/parser").parseValue
-	local valueFromASTUntyped =
-		require("../valueFromASTUntyped").valueFromASTUntyped
+	local valueFromASTUntyped = require("../valueFromASTUntyped").valueFromASTUntyped
 
 	local NULL = require("../../luaUtils/null")
 

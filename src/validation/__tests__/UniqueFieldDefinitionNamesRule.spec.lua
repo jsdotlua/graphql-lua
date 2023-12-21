@@ -9,7 +9,8 @@
 return function()
 	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local UniqueFieldDefinitionNamesRule = require("../rules/UniqueFieldDefinitionNamesRule").UniqueFieldDefinitionNamesRule
+	local UniqueFieldDefinitionNamesRule =
+		require("../rules/UniqueFieldDefinitionNamesRule").UniqueFieldDefinitionNamesRule
 	local harness = require("./harness")
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors
 

@@ -9,7 +9,9 @@
 return function()
 	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local NoSchemaIntrospectionCustomRule = require("../rules/custom/NoSchemaIntrospectionCustomRule").NoSchemaIntrospectionCustomRule
+	local NoSchemaIntrospectionCustomRule = require(
+		"../rules/custom/NoSchemaIntrospectionCustomRule"
+	).NoSchemaIntrospectionCustomRule
 	local harness = require("./harness")
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema
 

@@ -9,8 +9,7 @@
 return function()
 	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local UniqueTypeNamesRule =
-		require("../rules/UniqueTypeNamesRule").UniqueTypeNamesRule
+	local UniqueTypeNamesRule = require("../rules/UniqueTypeNamesRule").UniqueTypeNamesRule
 	local harness = require("./harness")
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors
 

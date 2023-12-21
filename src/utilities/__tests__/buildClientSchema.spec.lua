@@ -34,8 +34,7 @@ return function()
 	local printSchema = require("../printSchema").printSchema
 	local buildSchema = require("../buildASTSchema").buildSchema
 	local buildClientSchema = require("../buildClientSchema").buildClientSchema
-	local introspectionFromSchema =
-		require("../introspectionFromSchema").introspectionFromSchema
+	local introspectionFromSchema = require("../introspectionFromSchema").introspectionFromSchema
 
 	--[[*
 	--  * This function does a full cycle of going from a string with the contents of

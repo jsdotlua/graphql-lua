@@ -9,16 +9,14 @@
 return function()
 	local dedent = require("../../__testUtils__/dedent").dedent
 	local inspectStr = require("../../__testUtils__/inspectStr").inspectStr
-	local genFuzzStrings =
-		require("../../__testUtils__/genFuzzStrings").genFuzzStrings
+	local genFuzzStrings = require("../../__testUtils__/genFuzzStrings").genFuzzStrings
 
 	local invariant = require("../../jsutils/invariant").invariant
 
 	local Lexer = require("../../language/lexer").Lexer
 	local Source = require("../../language/source").Source
 
-	local stripIgnoredCharacters =
-		require("../stripIgnoredCharacters").stripIgnoredCharacters
+	local stripIgnoredCharacters = require("../stripIgnoredCharacters").stripIgnoredCharacters
 
 	local function lexValue(str: string)
 		local lexer = Lexer.new(Source.new(str))

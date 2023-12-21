@@ -7,8 +7,7 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/NoUndefinedVariablesRule-test.js
 
 return function()
-	local NoUnusedFragmentsRule =
-		require("../rules/NoUnusedFragmentsRule").NoUnusedFragmentsRule
+	local NoUnusedFragmentsRule = require("../rules/NoUnusedFragmentsRule").NoUnusedFragmentsRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 

@@ -9,8 +9,7 @@
 return function()
 	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local KnownTypeNamesRule =
-		require("../rules/KnownTypeNamesRule").KnownTypeNamesRule
+	local KnownTypeNamesRule = require("../rules/KnownTypeNamesRule").KnownTypeNamesRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema

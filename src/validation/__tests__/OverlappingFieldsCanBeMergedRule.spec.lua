@@ -9,7 +9,10 @@
 return function()
 	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local OverlappingFieldsCanBeMergedRule = require("../rules/OverlappingFieldsCanBeMergedRule").OverlappingFieldsCanBeMergedRule
+	local OverlappingFieldsCanBeMergedRule =
+		require(
+			"../rules/OverlappingFieldsCanBeMergedRule"
+		).OverlappingFieldsCanBeMergedRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema

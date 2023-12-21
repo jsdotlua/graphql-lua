@@ -5,8 +5,10 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/specifiedRules.js
-local ExecutableDefinitionsRule = require("./rules/ExecutableDefinitionsRule").ExecutableDefinitionsRule
-local UniqueOperationNamesRule = require("./rules/UniqueOperationNamesRule").UniqueOperationNamesRule
+local ExecutableDefinitionsRule =
+	require("./rules/ExecutableDefinitionsRule").ExecutableDefinitionsRule
+local UniqueOperationNamesRule =
+	require("./rules/UniqueOperationNamesRule").UniqueOperationNamesRule
 local LoneAnonymousOperationRule =
 	require("./rules/LoneAnonymousOperationRule").LoneAnonymousOperationRule
 local SingleFieldSubscriptionsRule =
@@ -25,7 +27,8 @@ local PossibleFragmentSpreadsRule =
 	require("./rules/PossibleFragmentSpreadsRule").PossibleFragmentSpreadsRule
 local NoFragmentCyclesRule = require("./rules/NoFragmentCyclesRule").NoFragmentCyclesRule
 local UniqueVariableNamesRule = require("./rules/UniqueVariableNamesRule").UniqueVariableNamesRule
-local NoUndefinedVariablesRule = require("./rules/NoUndefinedVariablesRule").NoUndefinedVariablesRule
+local NoUndefinedVariablesRule =
+	require("./rules/NoUndefinedVariablesRule").NoUndefinedVariablesRule
 local NoUnusedVariablesRule = require("./rules/NoUnusedVariablesRule").NoUnusedVariablesRule
 local KnownDirectivesRule = require("./rules/KnownDirectivesRule").KnownDirectivesRule
 local UniqueDirectivesPerLocationRule =
@@ -45,14 +48,19 @@ local VariablesInAllowedPositionRule =
 	require("./rules/VariablesInAllowedPositionRule").VariablesInAllowedPositionRule
 local OverlappingFieldsCanBeMergedRule =
 	require("./rules/OverlappingFieldsCanBeMergedRule").OverlappingFieldsCanBeMergedRule
-local UniqueInputFieldNamesRule = require("./rules/UniqueInputFieldNamesRule").UniqueInputFieldNamesRule
-local LoneSchemaDefinitionRule = require("./rules/LoneSchemaDefinitionRule").LoneSchemaDefinitionRule
-local UniqueOperationTypesRule = require("./rules/UniqueOperationTypesRule").UniqueOperationTypesRule
+local UniqueInputFieldNamesRule =
+	require("./rules/UniqueInputFieldNamesRule").UniqueInputFieldNamesRule
+local LoneSchemaDefinitionRule =
+	require("./rules/LoneSchemaDefinitionRule").LoneSchemaDefinitionRule
+local UniqueOperationTypesRule =
+	require("./rules/UniqueOperationTypesRule").UniqueOperationTypesRule
 local UniqueTypeNamesRule = require("./rules/UniqueTypeNamesRule").UniqueTypeNamesRule
-local UniqueEnumValueNamesRule = require("./rules/UniqueEnumValueNamesRule").UniqueEnumValueNamesRule
+local UniqueEnumValueNamesRule =
+	require("./rules/UniqueEnumValueNamesRule").UniqueEnumValueNamesRule
 local UniqueFieldDefinitionNamesRule =
 	require("./rules/UniqueFieldDefinitionNamesRule").UniqueFieldDefinitionNamesRule
-local UniqueDirectiveNamesRule = require("./rules/UniqueDirectiveNamesRule").UniqueDirectiveNamesRule
+local UniqueDirectiveNamesRule =
+	require("./rules/UniqueDirectiveNamesRule").UniqueDirectiveNamesRule
 local PossibleTypeExtensionsRule =
 	require("./rules/PossibleTypeExtensionsRule").PossibleTypeExtensionsRule
 

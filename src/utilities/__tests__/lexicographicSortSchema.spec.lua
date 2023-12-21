@@ -14,8 +14,7 @@ return function()
 
 	local printSchema = require("../printSchema").printSchema
 	local buildSchema = require("../buildASTSchema").buildSchema
-	local lexicographicSortSchema =
-		require("../lexicographicSortSchema").lexicographicSortSchema
+	local lexicographicSortSchema = require("../lexicographicSortSchema").lexicographicSortSchema
 
 	local function sortSDL(sdl)
 		local schema = buildSchema(sdl)

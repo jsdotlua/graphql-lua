@@ -7,8 +7,7 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/KnownFragmentNamesRule-test.js
 
 return function()
-	local KnownFragmentNamesRule =
-		require("../rules/KnownFragmentNamesRule").KnownFragmentNamesRule
+	local KnownFragmentNamesRule = require("../rules/KnownFragmentNamesRule").KnownFragmentNamesRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 

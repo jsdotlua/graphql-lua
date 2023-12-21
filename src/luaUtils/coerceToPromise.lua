@@ -2,7 +2,7 @@ local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type Promise<T> = LuauPolyfill.Promise<T>
 
 local Promise = require("@pkg/@jsdotlua/promise")
-local PromiseOrValueModule = require('../jsutils/PromiseOrValue')
+local PromiseOrValueModule = require("../jsutils/PromiseOrValue")
 type PromiseOrValue<T> = PromiseOrValueModule.PromiseOrValue<T>
 
 local function coerceToPromise<T>(value: PromiseOrValue<T>): Promise<T>

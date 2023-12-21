@@ -18,8 +18,7 @@ type FieldNode = astModule.FieldNode
 
 return function()
 	local dedent = require("../../__testUtils__/dedent").dedent
-	local kitchenSinkQuery =
-		require("../../__testUtils__/kitchenSinkQuery").kitchenSinkQuery
+	local kitchenSinkQuery = require("../../__testUtils__/kitchenSinkQuery").kitchenSinkQuery
 
 	local parse = require("../parser").parse
 	local print_ = require("../printer").print

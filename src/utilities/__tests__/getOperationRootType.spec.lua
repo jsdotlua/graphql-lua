@@ -13,8 +13,7 @@ return function()
 	local GraphQLSchema = require("../../type/schema").GraphQLSchema
 	local GraphQLString = require("../../type/scalars").GraphQLString
 	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
-	local getOperationRootType =
-		require("../getOperationRootType").getOperationRootType
+	local getOperationRootType = require("../getOperationRootType").getOperationRootType
 
 	local Object = require("@pkg/@jsdotlua/luau-polyfill").Object
 

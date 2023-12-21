@@ -7,7 +7,8 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/VariablesInAllowedPositionRule-test.js
 
 return function()
-	local VariablesInAllowedPositionRule = require("../rules/VariablesInAllowedPositionRule").VariablesInAllowedPositionRule
+	local VariablesInAllowedPositionRule =
+		require("../rules/VariablesInAllowedPositionRule").VariablesInAllowedPositionRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 

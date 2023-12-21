@@ -9,7 +9,8 @@
 return function()
 	local parse = require("../../language/parser").parse
 	local extendSchema = require("../../utilities/extendSchema").extendSchema
-	local UniqueDirectivesPerLocationRule = require("../rules/UniqueDirectivesPerLocationRule").UniqueDirectivesPerLocationRule
+	local UniqueDirectivesPerLocationRule =
+		require("../rules/UniqueDirectivesPerLocationRule").UniqueDirectivesPerLocationRule
 	local harness = require("./harness")
 	local testSchema = harness.testSchema
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema

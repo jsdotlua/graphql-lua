@@ -7,7 +7,8 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/SingleFieldSubscriptionsRule-test.js
 
 return function()
-	local SingleFieldSubscriptionsRule = require("../rules/SingleFieldSubscriptionsRule").SingleFieldSubscriptionsRule
+	local SingleFieldSubscriptionsRule =
+		require("../rules/SingleFieldSubscriptionsRule").SingleFieldSubscriptionsRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 

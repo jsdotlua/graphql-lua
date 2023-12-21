@@ -9,8 +9,7 @@
 return function()
 	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local KnownDirectivesRule =
-		require("../rules/KnownDirectivesRule").KnownDirectivesRule
+	local KnownDirectivesRule = require("../rules/KnownDirectivesRule").KnownDirectivesRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors

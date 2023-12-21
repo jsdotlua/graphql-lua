@@ -22,8 +22,7 @@ return function()
 
 	local inspect = require("../../jsutils/inspect").inspect
 
-	local stripIgnoredCharacters =
-		require("../stripIgnoredCharacters").stripIgnoredCharacters
+	local stripIgnoredCharacters = require("../stripIgnoredCharacters").stripIgnoredCharacters
 	local ignoredTokens = {
 		"\u{FEFF}",
 		"\t",

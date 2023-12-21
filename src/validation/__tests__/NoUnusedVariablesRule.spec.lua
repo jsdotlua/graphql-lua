@@ -7,8 +7,7 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/NoUnusedVariablesRule-test.js
 
 return function()
-	local NoUnusedVariablesRule =
-		require("../rules/NoUnusedVariablesRule").NoUnusedVariablesRule
+	local NoUnusedVariablesRule = require("../rules/NoUnusedVariablesRule").NoUnusedVariablesRule
 	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
