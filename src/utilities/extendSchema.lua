@@ -6,9 +6,7 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/4931f93f297511c6f8465d0c8104b20388a517e8/src/utilities/extendSchema.js
 --!strict
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Map = LuauPolyfill.Map
@@ -17,18 +15,17 @@ local coerceToMap = LuauPolyfill.coerceToMap
 type Array<T> = LuauPolyfill.Array<T>
 type Map<T, V> = LuauPolyfill.Map<T, V>
 
-local mapValueOrdered = require(srcWorkspace.luaUtils.mapValueOrdered).mapValueOrdered
-local NULL = require(srcWorkspace.luaUtils.null)
+local mapValueOrdered = require("../luaUtils/mapValueOrdered").mapValueOrdered
+local NULL = require("../luaUtils/null")
 type NULL = typeof(NULL)
 
-local jsutils = srcWorkspace.jsutils
-local keyMap = require(jsutils.keyMap).keyMap
-local inspect = require(jsutils.inspect).inspect
-local devAssert = require(jsutils.devAssert).devAssert
-local ObjMapModule = require(jsutils.ObjMap)
+local keyMap = require("../jsutils/keyMap").keyMap
+local inspect = require("../jsutils/inspect").inspect
+local devAssert = require("../jsutils/devAssert").devAssert
+local ObjMapModule = require("../jsutils/ObjMap")
 type ObjMap<T> = ObjMapModule.ObjMap<T>
 
-local _astImport = require(srcWorkspace.language.ast)
+local _astImport = require("../language/ast")
 type DocumentNode = _astImport.DocumentNode
 type TypeNode = _astImport.TypeNode
 type ListTypeNode = _astImport.ListTypeNode
@@ -55,35 +52,34 @@ type EnumValueDefinitionNode = _astImport.EnumValueDefinitionNode
 type DirectiveDefinitionNode = _astImport.DirectiveDefinitionNode
 type ScalarTypeDefinitionNode = _astImport.ScalarTypeDefinitionNode
 type ScalarTypeExtensionNode = _astImport.ScalarTypeExtensionNode
-local Kind = require(srcWorkspace.language.kinds).Kind
+local Kind = require("../language/kinds").Kind
 
-local predicates = require(srcWorkspace.language.predicates)
+local predicates = require("../language/predicates")
 local isTypeDefinitionNode = predicates.isTypeDefinitionNode
 local isTypeExtensionNode = predicates.isTypeExtensionNode
 
-local assertValidSDLExtension = require(srcWorkspace.validation.validate).assertValidSDLExtension
+local assertValidSDLExtension = require("../validation/validate").assertValidSDLExtension
 
-local getDirectiveValues = require(srcWorkspace.execution.values).getDirectiveValues
+local getDirectiveValues = require("../execution/values").getDirectiveValues
 
-local typeWorkspace = srcWorkspace.type
-local schemaImport = require(typeWorkspace.schema)
+local schemaImport = require("../type/schema")
 type GraphQLSchemaNormalizedConfig = schemaImport.GraphQLSchemaNormalizedConfig
 type GraphQLSchemaValidationOptions = schemaImport.GraphQLSchemaValidationOptions
 local assertSchema = schemaImport.assertSchema
 local GraphQLSchema = schemaImport.GraphQLSchema
-local scalarsImport = require(typeWorkspace.scalars)
+local scalarsImport = require("../type/scalars")
 local specifiedScalarTypes = scalarsImport.specifiedScalarTypes
 local isSpecifiedScalarType = scalarsImport.isSpecifiedScalarType
-local introspectionImport = require(typeWorkspace.introspection)
+local introspectionImport = require("../type/introspection")
 local introspectionTypes = introspectionImport.introspectionTypes
 local isIntrospectionType = introspectionImport.isIntrospectionType
-local directives = require(typeWorkspace.directives)
+local directives = require("../type/directives")
 type GraphQLDirective = directives.GraphQLDirective
 local GraphQLDirective = directives.GraphQLDirective
 local GraphQLDeprecatedDirective = directives.GraphQLDeprecatedDirective
 local GraphQLSpecifiedByDirective = directives.GraphQLSpecifiedByDirective
 
-local definitionImport = require(typeWorkspace.definition)
+local definitionImport = require("../type/definition")
 type GraphQLType = definitionImport.GraphQLType
 type GraphQLNamedType = definitionImport.GraphQLNamedType
 -- ROBLOX TODO: Luau doesn't currently support default type args, so we inline here
@@ -121,7 +117,7 @@ type GraphQLEnumType = definitionImport.GraphQLEnumType
 local GraphQLInputObjectType = definitionImport.GraphQLInputObjectType
 type GraphQLInputObjectType = definitionImport.GraphQLInputObjectType
 
-local valueFromAST = require(script.Parent.valueFromAST).valueFromAST
+local valueFromAST = require("./valueFromAST").valueFromAST
 
 -- ROBLOX deviation: pre-declare variables
 local stdTypeMap: ObjMap<GraphQLScalarType | GraphQLNamedType>

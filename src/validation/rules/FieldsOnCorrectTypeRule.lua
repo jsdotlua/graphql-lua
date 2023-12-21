@@ -6,17 +6,14 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/687d209245b4603f56514c44e7b1517c8be8f46f/src/validation/rules/FieldsOnCorrectTypeRule.js
 
-local root = script.Parent.Parent.Parent
-local jsutils = root.jsutils
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
-local didYouMean = require(jsutils.didYouMean).didYouMean
-local suggestionList = require(jsutils.suggestionList).suggestionList
-local naturalCompare = require(jsutils.naturalCompare).naturalCompare
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local definition = require(root.type.definition)
+local didYouMean = require("../../jsutils/didYouMean").didYouMean
+local suggestionList = require("../../jsutils/suggestionList").suggestionList
+local naturalCompare = require("../../jsutils/naturalCompare").naturalCompare
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local definition = require("../../type/definition")
 local isObjectType = definition.isObjectType
 local isInterfaceType = definition.isInterfaceType
 local isAbstractType = definition.isAbstractType

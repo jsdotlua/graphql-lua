@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/instanceOf.js
-local isNillish = require(script.Parent.Parent.luaUtils.isNillish).isNillish
+local isNillish = require("../luaUtils/isNillish").isNillish
 
 local function instanceOf(subject, super)
 	if isNillish(subject) then

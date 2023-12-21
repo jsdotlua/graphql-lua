@@ -7,42 +7,37 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/executor-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
-	local luaUtilsWorkspace = srcWorkspace.luaUtils
-
-	local Packages = srcWorkspace.Parent
-	local JestGlobals = require(Packages.Dev.JestGlobals)
+	local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 	local jestExpect = JestGlobals.expect
 	-- ROBLOX deviation: utils
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 	local Array = LuauPolyfill.Array
 	local Object = LuauPolyfill.Object
-	local Promise = require(Packages.Promise)
+	local Promise = require("@pkg/@jsdotlua/promise")
 	local instanceof = LuauPolyfill.instanceof
-	local NULL = require(luaUtilsWorkspace.null)
+	local NULL = require("../../luaUtils/null")
 	local HttpService = game:GetService("HttpService")
 
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local inspect = require("../../jsutils/inspect").inspect
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Kind = require(srcWorkspace.language.kinds).Kind
-	local parse = require(srcWorkspace.language.parser).parse
+	local Kind = require("../../language/kinds").Kind
+	local parse = require("../../language/parser").parse
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLBoolean = scalarsImport.GraphQLBoolean
 	local GraphQLString = scalarsImport.GraphQLString
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLScalarType = definitionImport.GraphQLScalarType
 	local GraphQLInterfaceType = definitionImport.GraphQLInterfaceType
 	local GraphQLObjectType = definitionImport.GraphQLObjectType
 	local GraphQLUnionType = definitionImport.GraphQLUnionType
-	local executeImport = require(executionWorkspace.execute)
+	local executeImport = require("../execute")
 	local execute = executeImport.execute
 	local executeSync = executeImport.executeSync
 

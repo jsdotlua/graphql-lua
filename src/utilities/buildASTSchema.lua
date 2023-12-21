@@ -6,29 +6,29 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/aa650618426a301e3f0f61ead3adcd755055a627/src/utilities/buildASTSchema.js
 
-local Array = require(script.Parent.Parent.Parent.LuauPolyfill).Array
-local devAssertModule = require(script.Parent.Parent.jsutils.devAssert)
+local Array = require("@pkg/@jsdotlua/luau-polyfill").Array
+local devAssertModule = require("../jsutils/devAssert")
 local devAssert = devAssertModule.devAssert
-local sourceModule = require(script.Parent.Parent.language.source)
+local sourceModule = require("../language/source")
 type Source = sourceModule.Source
-local astModule = require(script.Parent.Parent.language.ast)
+local astModule = require("../language/ast")
 type DocumentNode = astModule.DocumentNode
-local parserModule = require(script.Parent.Parent.language.parser)
+local parserModule = require("../language/parser")
 type ParseOptions = parserModule.ParseOptions
-local kinds = require(script.Parent.Parent.language.kinds)
+local kinds = require("../language/kinds")
 local Kind = kinds.Kind
 local parse = parserModule.parse
 
-local assertValidSDL = require(script.Parent.Parent.validation.validate).assertValidSDL
+local assertValidSDL = require("../validation/validate").assertValidSDL
 
-local schemaModule = require(script.Parent.Parent.type.schema)
+local schemaModule = require("../type/schema")
 type GraphQLSchemaValidationOptions = schemaModule.GraphQLSchemaValidationOptions
 type GraphQLSchema = schemaModule.GraphQLSchema
 local GraphQLSchema = schemaModule.GraphQLSchema
-local directivesModule = require(script.Parent.Parent.type.directives)
+local directivesModule = require("../type/directives")
 local specifiedDirectives = directivesModule.specifiedDirectives
 
-local extendSchema = require(script.Parent.extendSchema)
+local extendSchema = require("./extendSchema")
 local extendSchemaImpl = extendSchema.extendSchemaImpl
 
 export type BuildSchemaOptions = GraphQLSchemaValidationOptions & {

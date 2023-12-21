@@ -6,11 +6,9 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/rules/LoneSchemaDefinitionRule.js
 
-local srcWorkspace = script.Parent.Parent.Parent
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
 
-local GraphQLError = require(srcWorkspace.error.GraphQLError).GraphQLError
-
-local isNillishModule = require(srcWorkspace.luaUtils.isNillish)
+local isNillishModule = require("../../luaUtils/isNillish")
 local isNillish = isNillishModule.isNillish
 local isNotNillish = isNillishModule.isNotNillish
 

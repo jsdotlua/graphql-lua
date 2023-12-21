@@ -1,5 +1,4 @@
-local Packages = script.Parent.Parent.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local String = LuauPolyfill.String
 
 -- used in lexer.printCharCode

@@ -7,27 +7,23 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/variables-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
-	local rootWorkspace = srcWorkspace.Parent
-
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Map = LuauPolyfill.Map
 	local Number = LuauPolyfill.Number
 	local Object = LuauPolyfill.Object
 	local NaN = Number.NaN
 
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local inspect = require("../../jsutils/inspect").inspect
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Kind = require(srcWorkspace.language.kinds).Kind
-	local parse = require(srcWorkspace.language.parser).parse
+	local Kind = require("../../language/kinds").Kind
+	local parse = require("../../language/parser").parse
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local GraphQLString = require(srcWorkspace.type.scalars).GraphQLString
-	local definitionImport = require(srcWorkspace.type.definition)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLString = require("../../type/scalars").GraphQLString
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLScalarType = definitionImport.GraphQLScalarType
@@ -35,8 +31,8 @@ return function()
 	local GraphQLInputObjectType = definitionImport.GraphQLInputObjectType
 	local GraphQLEnumType = definitionImport.GraphQLEnumType
 
-	local executeSync = require(executionWorkspace.execute).executeSync
-	local getVariableValues = require(executionWorkspace.values).getVariableValues
+	local executeSync = require("../execute").executeSync
+	local getVariableValues = require("../values").getVariableValues
 
 	local TestComplexScalar = GraphQLScalarType.new({
 		name = "ComplexScalar",

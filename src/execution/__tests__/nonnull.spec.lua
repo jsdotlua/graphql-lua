@@ -7,31 +7,27 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/nonnull-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 	local Object = LuauPolyfill.Object
 
-	local NULL = require(srcWorkspace.luaUtils.null)
-	local isNotNillish = require(srcWorkspace.luaUtils.isNillish).isNotNillish
-	local Promise = require(Packages.Promise)
+	local NULL = require("../../luaUtils/null")
+	local isNotNillish = require("../../luaUtils/isNillish").isNotNillish
+	local Promise = require("@pkg/@jsdotlua/promise")
 	local HttpService = game:GetService("HttpService")
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
+	local inspect = require("../../jsutils/inspect").inspect
 
-	local parse = require(srcWorkspace.language.parser).parse
+	local parse = require("../../language/parser").parse
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local GraphQLString = require(srcWorkspace.type.scalars).GraphQLString
-	local definitionModule = require(srcWorkspace.type.definition)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLString = require("../../type/scalars").GraphQLString
+	local definitionModule = require("../../type/definition")
 	local GraphQLNonNull = definitionModule.GraphQLNonNull
 	local GraphQLObjectType = definitionModule.GraphQLObjectType
 
-	local buildSchema = require(srcWorkspace.utilities.buildASTSchema).buildSchema
+	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
 
-	local executeModule = require(script.Parent.Parent.execute)
+	local executeModule = require("../execute")
 	local execute = executeModule.execute
 	local executeSync = executeModule.executeSync
 

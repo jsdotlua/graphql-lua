@@ -7,11 +7,8 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/FragmentsOnCompositeTypesRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local FragmentsOnCompositeTypesRule = require(
-		validationWorkspace.rules.FragmentsOnCompositeTypesRule
-	).FragmentsOnCompositeTypesRule
-	local harness = require(script.Parent.harness)
+	local FragmentsOnCompositeTypesRule = require("../rules/FragmentsOnCompositeTypesRule").FragmentsOnCompositeTypesRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
 	local function expectErrors(expect_, queryStr: string)

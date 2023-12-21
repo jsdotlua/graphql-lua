@@ -8,28 +8,27 @@
 --!strict
 -- ROBLOX TODO: change this to `()` once Luau supports type packs
 type void = nil
-local srcWorkspace = script.Parent.Parent
-local objMapImport = require(srcWorkspace.jsutils.ObjMap)
+local objMapImport = require("../jsutils/ObjMap")
 type ObjMap<T> = objMapImport.ObjMap<T>
-local keyMap = require(srcWorkspace.jsutils.keyMap).keyMap
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
-local invariant = require(srcWorkspace.jsutils.invariant).invariant
+local keyMap = require("../jsutils/keyMap").keyMap
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
 
-local astImport = require(srcWorkspace.language.ast)
+local astImport = require("../language/ast")
 type ListValueNode = astImport.ListValueNode
 type ObjectValueNode = astImport.ObjectValueNode
 type ValueNode = astImport.ValueNode
 type VariableNode = astImport.VariableNode
-local Kind = require(srcWorkspace.language.kinds).Kind
+local Kind = require("../language/kinds").Kind
 
-local definitionImport = require(srcWorkspace.type.definition)
+local definitionImport = require("../type/definition")
 type GraphQLInputType = definitionImport.GraphQLInputType
 local isLeafType = definitionImport.isLeafType
 local isInputObjectType = definitionImport.isInputObjectType
 local isListType = definitionImport.isListType
 local isNonNullType = definitionImport.isNonNullType
 -- ROBLOX deviation: no distinction between undefined and null in Lua so we need to go around this with custom NULL like constant
-local NULL = require(srcWorkspace.luaUtils.null)
+local NULL = require("../luaUtils/null")
 
 -- ROBLOX deviation: predeclare functions
 local isMissingVariable

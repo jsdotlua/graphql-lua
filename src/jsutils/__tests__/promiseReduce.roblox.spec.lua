@@ -16,10 +16,10 @@ return function()
 	local jsutils = script.Parent.Parent
 	local graphql = jsutils.Parent
 	local Packages = graphql.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	type Promise<T> = LuauPolyfill.Promise<T>
-	local Promise = require(Packages.Promise)
-	local promiseReduce = require(jsutils.promiseReduce).promiseReduce
+	local Promise = require("@pkg/@jsdotlua/promise")
+	local promiseReduce = require("../promiseReduce").promiseReduce
 
 	describe("promiseReduce", function()
 		it("should return the initial value when the list is empty", function()

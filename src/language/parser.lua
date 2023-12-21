@@ -6,20 +6,17 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/parser.js
 --!strict
-local language = script.Parent
-local srcWorkspace = language.Parent
-local rootWorkspace = srcWorkspace.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type Array<T> = LuauPolyfill.Array<T>
 type void = nil
 
-local errorImport = require(srcWorkspace.error)
+local errorImport = require("../error")
 type GraphQLError = errorImport.GraphQLError
 
-local TokenKindModule = require(language.tokenKind)
+local TokenKindModule = require("./tokenKind")
 type TokenKindEnum = TokenKindModule.TokenKindEnum
 
-local AstModule = require(language.ast)
+local AstModule = require("./ast")
 local Location = AstModule.Location
 type DocumentNode = AstModule.DocumentNode
 type NonNullTypeNode = AstModule.NonNullTypeNode
@@ -69,20 +66,20 @@ type InlineFragmentNode = AstModule.InlineFragmentNode
 type Location = AstModule.Location
 type Token = AstModule.Token
 
-local sourceModule = require(language.source)
+local sourceModule = require("./source")
 local Source = sourceModule.Source
 type Source = sourceModule.Source
 
-local lexer = require(language.lexer)
+local lexer = require("./lexer")
 local Lexer = lexer.Lexer
 type Lexer = lexer.Lexer
 local isPunctuatorTokenKind = lexer.isPunctuatorTokenKind
 
 local TokenKind = TokenKindModule.TokenKind
-local DirectiveLocation = require(language.directiveLocation).DirectiveLocation
-local Kind = require(language.kinds).Kind
+local DirectiveLocation = require("./directiveLocation").DirectiveLocation
+local Kind = require("./kinds").Kind
 
-local syntaxError = require(script.Parent.Parent.error.syntaxError).syntaxError
+local syntaxError = require("../error/syntaxError").syntaxError
 
 --[[
  * Configuration options to control parser behavior

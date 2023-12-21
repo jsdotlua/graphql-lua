@@ -7,31 +7,27 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/valueFromAST-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 	local Number = LuauPolyfill.Number
 
 	-- ROBLOX deviation: no distinction between undefined and null in Lua so we need to go around this with custom NULL like constant
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
-	local identityFunc = require(srcWorkspace.jsutils.identityFunc).identityFunc
-	local parseValue = require(srcWorkspace.language.parser).parseValue
+	local invariant = require("../../jsutils/invariant").invariant
+	local identityFunc = require("../../jsutils/identityFunc").identityFunc
+	local parseValue = require("../../language/parser").parseValue
 
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLScalarType = definitionImport.GraphQLScalarType
 	local GraphQLEnumType = definitionImport.GraphQLEnumType
 	local GraphQLInputObjectType = definitionImport.GraphQLInputObjectType
 
-	local valueFromAST = require(utilitiesWorkspace.valueFromAST).valueFromAST
+	local valueFromAST = require("../valueFromAST").valueFromAST
 
-	local scalars = require(srcWorkspace.type.scalars)
+	local scalars = require("../../type/scalars")
 	local GraphQLInt = scalars.GraphQLInt
 	local GraphQLFloat = scalars.GraphQLFloat
 	local GraphQLString = scalars.GraphQLString

@@ -1,5 +1,5 @@
 return function()
-	local arrayContains = require(script.Parent.Parent.arrayContains)
+	local arrayContains = require("../arrayContains")
 
 	describe("arrayContains", function()
 		it("table contains simple string", function()

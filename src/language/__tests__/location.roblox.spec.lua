@@ -16,8 +16,8 @@
 -- ROBLOX deviation: no upstream tests
 
 return function()
-	local getLocation = require(script.Parent.Parent.location).getLocation
-	local Source = require(script.Parent.Parent.source).Source
+	local getLocation = require("../location").getLocation
+	local Source = require("../source").Source
 
 	describe("Location", function()
 		it("returns line and column", function()

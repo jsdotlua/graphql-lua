@@ -6,12 +6,10 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/NoFragmentCyclesRule.js
 
-local root = script.Parent.Parent.Parent
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
 
 local exports = {}
 

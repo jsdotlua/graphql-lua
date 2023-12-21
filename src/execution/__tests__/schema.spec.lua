@@ -7,23 +7,20 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/schema-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
+	local parse = require("../../language/parser").parse
 
-	local parse = require(srcWorkspace.language.parser).parse
-
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local definitionImport = require(srcWorkspace.type.definition)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLObjectType = definitionImport.GraphQLObjectType
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLID = scalarsImport.GraphQLID
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLString = scalarsImport.GraphQLString
 	local GraphQLBoolean = scalarsImport.GraphQLBoolean
 
-	local executeSync = require(executionWorkspace.execute).executeSync
+	local executeSync = require("../execute").executeSync
 
 	describe("Execute: Handles execution with a complex schema", function()
 		it("executes using a schema", function()

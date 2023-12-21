@@ -5,23 +5,19 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1611bbb08a88f734e9490b14cfe6afea11a838e0/src/validation/__tests__/validation-test.js
-local validationWorkspace = script.Parent.Parent
-local srcWorkspace = validationWorkspace.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 
 return function()
-	local GraphQLError = require(srcWorkspace.error.GraphQLError).GraphQLError
-	local parser = require(srcWorkspace.language.parser)
+	local GraphQLError = require("../../error/GraphQLError").GraphQLError
+	local parser = require("../../language/parser")
 	local parse = parser.parse
-	local utilities = srcWorkspace.utilities
-	local TypeInfo = require(utilities.TypeInfo).TypeInfo
-	local buildASTSchema = require(utilities.buildASTSchema)
+	local TypeInfo = require("../../utilities/TypeInfo").TypeInfo
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local validate = require(validationWorkspace.validate).validate
-	local harness = require(script.Parent.harness)
+	local validate = require("../validate").validate
+	local harness = require("./harness")
 	local testSchema = harness.testSchema
 
 	describe("Validate: Supports full validation", function()

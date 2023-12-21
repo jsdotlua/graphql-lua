@@ -7,15 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/error/__tests__/locatedError-test.js
 
 return function()
-	local errorsWorkspace = script.Parent.Parent
-	local srcWorkspace = script.Parent.Parent.Parent
-	local Packages = srcWorkspace.Parent
-
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 
-	local GraphQLError = require(errorsWorkspace.GraphQLError).GraphQLError
-	local locatedError = require(errorsWorkspace.locatedError).locatedError
+	local GraphQLError = require("../GraphQLError").GraphQLError
+	local locatedError = require("../locatedError").locatedError
 
 	describe("locatedError", function()
 		it("passes GraphQLError through", function()

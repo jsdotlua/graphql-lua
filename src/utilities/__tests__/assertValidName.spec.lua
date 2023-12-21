@@ -6,7 +6,7 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/assertValidName-test.js
 
-local assertValidName = require(script.Parent.Parent.assertValidName).assertValidName
+local assertValidName = require("../assertValidName").assertValidName
 
 return function()
 	describe("assertValidName()", function()

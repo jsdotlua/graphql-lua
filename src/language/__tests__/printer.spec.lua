@@ -9,20 +9,20 @@
 local languageWorkspace = script.Parent.Parent
 local srcWorkspace = languageWorkspace.Parent
 local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 -- ROBLOX deviation: use jestExpect here so that we get reasonably text diffing on failures
-local JestGlobals = require(Packages.Dev.JestGlobals)
+local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 local jestExpect = JestGlobals.expect
-local astModule = require(languageWorkspace.ast)
+local astModule = require("../ast")
 type FieldNode = astModule.FieldNode
 
 return function()
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local dedent = require("../../__testUtils__/dedent").dedent
 	local kitchenSinkQuery =
-		require(script.Parent.Parent.Parent.__testUtils__.kitchenSinkQuery).kitchenSinkQuery
+		require("../../__testUtils__/kitchenSinkQuery").kitchenSinkQuery
 
-	local parse = require(script.Parent.Parent.parser).parse
-	local print_ = require(script.Parent.Parent.printer).print
+	local parse = require("../parser").parse
+	local print_ = require("../printer").print
 
 	--ROBLOX TODO: make proper JSON.stringify export in polyfill
 	local inspect = LuauPolyfill.util.inspect

@@ -6,21 +6,19 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/introspectionFromSchema.js
 
-local srcWorkspace = script.Parent.Parent
-
 -- ROBLOX deviation: utils
-local Object = require(srcWorkspace.Parent.LuauPolyfill).Object
+local Object = require("@pkg/@jsdotlua/luau-polyfill").Object
 
-local invariant = require(srcWorkspace.jsutils.invariant).invariant
+local invariant = require("../jsutils/invariant").invariant
 
-local schemaModule = require(srcWorkspace.type.schema)
+local schemaModule = require("../type/schema")
 type GraphQLSchema = schemaModule.GraphQLSchema
 
-local parse = require(srcWorkspace.language.parser).parse
+local parse = require("../language/parser").parse
 
-local executeSync = require(srcWorkspace.execution.execute).executeSync
+local executeSync = require("../execution/execute").executeSync
 
-local getIntrospectionQueryModule = require(script.Parent.getIntrospectionQuery)
+local getIntrospectionQueryModule = require("./getIntrospectionQuery")
 type IntrospectionQuery = getIntrospectionQueryModule.IntrospectionQuery
 type IntrospectionOptions = getIntrospectionQueryModule.IntrospectionOptions
 local getIntrospectionQuery = getIntrospectionQueryModule.getIntrospectionQuery

@@ -13,7 +13,7 @@
 	* limitations under the License.
 ]]
 return function()
-	local toArrayEqual = require(script.Parent.Parent.toArrayEqual)
+	local toArrayEqual = require("../toArrayEqual")
 
 	describe("toArrayEqual", function()
 		describe("strict comparison", function()

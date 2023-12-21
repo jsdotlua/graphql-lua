@@ -15,7 +15,7 @@
 -- ROBLOX deviation: no upstream tests
 
 return function()
-	local devAssert = require(script.Parent.Parent.devAssert).devAssert
+	local devAssert = require("../devAssert").devAssert
 
 	describe("Source", function()
 		it("checks reponse message when assertion is false", function()

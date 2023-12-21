@@ -7,38 +7,35 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/buildASTSchema-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local dedent = require("../../__testUtils__/dedent").dedent
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Kind = require(srcWorkspace.language.kinds).Kind
-	local parse = require(srcWorkspace.language.parser).parse
-	local print_ = require(srcWorkspace.language.printer).print
+	local Kind = require("../../language/kinds").Kind
+	local parse = require("../../language/parser").parse
+	local print_ = require("../../language/printer").print
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local validateSchema = require(srcWorkspace.type.validate).validateSchema
-	local introspectionImport = require(srcWorkspace.type.introspection)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local validateSchema = require("../../type/validate").validateSchema
+	local introspectionImport = require("../../type/introspection")
 	local __Schema = introspectionImport.__Schema
 	local __EnumValue = introspectionImport.__EnumValue
-	local directivesImport = require(srcWorkspace.type.directives)
+	local directivesImport = require("../../type/directives")
 	local assertDirective = directivesImport.assertDirective
 	local GraphQLSkipDirective = directivesImport.GraphQLSkipDirective
 	local GraphQLIncludeDirective = directivesImport.GraphQLIncludeDirective
 	local GraphQLDeprecatedDirective = directivesImport.GraphQLDeprecatedDirective
 	local GraphQLSpecifiedByDirective = directivesImport.GraphQLSpecifiedByDirective
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLID = scalarsImport.GraphQLID
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLFloat = scalarsImport.GraphQLFloat
 	local GraphQLString = scalarsImport.GraphQLString
 	local GraphQLBoolean = scalarsImport.GraphQLBoolean
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local assertObjectType = definitionImport.assertObjectType
 	local assertInputObjectType = definitionImport.assertInputObjectType
 	local assertEnumType = definitionImport.assertEnumType
@@ -46,12 +43,12 @@ return function()
 	local assertInterfaceType = definitionImport.assertInterfaceType
 	local assertScalarType = definitionImport.assertScalarType
 
-	local graphqlSync = require(srcWorkspace.graphql).graphqlSync
+	local graphqlSync = require("../../graphql").graphqlSync
 
-	local printSchemaImport = require(utilitiesWorkspace.printSchema)
+	local printSchemaImport = require("../printSchema")
 	local printType = printSchemaImport.printType
 	local printSchema = printSchemaImport.printSchema
-	local buildASTSchemaImport = require(utilitiesWorkspace.buildASTSchema)
+	local buildASTSchemaImport = require("../buildASTSchema")
 	local buildASTSchema = buildASTSchemaImport.buildASTSchema
 	local buildSchema = buildASTSchemaImport.buildSchema
 

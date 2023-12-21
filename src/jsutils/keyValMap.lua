@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/jsutils/keyValMap.js
-local rootWorkspace = script.Parent.Parent.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Map = LuauPolyfill.Map
 type Array<T> = LuauPolyfill.Array<T>
 type Map<T, V> = LuauPolyfill.Map<T, V>

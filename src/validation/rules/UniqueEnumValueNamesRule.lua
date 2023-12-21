@@ -6,13 +6,11 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/UniqueEnumValueNamesRule.js
 
-local srcWorkspace = script.Parent.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Map = LuauPolyfill.Map
 
-local GraphQLError = require(srcWorkspace.error.GraphQLError).GraphQLError
-local definition = require(srcWorkspace.type.definition)
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local definition = require("../../type/definition")
 local isEnumType = definition.isEnumType
 
 local exports = {}

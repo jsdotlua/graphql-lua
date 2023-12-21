@@ -5,38 +5,34 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/validate.js
-local validationWorkspace = script.Parent
-local root = validationWorkspace.Parent
-local PackagesWorkspace = root.Parent
-
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 type Array<T> = LuauPolyfill.Array<T>
 
-local devAssert = require(root.jsutils.devAssert).devAssert
-local GraphQLErrorModule = require(root.error.GraphQLError)
+local devAssert = require("../jsutils/devAssert").devAssert
+local GraphQLErrorModule = require("../error/GraphQLError")
 local GraphQLError = GraphQLErrorModule.GraphQLError
 type GraphQLError = GraphQLErrorModule.GraphQLError
 
-local AstModule = require(root.language.ast)
+local AstModule = require("../language/ast")
 type DocumentNode = AstModule.DocumentNode
 
-local SchemaModule = require(root.type.schema)
+local SchemaModule = require("../type/schema")
 type GraphQLSchema = SchemaModule.GraphQLSchema
 
-local visitorExports = require(root.language.visitor)
+local visitorExports = require("../language/visitor")
 local visit = visitorExports.visit
 local visitInParallel = visitorExports.visitInParallel
-local assertValidSchema = require(root.type.validate).assertValidSchema
-local TypeInfoExports = require(root.utilities.TypeInfo)
+local assertValidSchema = require("../type/validate").assertValidSchema
+local TypeInfoExports = require("../utilities/TypeInfo")
 local TypeInfo = TypeInfoExports.TypeInfo
 type TypeInfo = TypeInfoExports.TypeInfo
 local visitWithTypeInfo = TypeInfoExports.visitWithTypeInfo
-local specifiedRulesImport = require(validationWorkspace.specifiedRules)
+local specifiedRulesImport = require("./specifiedRules")
 local specifiedRules = specifiedRulesImport.specifiedRules
 local specifiedSDLRules = specifiedRulesImport.specifiedSDLRules
-local ValidationContextExports = require(validationWorkspace.ValidationContext)
+local ValidationContextExports = require("./ValidationContext")
 local SDLValidationContext = ValidationContextExports.SDLValidationContext
 local ValidationContext = ValidationContextExports.ValidationContext
 type SDLValidationRule = ValidationContextExports.SDLValidationRule

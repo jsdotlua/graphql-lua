@@ -7,13 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/LoneSchemaDefinitionRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local buildASTSchema = require(root.utilities.buildASTSchema)
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
 	local LoneSchemaDefinitionRule =
-		require(validationWorkspace.rules.LoneSchemaDefinitionRule).LoneSchemaDefinitionRule
-	local harness = require(script.Parent.harness)
+		require("../rules/LoneSchemaDefinitionRule").LoneSchemaDefinitionRule
+	local harness = require("./harness")
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors
 
 	local function expectSDLErrors(expect_, sdlStr: string, schema)

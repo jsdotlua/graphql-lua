@@ -7,22 +7,20 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/type/__tests__/definition-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local rootWorkspace = srcWorkspace.Parent
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Map = LuauPolyfill.Map
 	local Number = LuauPolyfill.Number
 	local coerceToTable = LuauPolyfill.coerceToTable
 
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 	local NaN = Number.NaN
 
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
-	local identityFunc = require(srcWorkspace.jsutils.identityFunc).identityFunc
+	local inspect = require("../../jsutils/inspect").inspect
+	local identityFunc = require("../../jsutils/identityFunc").identityFunc
 
-	local parseValue = require(srcWorkspace.language.parser).parseValue
+	local parseValue = require("../../language/parser").parseValue
 
-	local definitionImport = require(script.Parent.Parent.definition)
+	local definitionImport = require("../definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLScalarType = definitionImport.GraphQLScalarType

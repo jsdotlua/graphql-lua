@@ -7,16 +7,13 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/directives-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
+	local parse = require("../../language/parser").parse
 
-	local parse = require(srcWorkspace.language.parser).parse
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLString = require("../../type/scalars").GraphQLString
+	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local GraphQLString = require(srcWorkspace.type.scalars).GraphQLString
-	local GraphQLObjectType = require(srcWorkspace.type.definition).GraphQLObjectType
-
-	local executeSync = require(executionWorkspace.execute).executeSync
+	local executeSync = require("../execute").executeSync
 
 	local schema = GraphQLSchema.new({
 		query = GraphQLObjectType.new({

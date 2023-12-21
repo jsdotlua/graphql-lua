@@ -7,28 +7,25 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/union-interface-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
-
 	-- ROBLOX deviation: utilities
-	local instanceOf = require(srcWorkspace.jsutils.instanceOf)
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local instanceOf = require("../../jsutils/instanceOf")
+	local NULL = require("../../luaUtils/null")
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local parse = require(srcWorkspace.language.parser).parse
+	local parse = require("../../language/parser").parse
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLString = scalarsImport.GraphQLString
 	local GraphQLBoolean = scalarsImport.GraphQLBoolean
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLUnionType = definitionImport.GraphQLUnionType
 	local GraphQLObjectType = definitionImport.GraphQLObjectType
 	local GraphQLInterfaceType = definitionImport.GraphQLInterfaceType
 
-	local executeSync = require(executionWorkspace.execute).executeSync
+	local executeSync = require("../execute").executeSync
 
 	local Dog = {}
 	local DogMetatable = { __index = Dog }

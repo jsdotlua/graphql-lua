@@ -7,15 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/01bcc7d9be982226bcf56b8f983f38fd89dced1b/src/validation/__tests__/NoDeprecatedCustomRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local buildASTSchema = require(root.utilities.buildASTSchema)
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
 	local NoDeprecatedCustomRule =
-		require(
-			validationWorkspace.rules.custom.NoDeprecatedCustomRule
-		).NoDeprecatedCustomRule
-	local harness = require(script.Parent.harness)
+		require("../rules/custom/NoDeprecatedCustomRule").NoDeprecatedCustomRule
+	local harness = require("./harness")
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema
 
 	local function buildAssertion(sdlStr: string)

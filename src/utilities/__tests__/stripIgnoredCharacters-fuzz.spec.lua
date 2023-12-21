@@ -7,18 +7,18 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/stripIgnoredCharacters-fuzz.js
 
 return function()
-	local dedent = require(script.Parent.Parent.Parent.__testUtils__.dedent).dedent
-	local inspectStr = require(script.Parent.Parent.Parent.__testUtils__.inspectStr).inspectStr
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local inspectStr = require("../../__testUtils__/inspectStr").inspectStr
 	local genFuzzStrings =
-		require(script.Parent.Parent.Parent.__testUtils__.genFuzzStrings).genFuzzStrings
+		require("../../__testUtils__/genFuzzStrings").genFuzzStrings
 
-	local invariant = require(script.Parent.Parent.Parent.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Lexer = require(script.Parent.Parent.Parent.language.lexer).Lexer
-	local Source = require(script.Parent.Parent.Parent.language.source).Source
+	local Lexer = require("../../language/lexer").Lexer
+	local Source = require("../../language/source").Source
 
 	local stripIgnoredCharacters =
-		require(script.Parent.Parent.stripIgnoredCharacters).stripIgnoredCharacters
+		require("../stripIgnoredCharacters").stripIgnoredCharacters
 
 	local function lexValue(str: string)
 		local lexer = Lexer.new(Source.new(str))

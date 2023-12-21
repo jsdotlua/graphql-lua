@@ -7,18 +7,15 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/lexicographicSortSchema-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local utilitiesWorkspace = script.Parent.Parent
-	local Packages = srcWorkspace.Parent
-	local JestGlobals = require(Packages.Dev.JestGlobals)
+	local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 	local jestExpect = JestGlobals.expect
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local dedent = require("../../__testUtils__/dedent").dedent
 
-	local printSchema = require(utilitiesWorkspace.printSchema).printSchema
-	local buildSchema = require(utilitiesWorkspace.buildASTSchema).buildSchema
+	local printSchema = require("../printSchema").printSchema
+	local buildSchema = require("../buildASTSchema").buildSchema
 	local lexicographicSortSchema =
-		require(utilitiesWorkspace.lexicographicSortSchema).lexicographicSortSchema
+		require("../lexicographicSortSchema").lexicographicSortSchema
 
 	local function sortSDL(sdl)
 		local schema = buildSchema(sdl)

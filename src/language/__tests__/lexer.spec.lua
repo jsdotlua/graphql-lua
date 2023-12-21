@@ -11,16 +11,16 @@ return function()
 	local language = script.Parent.Parent
 	local src = language.Parent
 	local Packages = src.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local instanceof = LuauPolyfill.instanceof
 
-	local dedent = require(src.__testUtils__.dedent).dedent
-	local inspect = require(src.jsutils.inspect).inspect
-	local lexerExport = require(language.lexer)
-	local sourceExport = require(language.source)
-	local tokenKindExport = require(language.tokenKind)
-	local GraphQLError = require(src.error.GraphQLError).GraphQLError
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local inspect = require("../../jsutils/inspect").inspect
+	local lexerExport = require("../lexer")
+	local sourceExport = require("../source")
+	local tokenKindExport = require("../tokenKind")
+	local GraphQLError = require("../../error/GraphQLError").GraphQLError
 
 	local Lexer = lexerExport.Lexer
 	local isPunctuatorTokenKind = lexerExport.isPunctuatorTokenKind

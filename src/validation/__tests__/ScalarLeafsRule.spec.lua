@@ -7,9 +7,8 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/ScalarLeafsRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local ScalarLeafsRule = require(validationWorkspace.rules.ScalarLeafsRule).ScalarLeafsRule
-	local harness = require(script.Parent.harness)
+	local ScalarLeafsRule = require("../rules/ScalarLeafsRule").ScalarLeafsRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
 	local function expectErrors(expect_, queryStr)

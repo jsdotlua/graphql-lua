@@ -6,18 +6,17 @@
 ]]
 -- ROBLOX upstream https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/visitor.js
 
-local srcWorkspace = script.Parent.Parent
-local LuauPolyfill = require(srcWorkspace.Parent.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
 type ObjMap<K, V> = { [K]: V }
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
+local inspect = require("../jsutils/inspect").inspect
 
-local astModule = require(srcWorkspace.language.ast)
+local astModule = require("../language/ast")
 type ASTNode = astModule.ASTNode
 type ASTKindToNode = astModule.ASTKindToNode
-local isNode = require(script.Parent.ast).isNode
+local isNode = require("./ast").isNode
 
 --[[*
  * A visitor is provided to visit, it contains the collection of
@@ -150,7 +149,7 @@ local QueryDocumentKeys: VisitorKeyMap<ASTKindToNode> = {
 
 local BREAK = Object.freeze({})
 
-local NULL = require(srcWorkspace.luaUtils.null)
+local NULL = require("../luaUtils/null")
 
 -- deviation: pre-declare functions
 local visitInParallel

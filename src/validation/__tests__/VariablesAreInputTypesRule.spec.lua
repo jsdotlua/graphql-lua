@@ -7,12 +7,9 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/VariablesAreInputTypesRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
 	local VariablesAreInputTypesRule =
-		require(
-			validationWorkspace.rules.VariablesAreInputTypesRule
-		).VariablesAreInputTypesRule
-	local harness = require(script.Parent.harness)
+		require("../rules/VariablesAreInputTypesRule").VariablesAreInputTypesRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
 	local function expectErrors(expect_, queryStr: string)

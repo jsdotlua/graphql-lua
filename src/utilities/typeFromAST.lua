@@ -6,20 +6,17 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/typeFromAST.js
 
-local srcWorkspace = script.Parent.Parent
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
-local invariant = require(srcWorkspace.jsutils.invariant).invariant
-local languageWorkspace = srcWorkspace.language
-local astImport = require(languageWorkspace.ast)
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
+local astImport = require("../language/ast")
 type TypeNode = astImport.TypeNode
 
-local Kind = require(srcWorkspace.language.kinds).Kind
-local definitionImport = require(srcWorkspace.type.definition)
+local Kind = require("../language/kinds").Kind
+local definitionImport = require("../type/definition")
 local GraphQLList = definitionImport.GraphQLList
 local GraphQLNonNull = definitionImport.GraphQLNonNull
 type GraphQLType = definitionImport.GraphQLType
-local typeWorkspace = srcWorkspace.type
-local schemaImport = require(typeWorkspace.schema)
+local schemaImport = require("../type/schema")
 type GraphQLSchema = schemaImport.GraphQLSchema
 
 --[[*

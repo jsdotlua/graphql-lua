@@ -1,4 +1,4 @@
-local NULL = require(script.Parent.null)
+local NULL = require("./null")
 
 local function isNillish(val: any): boolean
 	return val == nil or val == NULL

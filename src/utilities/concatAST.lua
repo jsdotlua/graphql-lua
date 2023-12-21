@@ -6,12 +6,11 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/concatAST.js
 
-local Packages = script.Parent.Parent.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 
-local astModule = require(script.Parent.Parent.language.ast)
+local astModule = require("../language/ast")
 type DocumentNode = astModule.DocumentNode
 type DefinitionNode = astModule.DefinitionNode
 

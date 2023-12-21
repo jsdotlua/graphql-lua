@@ -6,28 +6,25 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/astFromValue.js
 
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Error = LuauPolyfill.Error
 local Number = LuauPolyfill.Number
-local RegExp = require(Packages.RegExp)
+local RegExp = require("@pkg/luau-regexp")
 type RegExp = RegExp.RegExp
 
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
-local invariant = require(srcWorkspace.jsutils.invariant).invariant
-local isObjectLike = require(srcWorkspace.jsutils.isObjectLike).isObjectLike
-local isIteratableObject = require(srcWorkspace.jsutils.isIteratableObject).isIteratableObject
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
+local isIteratableObject = require("../jsutils/isIteratableObject").isIteratableObject
 
-local astImport = require(srcWorkspace.language.ast)
+local astImport = require("../language/ast")
 type ValueNode = astImport.ValueNode
 type ObjectFieldNode = astImport.ObjectFieldNode
-local Kind = require(srcWorkspace.language.kinds).Kind
+local Kind = require("../language/kinds").Kind
 
-local scalarsImport = require(srcWorkspace.type.scalars)
+local scalarsImport = require("../type/scalars")
 local GraphQLID = scalarsImport.GraphQLID
-local definitionImport = require(srcWorkspace.type.definition)
+local definitionImport = require("../type/definition")
 local isLeafType = definitionImport.isLeafType
 local isEnumType = definitionImport.isEnumType
 local isInputObjectType = definitionImport.isInputObjectType
@@ -35,8 +32,8 @@ local isListType = definitionImport.isListType
 local isNonNullType = definitionImport.isNonNullType
 type GraphQLInputType = definitionImport.GraphQLInputType
 
-local NULL = require(luaUtilsWorkspace.null)
-local isNillishModule = require(luaUtilsWorkspace.isNillish)
+local NULL = require("../luaUtils/null")
+local isNillishModule = require("../luaUtils/isNillish")
 local isNillish = isNillishModule.isNillish
 local isNotNillish = isNillishModule.isNotNillish
 

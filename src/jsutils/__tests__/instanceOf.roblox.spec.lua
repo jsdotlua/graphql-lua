@@ -16,7 +16,7 @@
 
 return function()
 	local jsutils = script.Parent.Parent
-	local instanceOf = require(jsutils.instanceOf)
+	local instanceOf = require("../instanceOf")
 
 	describe("instanceOf", function()
 		type ParentClass = {

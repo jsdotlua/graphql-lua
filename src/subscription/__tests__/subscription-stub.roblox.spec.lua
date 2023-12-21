@@ -13,9 +13,7 @@
 	* limitations under the License.
 ]]
 return function()
-	local subscriptionWorkspace = script.Parent.Parent
-
-	local subscriptionModule = require(subscriptionWorkspace)
+	local subscriptionModule = require("../init")
 	local subscribe = subscriptionModule.subscribe
 	local createSourceEventStream = subscriptionModule.createSourceEventStream
 

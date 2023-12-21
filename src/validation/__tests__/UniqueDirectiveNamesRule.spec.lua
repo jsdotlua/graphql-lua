@@ -7,13 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/UniqueDirectiveNamesRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local buildASTSchema = require(root.utilities.buildASTSchema)
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
 	local UniqueDirectiveNamesRule =
-		require(validationWorkspace.rules.UniqueDirectiveNamesRule).UniqueDirectiveNamesRule
-	local harness = require(script.Parent.harness)
+		require("../rules/UniqueDirectiveNamesRule").UniqueDirectiveNamesRule
+	local harness = require("./harness")
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors
 
 	local function expectSDLErrors(expect_, sdlStr, schema)

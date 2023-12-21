@@ -7,10 +7,9 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/UniqueArgumentNamesRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
 	local UniqueArgumentNamesRule =
-		require(validationWorkspace.rules.UniqueArgumentNamesRule).UniqueArgumentNamesRule
-	local harness = require(script.Parent.harness)
+		require("../rules/UniqueArgumentNamesRule").UniqueArgumentNamesRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
 	local function expectErrors(expect_, queryStr: string)

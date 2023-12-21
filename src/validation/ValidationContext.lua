@@ -5,27 +5,22 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/661ff1a6b591eea1e7a7e7c9e6b8b2dcfabf3bd7/src/validation/ValidationContext.js
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 type Object = LuauPolyfill.Object
 local Map = LuauPolyfill.Map
 type Map<T, V> = LuauPolyfill.Map<T, V>
 
-local jsutilsWorkspace = srcWorkspace.jsutils
-local ObjMap = require(jsutilsWorkspace.ObjMap)
+local ObjMap = require("../jsutils/ObjMap")
 type ObjMap<T> = ObjMap.ObjMap<T>
 
-local language = srcWorkspace.language
-local Kind = require(language.kinds).Kind
-local visitor = require(language.visitor)
+local Kind = require("../language/kinds").Kind
+local visitor = require("../language/visitor")
 local visit = visitor.visit
 type ASTVisitor = visitor.ASTVisitor
 
-local _ast = require(language.ast)
+local _ast = require("../language/ast")
 type DocumentNode = _ast.DocumentNode
 type OperationDefinitionNode = _ast.OperationDefinitionNode
 type VariableNode = _ast.VariableNode
@@ -35,20 +30,20 @@ type InlineFragmentNode = _ast.InlineFragmentNode
 type FragmentSpreadNode = _ast.FragmentSpreadNode
 type FragmentDefinitionNode = _ast.FragmentDefinitionNode
 
-local _GraphQLErrorExports = require(srcWorkspace.error.GraphQLError)
+local _GraphQLErrorExports = require("../error/GraphQLError")
 type GraphQLError = _GraphQLErrorExports.GraphQLError
 
-local TypeInfoExports = require(srcWorkspace.utilities.TypeInfo)
+local TypeInfoExports = require("../utilities/TypeInfo")
 local TypeInfo = TypeInfoExports.TypeInfo
 local visitWithTypeInfo = TypeInfoExports.visitWithTypeInfo
 type TypeInfo = TypeInfoExports.TypeInfo
 
-local _schemaExports = require(srcWorkspace.type.schema)
+local _schemaExports = require("../type/schema")
 type GraphQLSchema = _schemaExports.GraphQLSchema
-local directivesExports = require(srcWorkspace.type.directives)
+local directivesExports = require("../type/directives")
 type GraphQLDirective = directivesExports.GraphQLDirective
 
-local definitionModule = require(srcWorkspace.type.definition)
+local definitionModule = require("../type/definition")
 type GraphQLInputType = definitionModule.GraphQLInputType
 type GraphQLOutputType = definitionModule.GraphQLOutputType
 type GraphQLCompositeType = definitionModule.GraphQLCompositeType

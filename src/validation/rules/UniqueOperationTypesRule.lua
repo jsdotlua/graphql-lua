@@ -6,8 +6,7 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/UniqueOperationTypesRule.js
 
-local root = script.Parent.Parent.Parent
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
 
 local exports = {}
 

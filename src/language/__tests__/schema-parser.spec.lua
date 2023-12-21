@@ -11,12 +11,12 @@ return function()
 	local testUtilsWorkspace = script.Parent.Parent.Parent.__testUtils__
 	local languageWorkspace = script.Parent.Parent
 
-	local dedent = require(testUtilsWorkspace.dedent).dedent
-	local kitchenSinkSDL = require(testUtilsWorkspace.kitchenSinkSDL).kitchenSinkSDL
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local kitchenSinkSDL = require("../../__testUtils__/kitchenSinkSDL").kitchenSinkSDL
 
-	local parse = require(languageWorkspace.parser).parse
+	local parse = require("../parser").parse
 
-	local toJSONDeep = require(languageWorkspace.__tests__.toJSONDeep).toJSONDeep
+	local toJSONDeep = require("../__tests__/toJSONDeep").toJSONDeep
 
 	-- ROBLOX deviation: predeclare functions
 	local expectSyntaxError

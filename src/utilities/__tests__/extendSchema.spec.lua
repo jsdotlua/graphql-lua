@@ -7,44 +7,39 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/056fac955b7172e55b33e0a1b35b4ddb8951a99c/src/utilities/__tests__/extendSchema-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
-	local language = srcWorkspace.language
-	local Kind = require(language.kinds).Kind
-	local parse = require(language.parser).parse
-	local print_ = require(language.printer).print
-	local graphqlSync = require(srcWorkspace.graphql).graphqlSync
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local invariant = require("../../jsutils/invariant").invariant
+	local Kind = require("../../language/kinds").Kind
+	local parse = require("../../language/parser").parse
+	local print_ = require("../../language/printer").print
+	local graphqlSync = require("../../graphql").graphqlSync
 
-	local typeWorkspace = srcWorkspace.type
-	local GraphQLSchema = require(typeWorkspace.schema).GraphQLSchema
-	local validateSchema = require(typeWorkspace.validate).validateSchema
-	local directives = require(typeWorkspace.directives)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local validateSchema = require("../../type/validate").validateSchema
+	local directives = require("../../type/directives")
 	local assertDirective = directives.assertDirective
 
-	local scalars = require(typeWorkspace.scalars)
+	local scalars = require("../../type/scalars")
 	local GraphQLID = scalars.GraphQLID
 	local GraphQLInt = scalars.GraphQLInt
 	local GraphQLFloat = scalars.GraphQLFloat
 	local GraphQLString = scalars.GraphQLString
 	local GraphQLBoolean = scalars.GraphQLBoolean
 
-	local definition = require(typeWorkspace.definition)
+	local definition = require("../../type/definition")
 	local assertObjectType = definition.assertObjectType
 	local assertInputObjectType = definition.assertInputObjectType
 	local assertEnumType = definition.assertEnumType
 	local assertUnionType = definition.assertUnionType
 	local assertInterfaceType = definition.assertInterfaceType
 	local assertScalarType = definition.assertScalarType
-	local utilities = srcWorkspace.utilities
-	local concatAST = require(utilities.concatAST).concatAST
-	local printSchema = require(utilities.printSchema).printSchema
-	local extendSchema = require(utilities.extendSchema).extendSchema
-	local buildSchema = require(utilities.buildASTSchema).buildSchema
+	local concatAST = require("../../utilities/concatAST").concatAST
+	local printSchema = require("../../utilities/printSchema").printSchema
+	local extendSchema = require("../../utilities/extendSchema").extendSchema
+	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
 
 	local function printExtensionNodes(obj): string
 		invariant((obj and obj.extensionASTNodes) ~= nil)

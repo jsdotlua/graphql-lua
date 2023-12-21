@@ -6,15 +6,12 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1611bbb08a88f734e9490b14cfe6afea11a838e0/src/__tests__/starWarsData.js
-local rootWorkspace = script.Parent.Parent
-local Packages = rootWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
-local Array = require(Packages.LuauPolyfill).Array
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
+local Array = require("@pkg/@jsdotlua/luau-polyfill").Array
 type Array<T> = LuauPolyfill.Array<T>
 type Promise<T> = LuauPolyfill.Promise<T>
 
-local Promise = require(Packages.Promise)
+local Promise = require("@pkg/@jsdotlua/promise")
 
 --[[*
  * These are types which correspond to the schema.

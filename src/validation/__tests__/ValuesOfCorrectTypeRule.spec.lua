@@ -7,24 +7,19 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/833da8281c06b720b56f513818d13bfdf13a06e7/src/validation/__tests__/ValuesOfCorrectTypeRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local srcWorkspace = validationWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 
-	local jsutils = srcWorkspace.jsutils
-	local inspect = require(jsutils.inspect).inspect
-	local typeWorkspace = srcWorkspace.type
-	local GraphQLSchema = require(typeWorkspace.schema).GraphQLSchema
-	local scalars = require(typeWorkspace.scalars)
+	local inspect = require("../../jsutils/inspect").inspect
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local scalars = require("../../type/scalars")
 	local GraphQLString = scalars.GraphQLString
-	local definition = require(typeWorkspace.definition)
+	local definition = require("../../type/definition")
 	local GraphQLScalarType = definition.GraphQLScalarType
 	local GraphQLObjectType = definition.GraphQLObjectType
 	local ValuesOfCorrectTypeRule =
-		require(validationWorkspace.rules.ValuesOfCorrectTypeRule).ValuesOfCorrectTypeRule
-	local harness = require(script.Parent.harness)
+		require("../rules/ValuesOfCorrectTypeRule").ValuesOfCorrectTypeRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema
 

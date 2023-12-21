@@ -7,8 +7,8 @@
 ]]
 -- FIXME: Replace this with jest-roblox builtins
 
-local Number = require(script.Parent.Parent.Parent.LuauPolyfill).Number
-local NULL = require(script.Parent.null)
+local Number = require("@pkg/@jsdotlua/luau-polyfill").Number
+local NULL = require("./null")
 
 local function deepEqual(a: any, b: any): (boolean, string?)
 	if typeof(a) ~= typeof(b) then

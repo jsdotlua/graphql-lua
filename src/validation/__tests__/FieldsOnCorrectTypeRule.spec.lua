@@ -7,16 +7,14 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/FieldsOnCorrectTypeRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local parser = require(root.language.parser)
+	local parser = require("../../language/parser")
 	local parse = parser.parse
-	local buildASTSchema = require(root.utilities.buildASTSchema)
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local validate = require(validationWorkspace.validate).validate
+	local validate = require("../validate").validate
 	local FieldsOnCorrectTypeRule =
-		require(validationWorkspace.rules.FieldsOnCorrectTypeRule).FieldsOnCorrectTypeRule
-	local harness = require(script.Parent.harness)
+		require("../rules/FieldsOnCorrectTypeRule").FieldsOnCorrectTypeRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
 	local function expectErrors(expect_, queryStr: string)

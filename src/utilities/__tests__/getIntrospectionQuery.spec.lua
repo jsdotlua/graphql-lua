@@ -6,9 +6,8 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/getIntrospectionQuery-test.js
 
-local srcWorkspace = script.Parent.Parent.Parent
 local getIntrospectionQuery =
-	require(srcWorkspace.utilities.getIntrospectionQuery).getIntrospectionQuery
+	require("../../utilities/getIntrospectionQuery").getIntrospectionQuery
 
 -- ROBLOX Deviation: utility function for finding multiple matches
 local function stringFindAll(str, pattern)

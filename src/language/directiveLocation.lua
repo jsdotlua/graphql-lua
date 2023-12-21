@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/v15.5.1/src/language/directiveLocation.js
-local Object = require(script.Parent.Parent.Parent.LuauPolyfill).Object
+local Object = require("@pkg/@jsdotlua/luau-polyfill").Object
 
 -- ROBLOX FIXME: APPFDN-2420 fix definition of Object.freeze to preserve inner type
 local DirectiveLocation = (

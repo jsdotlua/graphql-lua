@@ -5,19 +5,17 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/v15.5.1/src/subscription/subscribe.js
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type Promise<T> = LuauPolyfill.Promise<T>
 
-local astModule = require(srcWorkspace.language.ast)
+local astModule = require("../language/ast")
 type DocumentNode = astModule.DocumentNode
-local executeModule = require(srcWorkspace.execution.execute)
+local executeModule = require("../execution/execute")
 type ExecutionResult = executeModule.ExecutionResult
 type ExecutionContext = executeModule.ExecutionContext
-local schemaModule = require(srcWorkspace.type.schema)
+local schemaModule = require("../type/schema")
 type GraphQLSchema = schemaModule.GraphQLSchema
-local definitionModule = require(srcWorkspace.type.definition)
+local definitionModule = require("../type/definition")
 -- ROBLOX TODO: Luau doesn't currently support default type args, so inline any
 type GraphQLFieldResolver<T, V> = definitionModule.GraphQLFieldResolver<T, V, any>
 

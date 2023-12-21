@@ -7,15 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/inspect.js
 local HttpService = game:GetService("HttpService")
 
-local jsutils = script.Parent
-local srcWorkspace = jsutils.Parent
-local graphql = jsutils.Parent
-local Packages = graphql.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
-local NULL = require(srcWorkspace.luaUtils.null)
+local NULL = require("../luaUtils/null")
 
 local MAX_ARRAY_LENGTH = 10
 local MAX_RECURSIVE_DEPTH = 2

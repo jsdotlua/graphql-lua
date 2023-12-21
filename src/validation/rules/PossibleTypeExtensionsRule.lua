@@ -6,23 +6,19 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/PossibleTypeExtensionsRule.js
 
-local root = script.Parent.Parent.Parent
-local jsutils = root.jsutils
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 
-local inspect = require(jsutils.inspect).inspect
-local invariant = require(jsutils.invariant).invariant
-local didYouMean = require(jsutils.didYouMean).didYouMean
-local suggestionList = require(jsutils.suggestionList).suggestionList
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local Kind = require(language.kinds).Kind
-local predicates = require(language.predicates)
+local inspect = require("../../jsutils/inspect").inspect
+local invariant = require("../../jsutils/invariant").invariant
+local didYouMean = require("../../jsutils/didYouMean").didYouMean
+local suggestionList = require("../../jsutils/suggestionList").suggestionList
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local Kind = require("../../language/kinds").Kind
+local predicates = require("../../language/predicates")
 local isTypeDefinitionNode = predicates.isTypeDefinitionNode
-local definition = require(root.type.definition)
+local definition = require("../../type/definition")
 local isScalarType = definition.isScalarType
 local isObjectType = definition.isObjectType
 local isInterfaceType = definition.isInterfaceType

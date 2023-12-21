@@ -12,7 +12,7 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local Number = require(script.Parent.Parent.Parent.LuauPolyfill).Number
+local Number = require("@pkg/@jsdotlua/luau-polyfill").Number
 
 local function toBeNaN(a)
 	local success = Number.isNaN(a)

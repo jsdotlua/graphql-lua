@@ -1,10 +1,8 @@
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type Promise<T> = LuauPolyfill.Promise<T>
 
-local Promise = require(rootWorkspace.Promise)
-local PromiseOrValueModule = require(srcWorkspace.jsutils.PromiseOrValue)
+local Promise = require("@pkg/@jsdotlua/promise")
+local PromiseOrValueModule = require('../jsutils/PromiseOrValue')
 type PromiseOrValue<T> = PromiseOrValueModule.PromiseOrValue<T>
 
 local function coerceToPromise<T>(value: PromiseOrValue<T>): Promise<T>

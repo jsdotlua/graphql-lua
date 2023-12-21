@@ -12,8 +12,8 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local deepEqual = require(script.Parent.Parent.luaUtils.deepEqual)
-local deepContains = require(script.Parent.Parent.luaUtils.deepContains)
+local deepEqual = require("../luaUtils/deepEqual")
+local deepContains = require("../luaUtils/deepContains")
 
 local function toArrayEqual(arrA, arrB, looseEquals)
 	local sameLength = #arrA == #arrB

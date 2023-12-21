@@ -7,13 +7,13 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/__tests__/predicates-test.js
 return function()
-	local LuauPolyfill = require(script.Parent.Parent.Parent.Parent.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local Object = LuauPolyfill.Object
 	type Array<T> = LuauPolyfill.Array<T>
 
-	local Kind = require(script.Parent.Parent.kinds).Kind
-	local predicates = require(script.Parent.Parent.predicates)
+	local Kind = require("../kinds").Kind
+	local predicates = require("../predicates")
 
 	-- ROBLOX deviation: we need to sort kinds to have deterministic order
 	local allKinds = Object.values(Kind)

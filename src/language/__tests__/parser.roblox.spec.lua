@@ -18,10 +18,10 @@
 return function()
 	local languageWorkspace = script.Parent.Parent
 
-	local Kind = require(languageWorkspace.kinds).Kind
-	local parser = require(languageWorkspace.parser)
+	local Kind = require("../kinds").Kind
+	local parser = require("../parser")
 	local parseValue = parser.parseValue
-	local toJSONDeep = require(script.Parent.toJSONDeep).toJSONDeep
+	local toJSONDeep = require("./toJSONDeep").toJSONDeep
 
 	describe("Parser - Roblox", function()
 		describe("parseValue", function()

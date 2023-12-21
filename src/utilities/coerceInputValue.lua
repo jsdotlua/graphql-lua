@@ -6,37 +6,32 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/coerceInputValue.js
 
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local jsutilsWorkspace = srcWorkspace.jsutils
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 local Object = LuauPolyfill.Object
 
-local inspect = require(jsutilsWorkspace.inspect).inspect
-local invariant = require(jsutilsWorkspace.invariant).invariant
-local didYouMean = require(jsutilsWorkspace.didYouMean).didYouMean
-local isObjectLike = require(jsutilsWorkspace.isObjectLike).isObjectLike
-local suggestionList = require(jsutilsWorkspace.suggestionList).suggestionList
-local printPathArray = require(jsutilsWorkspace.printPathArray).printPathArray
-local pathImport = require(jsutilsWorkspace.Path)
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
+local didYouMean = require("../jsutils/didYouMean").didYouMean
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
+local suggestionList = require("../jsutils/suggestionList").suggestionList
+local printPathArray = require("../jsutils/printPathArray").printPathArray
+local pathImport = require("../jsutils/Path")
 local addPath = pathImport.addPath
 type Path = pathImport.Path
-local instanceOf = require(jsutilsWorkspace.instanceOf)
-local NULL = require(luaUtilsWorkspace.null)
-local isNillishModule = require(luaUtilsWorkspace.isNillish)
+local instanceOf = require("../jsutils/instanceOf")
+local NULL = require("../luaUtils/null")
+local isNillishModule = require("../luaUtils/isNillish")
 local isNillish = isNillishModule.isNillish
 local isNotNillish = isNillishModule.isNotNillish
 
-local pathToArray = require(jsutilsWorkspace.Path).pathToArray
-local isIteratableObject = require(jsutilsWorkspace.isIteratableObject).isIteratableObject
-local graphQLErrorImport = require(srcWorkspace.error.GraphQLError)
+local pathToArray = require("../jsutils/Path").pathToArray
+local isIteratableObject = require("../jsutils/isIteratableObject").isIteratableObject
+local graphQLErrorImport = require("../error/GraphQLError")
 local GraphQLError = graphQLErrorImport.GraphQLError
 type GraphQLError = graphQLErrorImport.GraphQLError
-local definition = require(srcWorkspace.type.definition)
+local definition = require("../type/definition")
 type GraphQLInputType = definition.GraphQLInputType
 
 local isLeafType = definition.isLeafType

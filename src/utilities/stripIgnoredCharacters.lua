@@ -6,20 +6,17 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/stripIgnoredCharacters.js
 
-local srcWorkspace = script.Parent.Parent
-local languageWorkspace = srcWorkspace.language
-local Packages = srcWorkspace.Parent
-local String = require(Packages.LuauPolyfill).String
+local String = require("@pkg/@jsdotlua/luau-polyfill").String
 
-local sourceImport = require(languageWorkspace.source)
+local sourceImport = require("../language/source")
 local Source = sourceImport.Source
 type Source = sourceImport.Source
 local isSource = sourceImport.isSource
-local TokenKind = require(languageWorkspace.tokenKind).TokenKind
-local lexerImport = require(languageWorkspace.lexer)
+local TokenKind = require("../language/tokenKind").TokenKind
+local lexerImport = require("../language/lexer")
 local Lexer = lexerImport.Lexer
 local isPunctuatorTokenKind = lexerImport.isPunctuatorTokenKind
-local blockStringImport = require(languageWorkspace.blockString)
+local blockStringImport = require("../language/blockString")
 local dedentBlockStringValue = blockStringImport.dedentBlockStringValue
 local getBlockStringIndentation = blockStringImport.getBlockStringIndentation
 

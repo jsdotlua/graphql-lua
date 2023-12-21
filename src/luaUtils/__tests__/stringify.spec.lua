@@ -1,10 +1,10 @@
 local HttpService = game:GetService("HttpService")
-local stringify = require(script.Parent.Parent.stringify)
-local NULL = require(script.Parent.Parent.null)
+local stringify = require("../stringify")
+local NULL = require("../null")
 
 local srcWorkspace = script.Parent.Parent.Parent
 local Packages = srcWorkspace.Parent
-local JestGlobals = require(Packages.Dev.JestGlobals)
+local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 local jestExpect = JestGlobals.expect
 
 return function()

@@ -6,26 +6,22 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/printSchema-test.js
 
-local utilitiesWorkspace = script.Parent.Parent
-local srcWorkspace = script.Parent.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Map = LuauPolyfill.Map
 
-local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+local dedent = require("../../__testUtils__/dedent").dedent
 
-local DirectiveLocation = require(srcWorkspace.language.directiveLocation).DirectiveLocation
+local DirectiveLocation = require("../../language/directiveLocation").DirectiveLocation
 
-local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-local GraphQLDirective = require(srcWorkspace.type.directives).GraphQLDirective
+local GraphQLSchema = require("../../type/schema").GraphQLSchema
+local GraphQLDirective = require("../../type/directives").GraphQLDirective
 
-local ScalarsModule = require(srcWorkspace.type.scalars)
+local ScalarsModule = require("../../type/scalars")
 local GraphQLInt = ScalarsModule.GraphQLInt
 local GraphQLString = ScalarsModule.GraphQLString
 local GraphQLBoolean = ScalarsModule.GraphQLBoolean
 
-local DefinitionModule = require(srcWorkspace.type.definition)
+local DefinitionModule = require("../../type/definition")
 local GraphQLList = DefinitionModule.GraphQLList
 local GraphQLNonNull = DefinitionModule.GraphQLNonNull
 local GraphQLScalarType = DefinitionModule.GraphQLScalarType
@@ -35,8 +31,8 @@ local GraphQLUnionType = DefinitionModule.GraphQLUnionType
 local GraphQLEnumType = DefinitionModule.GraphQLEnumType
 local GraphQLInputObjectType = DefinitionModule.GraphQLInputObjectType
 
-local buildSchema = require(utilitiesWorkspace.buildASTSchema).buildSchema
-local PrintSchemaModule = require(utilitiesWorkspace.printSchema)
+local buildSchema = require("../buildASTSchema").buildSchema
+local PrintSchemaModule = require("../printSchema")
 local printSchema = PrintSchemaModule.printSchema
 local printIntrospectionSchema = PrintSchemaModule.printIntrospectionSchema
 

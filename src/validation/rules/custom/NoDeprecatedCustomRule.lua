@@ -6,10 +6,9 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/01bcc7d9be982226bcf56b8f983f38fd89dced1b/src/validation/rules/NoDeprecatedCustomRule.js
 
-local root = script.Parent.Parent.Parent.Parent
-local invariant = require(root.jsutils.invariant).invariant
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local definition = require(root.type.definition)
+local invariant = require("../../../jsutils/invariant").invariant
+local GraphQLError = require("../../../error/GraphQLError").GraphQLError
+local definition = require("../../../type/definition")
 local getNamedType = definition.getNamedType
 local isInputObjectType = definition.isInputObjectType
 

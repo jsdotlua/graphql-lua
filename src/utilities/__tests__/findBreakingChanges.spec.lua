@@ -7,15 +7,14 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/findBreakingChanges-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local directivesModule = require(srcWorkspace.type.directives)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local directivesModule = require("../../type/directives")
 	local GraphQLSkipDirective = directivesModule.GraphQLSkipDirective
 	local GraphQLIncludeDirective = directivesModule.GraphQLIncludeDirective
 	local GraphQLSpecifiedByDirective = directivesModule.GraphQLSpecifiedByDirective
 	local GraphQLDeprecatedDirective = directivesModule.GraphQLDeprecatedDirective
-	local buildSchema = require(srcWorkspace.utilities.buildASTSchema).buildSchema
-	local findBreakingChangesModule = require(srcWorkspace.utilities.findBreakingChanges)
+	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
+	local findBreakingChangesModule = require("../../utilities/findBreakingChanges")
 	local findBreakingChanges = findBreakingChangesModule.findBreakingChanges
 	local BreakingChangeType = findBreakingChangesModule.BreakingChangeType
 	local DangerousChangeType = findBreakingChangesModule.DangerousChangeType

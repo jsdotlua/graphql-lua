@@ -7,30 +7,27 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/buildClientSchema.js
 
 -- ROBLOX deviation: utils
-local srcWorkspace = script.Parent.Parent
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 type Array<T> = LuauPolyfill.Array<T>
 type Map<K, V> = LuauPolyfill.Map<K, V>
-local NULL = require(luaUtilsWorkspace.null)
+local NULL = require("../luaUtils/null")
 type NULL = typeof(NULL)
-local isNillishModule = require(luaUtilsWorkspace.isNillish)
+local isNillishModule = require("../luaUtils/isNillish")
 local isNillish = isNillishModule.isNillish
 local isNotNillish = isNillishModule.isNotNillish
 
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
-local devAssert = require(srcWorkspace.jsutils.devAssert).devAssert
-local keyValMap = require(srcWorkspace.jsutils.keyValMap).keyValMap
-local isObjectLike = require(srcWorkspace.jsutils.isObjectLike).isObjectLike
+local inspect = require("../jsutils/inspect").inspect
+local devAssert = require("../jsutils/devAssert").devAssert
+local keyValMap = require("../jsutils/keyValMap").keyValMap
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
 
-local parseValue = require(srcWorkspace.language.parser).parseValue
+local parseValue = require("../language/parser").parseValue
 
-local GraphQLSchemaModule = require(srcWorkspace.type.schema)
+local GraphQLSchemaModule = require("../type/schema")
 type GraphQLSchemaValidationOptions = GraphQLSchemaModule.GraphQLSchemaValidationOptions
-local definition = require(srcWorkspace.type.definition)
+local definition = require("../type/definition")
 type GraphQLType = definition.GraphQLType
 type GraphQLNamedType = definition.GraphQLNamedType
 type GraphQLEnumValueConfig = definition.GraphQLEnumValueConfig
@@ -39,10 +36,10 @@ type GraphQLFieldConfig<TSource, TContext> = definition.GraphQLFieldConfig<TSour
 type GraphQLFieldConfigMap<TSource, TContext> = definition.GraphQLFieldConfigMap<TSource, TContext>
 type GraphQLSchema = GraphQLSchemaModule.GraphQLSchema
 local GraphQLSchema = GraphQLSchemaModule.GraphQLSchema
-local GraphQLDirective = require(srcWorkspace.type.directives).GraphQLDirective
-local scalarsImport = require(srcWorkspace.type.scalars)
+local GraphQLDirective = require("../type/directives").GraphQLDirective
+local scalarsImport = require("../type/scalars")
 local specifiedScalarTypes = scalarsImport.specifiedScalarTypes
-local introspectionImport = require(srcWorkspace.type.introspection)
+local introspectionImport = require("../type/introspection")
 local introspectionTypes = introspectionImport.introspectionTypes
 local TypeKind = introspectionImport.TypeKind
 local isInputType = definition.isInputType
@@ -65,7 +62,7 @@ local assertNullableType = definition.assertNullableType
 local assertObjectType = definition.assertObjectType
 local assertInterfaceType = definition.assertInterfaceType
 
-local getIntrospectionQueryModule = require(script.Parent.getIntrospectionQuery)
+local getIntrospectionQueryModule = require("./getIntrospectionQuery")
 type IntrospectionQuery = getIntrospectionQueryModule.IntrospectionQuery
 type IntrospectionDirective = getIntrospectionQueryModule.IntrospectionDirective
 type IntrospectionField = getIntrospectionQueryModule.IntrospectionField
@@ -82,7 +79,7 @@ type IntrospectionTypeRef = getIntrospectionQueryModule.IntrospectionTypeRef
 type IntrospectionListTypeRef = getIntrospectionQueryModule.IntrospectionListTypeRef
 type IntrospectionNonNullTypeRef = getIntrospectionQueryModule.IntrospectionNonNullTypeRef
 type IntrospectionNamedTypeRef<T = any> = getIntrospectionQueryModule.IntrospectionNamedTypeRef<T>
-local valueFromAST = require(script.Parent.valueFromAST).valueFromAST
+local valueFromAST = require("./valueFromAST").valueFromAST
 
 --[[*
 --  * Build a GraphQLSchema for use by client tools.

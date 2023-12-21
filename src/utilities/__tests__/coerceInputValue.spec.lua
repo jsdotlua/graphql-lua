@@ -7,27 +7,25 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/coerceInputValue-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 	local Map = LuauPolyfill.Map
 	local Number = LuauPolyfill.Number
 
-	local NULL = require(srcWorkspace.luaUtils.null)
-	local isNotNillish = require(srcWorkspace.luaUtils.isNillish).isNotNillish
+	local NULL = require("../../luaUtils/null")
+	local isNotNillish = require("../../luaUtils/isNillish").isNotNillish
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local GraphQLInt = require(srcWorkspace.type.scalars).GraphQLInt
-	local definition = require(srcWorkspace.type.definition)
+	local GraphQLInt = require("../../type/scalars").GraphQLInt
+	local definition = require("../../type/definition")
 	local GraphQLList = definition.GraphQLList
 	local GraphQLNonNull = definition.GraphQLNonNull
 	local GraphQLEnumType = definition.GraphQLEnumType
 	local GraphQLScalarType = definition.GraphQLScalarType
 	local GraphQLInputObjectType = definition.GraphQLInputObjectType
 
-	local coerceInputValue = require(srcWorkspace.utilities.coerceInputValue).coerceInputValue
+	local coerceInputValue = require("../../utilities/coerceInputValue").coerceInputValue
 
 	-- ROBLOX Deviation = expect only exists in describe block, henced it has to be passed as an argument here
 	local function expectValue(expect_, result)

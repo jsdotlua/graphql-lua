@@ -6,11 +6,11 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/__tests__/blockString-test.js
 local Packages = script.Parent.Parent.Parent.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
 return function()
-	local blockString = require(script.Parent.Parent.blockString)
+	local blockString = require("../blockString")
 	local dedentBlockStringValue = blockString.dedentBlockStringValue
 	local getBlockStringIndentation = blockString.getBlockStringIndentation
 	local printBlockString = blockString.printBlockString

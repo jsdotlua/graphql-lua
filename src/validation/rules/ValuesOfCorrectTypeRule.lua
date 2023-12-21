@@ -6,19 +6,15 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/rules/ValuesOfCorrectTypeRule.js
 
-local srcWorkspace = script.Parent.Parent.Parent
-local languageWorkspace = srcWorkspace.language
-local jsutilsWorkspace = srcWorkspace.jsutils
+local instanceOf = require("../../jsutils/instanceOf")
+local keyMap = require("../../jsutils/keyMap").keyMap
+local inspect = require("../../jsutils/inspect").inspect
+local didYouMean = require("../../jsutils/didYouMean").didYouMean
+local suggestionList = require("../../jsutils/suggestionList").suggestionList
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
 
-local instanceOf = require(jsutilsWorkspace.instanceOf)
-local keyMap = require(jsutilsWorkspace.keyMap).keyMap
-local inspect = require(jsutilsWorkspace.inspect).inspect
-local didYouMean = require(jsutilsWorkspace.didYouMean).didYouMean
-local suggestionList = require(jsutilsWorkspace.suggestionList).suggestionList
-local GraphQLError = require(srcWorkspace.error.GraphQLError).GraphQLError
-
-local print_ = require(languageWorkspace.printer).print
-local definitionModule = require(srcWorkspace.type.definition)
+local print_ = require("../../language/printer").print
+local definitionModule = require("../../type/definition")
 local isLeafType = definitionModule.isLeafType
 local isInputObjectType = definitionModule.isInputObjectType
 local isListType = definitionModule.isListType

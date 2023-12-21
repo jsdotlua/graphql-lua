@@ -1,14 +1,14 @@
 -- ROBLOX deviation: no upstream tests
 
 return function()
-	local typeFromAST = require(script.Parent.Parent.typeFromAST).typeFromAST
+	local typeFromAST = require("../typeFromAST").typeFromAST
 
-	local Kind = require(script.Parent.Parent.Parent.language.kinds).Kind
-	local GraphQLID = require(script.Parent.Parent.Parent.type.scalars).GraphQLID
-	local definitionImport = require(script.Parent.Parent.Parent.type.definition)
+	local Kind = require("../../language/kinds").Kind
+	local GraphQLID = require("../../type/scalars").GraphQLID
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
-	local instanceOf = require(script.Parent.Parent.Parent.jsutils.instanceOf)
+	local instanceOf = require("../../jsutils/instanceOf")
 
 	describe("typeFromAST", function()
 		local namedTypeNode = {

@@ -6,26 +6,20 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/KnownTypeNamesRule.js
 
-local srcWorkspace = script.Parent.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local jsutils = srcWorkspace.jsutils
-
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Map = LuauPolyfill.Map
 local Object = LuauPolyfill.Object
 
-local didYouMean = require(jsutils.didYouMean).didYouMean
-local suggestionList = require(jsutils.suggestionList).suggestionList
-local GraphQLError = require(srcWorkspace.error.GraphQLError).GraphQLError
-local language = srcWorkspace.language
-local predicates = require(language.predicates)
+local didYouMean = require("../../jsutils/didYouMean").didYouMean
+local suggestionList = require("../../jsutils/suggestionList").suggestionList
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local predicates = require("../../language/predicates")
 local isTypeDefinitionNode = predicates.isTypeDefinitionNode
 local isTypeSystemDefinitionNode = predicates.isTypeSystemDefinitionNode
 local isTypeSystemExtensionNode = predicates.isTypeSystemExtensionNode
-local typeDirectory = srcWorkspace.type
-local specifiedScalarTypes = require(typeDirectory.scalars).specifiedScalarTypes
-local introspectionTypes = require(typeDirectory.introspection).introspectionTypes
+local specifiedScalarTypes = require("../../type/scalars").specifiedScalarTypes
+local introspectionTypes = require("../../type/introspection").introspectionTypes
 
 local exports = {}
 

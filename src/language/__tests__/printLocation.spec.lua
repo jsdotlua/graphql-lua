@@ -10,9 +10,9 @@ return function()
 	local languageWorkspace = script.Parent.Parent
 	local srcWorkspace = languageWorkspace.Parent
 
-	local Source = require(languageWorkspace.source).Source
-	local printSourceLocation = require(languageWorkspace.printLocation).printSourceLocation
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local Source = require("../source").Source
+	local printSourceLocation = require("../printLocation").printSourceLocation
+	local dedent = require("../../__testUtils__/dedent").dedent
 
 	describe("printSourceLocation", function()
 		it("prints minified documents", function()

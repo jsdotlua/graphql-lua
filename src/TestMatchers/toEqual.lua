@@ -12,7 +12,7 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local deepEqual = require(script.Parent.Parent.luaUtils.deepEqual)
+local deepEqual = require("../luaUtils/deepEqual")
 
 local function toEqual(a: any, b: any)
 	local success, innerMessageTemplate = deepEqual(a, b)

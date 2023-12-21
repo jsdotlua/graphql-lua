@@ -1,5 +1,5 @@
-local deepEqual = require(script.Parent.deepEqual)
-local deepContains = require(script.Parent.deepContains)
+local deepEqual = require("./deepEqual")
+local deepContains = require("./deepContains")
 
 return function(tbl, item, looseEquals)
 	-- see if item exists in table

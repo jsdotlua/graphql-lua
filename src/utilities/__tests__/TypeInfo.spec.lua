@@ -7,29 +7,24 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/TypeInfo-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Object = LuauPolyfill.Object
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
-	local languageWorkspace = srcWorkspace.language
-	local parserImport = require(languageWorkspace.parser)
+	local invariant = require("../../jsutils/invariant").invariant
+	local parserImport = require("../../language/parser")
 	local parse = parserImport.parse
 	local parseValue = parserImport.parseValue
-	local print_ = require(languageWorkspace.printer).print
-	local visit = require(languageWorkspace.visitor).visit
-	local definitionImport = require(srcWorkspace.type.definition)
+	local print_ = require("../../language/printer").print
+	local visit = require("../../language/visitor").visit
+	local definitionImport = require("../../type/definition")
 	local getNamedType = definitionImport.getNamedType
 	local isCompositeType = definitionImport.isCompositeType
-	local buildASTSchema = require(utilitiesWorkspace.buildASTSchema)
+	local buildASTSchema = require("../buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local TypeInfoImport = require(utilitiesWorkspace.TypeInfo)
+	local TypeInfoImport = require("../TypeInfo")
 	local TypeInfo = TypeInfoImport.TypeInfo
 	local visitWithTypeInfo = TypeInfoImport.visitWithTypeInfo
-	local testSchema = require(srcWorkspace.validation.__tests__.harness).testSchema
+	local testSchema = require("../../validation/__tests__/harness").testSchema
 
 	local NULL = "$NULL SYMBOL"
 	local function wrapNullArgs(...)

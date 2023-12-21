@@ -13,7 +13,7 @@
 	* limitations under the License.
 ]]
 return function()
-	local toArrayContains = require(script.Parent.Parent.toArrayContains)
+	local toArrayContains = require("../toArrayContains")
 
 	describe("toArrayContains", function()
 		it("should fail with a message printing full table values", function()

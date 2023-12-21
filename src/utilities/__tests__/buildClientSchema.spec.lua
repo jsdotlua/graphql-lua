@@ -7,38 +7,35 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/buildClientSchema-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-	local rootWorkspace = srcWorkspace.Parent
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local Map = LuauPolyfill.Map
 
 	-- ROBLOX deviation: utils
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local dedent = require("../../__testUtils__/dedent").dedent
 
-	local graphqlSync = require(srcWorkspace.graphql).graphqlSync
+	local graphqlSync = require("../../graphql").graphqlSync
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
 
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local assertEnumType = definitionImport.assertEnumType
 	local GraphQLObjectType = definitionImport.GraphQLObjectType
 	local GraphQLEnumType = definitionImport.GraphQLEnumType
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLFloat = scalarsImport.GraphQLFloat
 	local GraphQLString = scalarsImport.GraphQLString
 	local GraphQLBoolean = scalarsImport.GraphQLBoolean
 	local GraphQLID = scalarsImport.GraphQLID
 
-	local printSchema = require(utilitiesWorkspace.printSchema).printSchema
-	local buildSchema = require(utilitiesWorkspace.buildASTSchema).buildSchema
-	local buildClientSchema = require(utilitiesWorkspace.buildClientSchema).buildClientSchema
+	local printSchema = require("../printSchema").printSchema
+	local buildSchema = require("../buildASTSchema").buildSchema
+	local buildClientSchema = require("../buildClientSchema").buildClientSchema
 	local introspectionFromSchema =
-		require(utilitiesWorkspace.introspectionFromSchema).introspectionFromSchema
+		require("../introspectionFromSchema").introspectionFromSchema
 
 	--[[*
 	--  * This function does a full cycle of going from a string with the contents of

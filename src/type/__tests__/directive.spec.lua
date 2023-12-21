@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/type/__tests__/directive-test.js
-local directives = require(script.Parent.Parent.directives)
+local directives = require("../directives")
 local GraphQLDirective = directives.GraphQLDirective
-local scalars = require(script.Parent.Parent.scalars)
+local scalars = require("../scalars")
 local GraphQLString = scalars.GraphQLString
 local GraphQLInt = scalars.GraphQLInt
 

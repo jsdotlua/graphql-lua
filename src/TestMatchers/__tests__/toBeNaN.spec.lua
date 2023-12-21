@@ -13,11 +13,10 @@
 	* limitations under the License.
 ]]
 return function()
-	local rootWorkspace = script.Parent.Parent.Parent.Parent
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local NaN = LuauPolyfill.Number.NaN
 
-	local toBeNaN = require(script.Parent.Parent.toBeNaN)
+	local toBeNaN = require("../toBeNaN")
 
 	describe("toBeNaN", function()
 		it("should fail when passed a number", function()

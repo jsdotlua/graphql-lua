@@ -6,32 +6,27 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/056fac955b7172e55b33e0a1b35b4ddb8951a99c/src/type/introspection.js
 --!strict
-local srcWorkspace = script.Parent.Parent
-local jsutilsWorkspace = srcWorkspace.jsutils
-local languageWorkspace = srcWorkspace.language
-local Packages = srcWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 local Map = LuauPolyfill.Map
 local Object = LuauPolyfill.Object
 
-local isNotNillish = require(srcWorkspace.luaUtils.isNillish).isNotNillish
+local isNotNillish = require("../luaUtils/isNillish").isNotNillish
 
-local inspect = require(jsutilsWorkspace.inspect).inspect
-local invariant = require(jsutilsWorkspace.invariant).invariant
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
 
-local print_ = require(languageWorkspace.printer).print
-local DirectiveLocation = require(languageWorkspace.directiveLocation).DirectiveLocation
-local astFromValue = require(srcWorkspace.utilities.astFromValue).astFromValue
-local astImport = require(srcWorkspace.language.ast)
+local print_ = require("../language/printer").print
+local DirectiveLocation = require("../language/directiveLocation").DirectiveLocation
+local astFromValue = require("../utilities/astFromValue").astFromValue
+local astImport = require("../language/ast")
 type ValueNode = astImport.ValueNode
 
-local scalarsModule = require(script.Parent.scalars)
+local scalarsModule = require("./scalars")
 local GraphQLString = scalarsModule.GraphQLString
 local GraphQLBoolean = scalarsModule.GraphQLBoolean
-local definitionModule = require(script.Parent.definition)
+local definitionModule = require("./definition")
 type GraphQLType = definitionModule.GraphQLType
 type GraphQLNamedType = definitionModule.GraphQLNamedType
 type GraphQLInputField = definitionModule.GraphQLInputField

@@ -7,13 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/separateOperations-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local languageWorkspace = srcWorkspace.language
-	local parse = require(languageWorkspace.parser).parse
-	local mapValue = require(srcWorkspace.jsutils.mapValue).mapValue
-	local separateOperations = require(srcWorkspace.utilities.separateOperations).separateOperations
-	local print_ = require(srcWorkspace.language.printer).print
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local parse = require("../../language/parser").parse
+	local mapValue = require("../../jsutils/mapValue").mapValue
+	local separateOperations = require("../../utilities/separateOperations").separateOperations
+	local print_ = require("../../language/printer").print
+	local dedent = require("../../__testUtils__/dedent").dedent
 
 	describe("separateOperations", function()
 		it("separates one AST into multiple, maintaining document order", function()

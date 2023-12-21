@@ -9,9 +9,7 @@
 -- file checks out okay other than that issue, which looks like "definition.lua:149:5-15: (E001) Generic type 'GraphQLList' expects 0 type arguments, but 1 is specified"
 -- Luau issue: https://jira.rbx.com/browse/CLI-34658
 --!nonstrict
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Map = LuauPolyfill.Map
@@ -24,43 +22,40 @@ type Promise<T> = LuauPolyfill.Promise<T>
 
 type Function = (...any) -> ...any
 
-local NULL = require(srcWorkspace.luaUtils.null)
+local NULL = require("../luaUtils/null")
 
 local NaN_KEY = Object.freeze({})
-local luaUtilsWorkspace = srcWorkspace.luaUtils
 -- ROBLOX deviation: no distinction between undefined and null in Lua so we need to go around this with custom NULL like constant
-local isNillish = require(luaUtilsWorkspace.isNillish).isNillish
+local isNillish = require("../luaUtils/isNillish").isNillish
 
-local jsutilsWorkspace = srcWorkspace.jsutils
-local ObjMap = require(jsutilsWorkspace.ObjMap)
+local ObjMap = require("../jsutils/ObjMap")
 type ObjMap<T> = ObjMap.ObjMap<T>
 type ReadOnlyObjMap<T> = ObjMap.ReadOnlyObjMap<T>
 type ReadOnlyObjMapLike<T> = ObjMap.ReadOnlyObjMapLike<T>
-local inspect = require(jsutilsWorkspace.inspect).inspect
-local keyMap = require(jsutilsWorkspace.keyMap).keyMap
-local toObjMap = require(jsutilsWorkspace.toObjMap).toObjMap
-local keyValMap = require(jsutilsWorkspace.keyValMap).keyValMap
-local devAssert = require(jsutilsWorkspace.devAssert).devAssert
-local instanceOf = require(jsutilsWorkspace.instanceOf)
-local didYouMean = require(jsutilsWorkspace.didYouMean).didYouMean
-local isObjectLike = require(jsutilsWorkspace.isObjectLike).isObjectLike
-local identityFunc = require(jsutilsWorkspace.identityFunc).identityFunc
-local suggestionList = require(jsutilsWorkspace.suggestionList).suggestionList
-local PromiseOrValueModule = require(jsutilsWorkspace.PromiseOrValue)
+local inspect = require("../jsutils/inspect").inspect
+local keyMap = require("../jsutils/keyMap").keyMap
+local toObjMap = require("../jsutils/toObjMap").toObjMap
+local keyValMap = require("../jsutils/keyValMap").keyValMap
+local devAssert = require("../jsutils/devAssert").devAssert
+local instanceOf = require("../jsutils/instanceOf")
+local didYouMean = require("../jsutils/didYouMean").didYouMean
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
+local identityFunc = require("../jsutils/identityFunc").identityFunc
+local suggestionList = require("../jsutils/suggestionList").suggestionList
+local PromiseOrValueModule = require("../jsutils/PromiseOrValue")
 type PromiseOrValue<T> = PromiseOrValueModule.PromiseOrValue<T>
-local PathModule = require(jsutilsWorkspace.Path)
+local PathModule = require("../jsutils/Path")
 type Path = PathModule.Path
 
 -- ROBLOX deviation: use map value ordered
-local mapValueOrdered = require(srcWorkspace.luaUtils.mapValueOrdered).mapValueOrdered
+local mapValueOrdered = require("../luaUtils/mapValueOrdered").mapValueOrdered
 
-local GraphQLError = require(srcWorkspace.error.GraphQLError).GraphQLError
+local GraphQLError = require("../error/GraphQLError").GraphQLError
 
-local languageWorkspace = srcWorkspace.language
-local Kind = require(languageWorkspace.kinds).Kind
-local print_ = require(languageWorkspace.printer).print
+local Kind = require("../language/kinds").Kind
+local print_ = require("../language/printer").print
 
-local Ast = require(srcWorkspace.language.ast)
+local Ast = require("../language/ast")
 type ScalarTypeDefinitionNode = Ast.ScalarTypeDefinitionNode
 type ObjectTypeDefinitionNode = Ast.ObjectTypeDefinitionNode
 type FieldDefinitionNode = Ast.FieldDefinitionNode
@@ -82,10 +77,10 @@ type FragmentDefinitionNode = Ast.FragmentDefinitionNode
 type ValueNode = Ast.ValueNode
 type EnumValueNode = Ast.EnumValueNode
 
-local valueFromASTUntyped = require(srcWorkspace.utilities.valueFromASTUntyped).valueFromASTUntyped
+local valueFromASTUntyped = require("../utilities/valueFromASTUntyped").valueFromASTUntyped
 
 -- ROBLOX deviation: this results in a circular dependency due toe the Resolver types, so we fudge the type here
--- local schemaModule = require(script.Parent.schema) :: any
+-- local schemaModule = require("./schema") :: any
 -- type GraphQLSchema = schemaModule.GraphQLSchema
 type GraphQLSchema = Object
 

@@ -5,10 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/type/directives.js
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Map = LuauPolyfill.Map
@@ -16,29 +13,29 @@ local Object = LuauPolyfill.Object
 local coerceToMap = LuauPolyfill.coerceToMap
 type Array<T> = LuauPolyfill.Array<T>
 
-local _ObjMapModule = require(srcWorkspace.jsutils.ObjMap)
+local _ObjMapModule = require("../jsutils/ObjMap")
 type ObjMap<T> = _ObjMapModule.ObjMap<T>
 
-local ObjMap = require(script.Parent.Parent.jsutils.ObjMap)
+local ObjMap = require("../jsutils/ObjMap")
 type ReadOnlyObjMap<T> = ObjMap.ReadOnlyObjMap<T>
 type ReadOnlyObjMapLike<T> = ObjMap.ReadOnlyObjMapLike<T>
 
-local inspect = require(script.Parent.Parent.jsutils.inspect).inspect
-local toObjMap = require(script.Parent.Parent.jsutils.toObjMap).toObjMap
-local devAssert = require(script.Parent.Parent.jsutils.devAssert).devAssert
-local instanceOf = require(script.Parent.Parent.jsutils.instanceOf)
-local isObjectLike = require(script.Parent.Parent.jsutils.isObjectLike).isObjectLike
+local inspect = require("../jsutils/inspect").inspect
+local toObjMap = require("../jsutils/toObjMap").toObjMap
+local devAssert = require("../jsutils/devAssert").devAssert
+local instanceOf = require("../jsutils/instanceOf")
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
 
-local AstModule = require(script.Parent.Parent.language.ast)
+local AstModule = require("../language/ast")
 type DirectiveDefinitionNode = AstModule.DirectiveDefinitionNode
-local DirectiveLocationModule = require(script.Parent.Parent.language.directiveLocation)
+local DirectiveLocationModule = require("../language/directiveLocation")
 type DirectiveLocationEnum = DirectiveLocationModule.DirectiveLocationEnum
 local DirectiveLocation = DirectiveLocationModule.DirectiveLocation
 
-local definition = require(script.Parent.definition)
+local definition = require("./definition")
 type GraphQLArgument = definition.GraphQLArgument
 type GraphQLFieldConfigArgumentMap = definition.GraphQLFieldConfigArgumentMap
-local scalars = require(script.Parent.scalars)
+local scalars = require("./scalars")
 local GraphQLString = scalars.GraphQLString
 local GraphQLBoolean = scalars.GraphQLBoolean
 local argsToArgsConfig = definition.argsToArgsConfig

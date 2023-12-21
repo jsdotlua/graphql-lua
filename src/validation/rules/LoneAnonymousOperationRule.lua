@@ -6,14 +6,11 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/rules/LoneAnonymousOperationRule.js
 
-local root = script.Parent.Parent.Parent
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local Kind = require(language.kinds).Kind
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local Kind = require("../../language/kinds").Kind
 
 local exports = {}
 

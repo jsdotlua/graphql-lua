@@ -7,17 +7,15 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/valueFromASTUntyped-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local rootWorkspace = srcWorkspace.Parent
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Number = LuauPolyfill.Number
 	local NaN = Number.NaN
 
-	local parseValue = require(srcWorkspace.language.parser).parseValue
+	local parseValue = require("../../language/parser").parseValue
 	local valueFromASTUntyped =
-		require(script.Parent.Parent.valueFromASTUntyped).valueFromASTUntyped
+		require("../valueFromASTUntyped").valueFromASTUntyped
 
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 
 	describe("valueFromASTUntyped", function()
 		local function expectValueFrom(expect_, valueText: string, variables)

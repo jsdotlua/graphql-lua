@@ -6,24 +6,19 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/error/locatedError.js
 
-local errorWorkspace = script.Parent
-local srcWorkspace = errorWorkspace.Parent
-local rootWorkspace = srcWorkspace.Parent
-local Packages = rootWorkspace
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local instanceof = LuauPolyfill.instanceof
 type Array<T> = LuauPolyfill.Array<T>
 type Error = LuauPolyfill.Error
 
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
+local inspect = require("../jsutils/inspect").inspect
 
-local astModule = require(srcWorkspace.language.ast)
+local astModule = require("../language/ast")
 type ASTNode = astModule.ASTNode
 
-local GraphQLErrorModule = require(errorWorkspace.GraphQLError)
+local GraphQLErrorModule = require("./GraphQLError")
 local GraphQLError = GraphQLErrorModule.GraphQLError
 type GraphQLError = GraphQLErrorModule.GraphQLError
 

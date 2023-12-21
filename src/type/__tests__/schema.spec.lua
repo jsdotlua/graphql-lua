@@ -8,21 +8,19 @@
 local HttpService = game:GetService("HttpService")
 
 return function()
-	local root = script.Parent.Parent.Parent
+	local dedent = require("../../__testUtils__/dedent").dedent
 
-	local dedent = require(root.__testUtils__.dedent).dedent
+	local printSchema = require("../../utilities/printSchema").printSchema
 
-	local printSchema = require(root.utilities.printSchema).printSchema
-
-	local GraphQLSchema = require(root.type.schema).GraphQLSchema
-	local directives = require(root.type.directives)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local directives = require("../../type/directives")
 	local GraphQLDirective = directives.GraphQLDirective
-	local scalars = require(root.type.scalars)
+	local scalars = require("../../type/scalars")
 	local GraphQLInt = scalars.GraphQLInt
 	local GraphQLString = scalars.GraphQLString
 	local GraphQLBoolean = scalars.GraphQLBoolean
 
-	local definition = require(root.type.definition)
+	local definition = require("../../type/definition")
 	local GraphQLList = definition.GraphQLList
 	local GraphQLScalarType = definition.GraphQLScalarType
 	local GraphQLObjectType = definition.GraphQLObjectType

@@ -7,28 +7,25 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/sync-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
-
-	local LuauPolyfill = require(srcWorkspace.Parent.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local Object = LuauPolyfill.Object
 
-	local Promise = require(srcWorkspace.Parent.Promise)
+	local Promise = require("@pkg/@jsdotlua/promise")
 	local HttpService = game:GetService("HttpService")
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
+	local inspect = require("../../jsutils/inspect").inspect
 
-	local parse = require(srcWorkspace.language.parser).parse
+	local parse = require("../../language/parser").parse
 
-	local validate = require(srcWorkspace.validation.validate).validate
+	local validate = require("../../validation/validate").validate
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local GraphQLString = require(srcWorkspace.type.scalars).GraphQLString
-	local GraphQLObjectType = require(srcWorkspace.type.definition).GraphQLObjectType
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLString = require("../../type/scalars").GraphQLString
+	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
 
-	local graphqlSync = require(srcWorkspace.graphql).graphqlSync
+	local graphqlSync = require("../../graphql").graphqlSync
 
-	local executeImport = require(executionWorkspace.execute)
+	local executeImport = require("../execute")
 	local execute = executeImport.execute
 	local executeSync = executeImport.executeSync
 

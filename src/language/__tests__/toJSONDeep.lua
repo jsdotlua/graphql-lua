@@ -8,9 +8,9 @@
 
 local srcWorkspace = script.Parent.Parent.Parent
 local root = srcWorkspace.Parent
-local Array = require(root.LuauPolyfill).Array
+local Array = require("@pkg/@jsdotlua/luau-polyfill").Array
 
-local isObjectLike = require(srcWorkspace.jsutils.isObjectLike).isObjectLike
+local isObjectLike = require("../../jsutils/isObjectLike").isObjectLike
 -- /**
 --  * Deeply transforms an arbitrary value to a JSON-safe value by calling toJSON
 --  * on any nested value which defines it.
