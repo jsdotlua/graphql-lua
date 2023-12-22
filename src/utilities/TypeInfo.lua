@@ -85,11 +85,11 @@ end
 --  */
 export type TypeInfo = {
 	_schema: GraphQLSchema,
-	_typeStack: Array<GraphQLOutputType? | NULL>,
-	_parentTypeStack: Array<GraphQLCompositeType? | NULL>,
-	_inputTypeStack: Array<GraphQLInputType? | NULL>,
-	_fieldDefStack: Array<GraphQLField<any, any>? | NULL>,
-	_defaultValueStack: Array<any? | NULL>,
+	_typeStack: Array<NULL | GraphQLOutputType?>,
+	_parentTypeStack: Array<NULL | GraphQLCompositeType?>,
+	_inputTypeStack: Array<NULL | GraphQLInputType?>,
+	_fieldDefStack: Array<NULL | GraphQLField<any, any>?>,
+	_defaultValueStack: Array<NULL | any?>,
 	_directive: GraphQLDirective?,
 	_argument: GraphQLArgument?,
 	_enumValue: GraphQLEnumValue?,
