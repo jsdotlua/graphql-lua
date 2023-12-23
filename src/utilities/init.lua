@@ -6,13 +6,13 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/index.js
 --!strict
-local getIntrospectionQueryModule = require(script.getIntrospectionQuery)
-local buildASTSchemaModule = require(script.buildASTSchema)
-local printSchemaModule = require(script.printSchema)
-local TypeInfoModule = require(script.TypeInfo)
-local typeComparatorsModule = require(script.typeComparators)
-local assertValidNameModule = require(script.assertValidName)
-local findBreakingChangesModule = require(script.findBreakingChanges)
+local getIntrospectionQueryModule = require("./getIntrospectionQuery")
+local buildASTSchemaModule = require("./buildASTSchema")
+local printSchemaModule = require("./printSchema")
+local TypeInfoModule = require("./TypeInfo")
+local typeComparatorsModule = require("./typeComparators")
+local assertValidNameModule = require("./assertValidName")
+local findBreakingChangesModule = require("./findBreakingChanges")
 
 -- ROBLOX deviation: add types
 export type IntrospectionOptions = getIntrospectionQueryModule.IntrospectionOptions
@@ -53,26 +53,26 @@ return {
 	getIntrospectionQuery = getIntrospectionQueryModule.getIntrospectionQuery,
 
 	-- Gets the target Operation from a Document.
-	getOperationAST = require(script.getOperationAST).getOperationAST,
+	getOperationAST = require("./getOperationAST").getOperationAST,
 
 	-- Gets the Type for the target Operation AST.
-	getOperationRootType = require(script.getOperationRootType).getOperationRootType,
+	getOperationRootType = require("./getOperationRootType").getOperationRootType,
 
 	-- Convert a GraphQLSchema to an IntrospectionQuery.
-	introspectionFromSchema = require(script.introspectionFromSchema).introspectionFromSchema,
+	introspectionFromSchema = require("./introspectionFromSchema").introspectionFromSchema,
 
 	-- Build a GraphQLSchema from an introspection result.
-	buildClientSchema = require(script.buildClientSchema).buildClientSchema,
+	buildClientSchema = require("./buildClientSchema").buildClientSchema,
 
 	-- Build a GraphQLSchema from GraphQL Schema language.
 	buildASTSchema = buildASTSchemaModule.buildASTSchema,
 	buildSchema = buildASTSchemaModule.buildSchema,
 
 	-- Extends an existing GraphQLSchema from a parsed GraphQL Schema language AST.
-	extendSchema = require(script.extendSchema).extendSchema,
+	extendSchema = require("./extendSchema").extendSchema,
 
 	-- Sort a GraphQLSchema.
-	lexicographicSortSchema = require(script.lexicographicSortSchema).lexicographicSortSchema,
+	lexicographicSortSchema = require("./lexicographicSortSchema").lexicographicSortSchema,
 
 	-- Print a GraphQLSchema to GraphQL Schema language.
 	printSchema = printSchemaModule.printSchema,
@@ -80,16 +80,16 @@ return {
 	printIntrospectionSchema = printSchemaModule.printIntrospectionSchema,
 
 	-- Create a GraphQLType from a GraphQL language AST.
-	typeFromAST = require(script.typeFromAST).typeFromAST,
+	typeFromAST = require("./typeFromAST").typeFromAST,
 
 	-- Create a JavaScript value from a GraphQL language AST with a type.
-	valueFromAST = require(script.valueFromAST).valueFromAST,
+	valueFromAST = require("./valueFromAST").valueFromAST,
 
 	-- Create a JavaScript value from a GraphQL language AST without a type.
-	valueFromASTUntyped = require(script.valueFromASTUntyped).valueFromASTUntyped,
+	valueFromASTUntyped = require("./valueFromASTUntyped").valueFromASTUntyped,
 
 	-- Create a GraphQL language AST from a JavaScript value.
-	astFromValue = require(script.astFromValue).astFromValue,
+	astFromValue = require("./astFromValue").astFromValue,
 
 	-- A helper to use within recursive-descent visitors which need to be aware of
 	-- the GraphQL type system.
@@ -97,17 +97,17 @@ return {
 	visitWithTypeInfo = TypeInfoModule.visitWithTypeInfo,
 
 	-- Coerces a JavaScript value to a GraphQL type, or produces errors.
-	coerceInputValue = require(script.coerceInputValue).coerceInputValue,
+	coerceInputValue = require("./coerceInputValue").coerceInputValue,
 
 	-- Concatenates multiple AST together.
-	concatAST = require(script.concatAST).concatAST,
+	concatAST = require("./concatAST").concatAST,
 
 	-- Separates an AST into an AST per Operation.
-	separateOperations = require(script.separateOperations).separateOperations,
+	separateOperations = require("./separateOperations").separateOperations,
 
 	-- Strips characters that are not significant to the validity or execution
 	-- of a GraphQL document.
-	stripIgnoredCharacters = require(script.stripIgnoredCharacters).stripIgnoredCharacters,
+	stripIgnoredCharacters = require("./stripIgnoredCharacters").stripIgnoredCharacters,
 
 	-- Comparators for types
 	isEqualType = typeComparatorsModule.isEqualType,

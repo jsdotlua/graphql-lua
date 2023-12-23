@@ -6,27 +6,23 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/lists-test.js
 
-local srcWorkspace = script.Parent.Parent.Parent
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-local Packages = srcWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Set = LuauPolyfill.Set
 local instanceof = LuauPolyfill.instanceof
 
-local Promise = require(Packages.Promise)
-local NULL = require(luaUtilsWorkspace.null)
+local Promise = require("@pkg/@jsdotlua/promise")
+local NULL = require("../../luaUtils/null")
 
-local JestGlobals = require(Packages.Dev.JestGlobals)
+local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 local jestExpect = JestGlobals.expect
 
-local parse = require(srcWorkspace.language.parser).parse
+local parse = require("../../language/parser").parse
 
-local buildSchema = require(srcWorkspace.utilities.buildASTSchema).buildSchema
+local buildSchema = require("../../utilities/buildASTSchema").buildSchema
 
-local executeModule = require(script.Parent.Parent.execute)
+local executeModule = require("../execute")
 local execute = executeModule.execute
 local executeSync = executeModule.executeSync
 

@@ -6,30 +6,26 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/type/__tests__/validation-test.js
 return function()
-	local typeWorkspace = script.Parent.Parent
-	local srcWorkspace = typeWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
-	local JestGlobals = require(Packages.Dev.JestGlobals)
+	local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 	local jestExpect = JestGlobals.expect
-	local luaUtilsWorkspace = srcWorkspace.luaUtils
-	local NULL = require(luaUtilsWorkspace.null)
+	local NULL = require("../../luaUtils/null")
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
-	local parse = require(srcWorkspace.language.parser).parse
-	local extendSchema = require(srcWorkspace.utilities.extendSchema).extendSchema
-	local buildSchema = require(srcWorkspace.utilities.buildASTSchema).buildSchema
-	local GraphQLSchema = require(typeWorkspace.schema).GraphQLSchema
-	local GraphQLString = require(typeWorkspace.scalars).GraphQLString
-	local validate = require(typeWorkspace.validate)
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local inspect = require("../../jsutils/inspect").inspect
+	local parse = require("../../language/parser").parse
+	local extendSchema = require("../../utilities/extendSchema").extendSchema
+	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
+	local GraphQLSchema = require("../schema").GraphQLSchema
+	local GraphQLString = require("../scalars").GraphQLString
+	local validate = require("../validate")
 	local validateSchema = validate.validateSchema
 	local assertValidSchema = validate.assertValidSchema
-	local directives = require(typeWorkspace.directives)
+	local directives = require("../directives")
 	local GraphQLDirective = directives.GraphQLDirective
 	local assertDirective = directives.assertDirective
-	local definition = require(typeWorkspace.definition)
+	local definition = require("../definition")
 	local GraphQLList = definition.GraphQLList
 	local GraphQLNonNull = definition.GraphQLNonNull
 	local GraphQLObjectType = definition.GraphQLObjectType

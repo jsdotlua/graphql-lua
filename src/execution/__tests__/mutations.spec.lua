@@ -7,18 +7,16 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/mutations-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-
-	local resolveOnNextTick = require(srcWorkspace.__testUtils__.resolveOnNextTick)
-	local parse = require(srcWorkspace.language.parser).parse
-	local GraphQLInt = require(srcWorkspace.type.scalars).GraphQLInt
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local GraphQLObjectType = require(srcWorkspace.type.definition).GraphQLObjectType
-	local executeModule = require(srcWorkspace.execution.execute)
+	local resolveOnNextTick = require("../../__testUtils__/resolveOnNextTick")
+	local parse = require("../../language/parser").parse
+	local GraphQLInt = require("../../type/scalars").GraphQLInt
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
+	local executeModule = require("../../execution/execute")
 	local execute = executeModule.execute
 	local executeSync = executeModule.executeSync
 
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 
 	local NumberHolder = {}
 

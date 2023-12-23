@@ -6,32 +6,26 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/findBreakingChanges.js
 --!strict
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
 
-local keyMapOrdered = require(srcWorkspace.luaUtils.keyMapOrdered).keyMapOrdered
+local keyMapOrdered = require("../luaUtils/keyMapOrdered").keyMapOrdered
 
-local jsutils = srcWorkspace.jsutils
-local inspect = require(jsutils.inspect).inspect
-local invariant = require(jsutils.invariant).invariant
-local naturalCompare = require(jsutils.naturalCompare).naturalCompare
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
+local naturalCompare = require("../jsutils/naturalCompare").naturalCompare
 
-local language = srcWorkspace.language
-local print_ = require(language.printer).print
-local visit = require(language.visitor).visit
-local astModule = require(language.ast)
+local print_ = require("../language/printer").print
+local visit = require("../language/visitor").visit
+local astModule = require("../language/ast")
 type ObjectValueNode = astModule.ObjectValueNode
 type ValueNode = astModule.ValueNode
 
-local typeDir = srcWorkspace.type
-local schemaModule = require(typeDir.schema)
+local schemaModule = require("../type/schema")
 type GraphQLSchema = schemaModule.GraphQLSchema
-local definition = require(typeDir.definition)
+local definition = require("../type/definition")
 -- ROBLOX FIXME Luau: doesn't correctly replicate default type args, so we inline `any` here
 type GraphQLField<TSource, TContext, TValue = any> = definition.GraphQLField<
 	TSource,
@@ -47,7 +41,7 @@ type GraphQLObjectType = definition.GraphQLObjectType
 type GraphQLInterfaceType = definition.GraphQLInterfaceType
 type GraphQLInputObjectType = definition.GraphQLInputObjectType
 
-local isSpecifiedScalarType = require(typeDir.scalars).isSpecifiedScalarType
+local isSpecifiedScalarType = require("../type/scalars").isSpecifiedScalarType
 local isScalarType = definition.isScalarType
 local isObjectType = definition.isObjectType
 local isInterfaceType = definition.isInterfaceType
@@ -60,7 +54,7 @@ local isNamedType = definition.isNamedType
 local isRequiredArgument = definition.isRequiredArgument
 local isRequiredInputField = definition.isRequiredInputField
 
-local astFromValue = require(script.Parent.astFromValue).astFromValue
+local astFromValue = require("./astFromValue").astFromValue
 
 local findSchemaChanges
 local findTypeChanges

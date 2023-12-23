@@ -5,13 +5,12 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1611bbb08a88f734e9490b14cfe6afea11a838e0/src/__tests__/starWarsValidation-test.js
-local rootWorkspace = script.Parent.Parent
-local parse = require(rootWorkspace.language.parser).parse
-local Source = require(rootWorkspace.language.source).Source
+local parse = require("../language/parser").parse
+local Source = require("../language/source").Source
 
-local validate = require(rootWorkspace.validation.validate).validate
+local validate = require("../validation/validate").validate
 
-local StarWarsSchema = require(script.Parent.starWarsSchema).StarWarsSchema
+local StarWarsSchema = require("./starWarsSchema").StarWarsSchema
 
 --[[*
  * Helper function to test a query and the expected response.

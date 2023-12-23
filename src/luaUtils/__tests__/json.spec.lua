@@ -1,6 +1,6 @@
 return function()
 	local luaUtils = script.Parent.Parent
-	local json = require(luaUtils.json)
+	local json = require("../json")
 
 	describe("json.stringify", function()
 		it("stringifies table", function()

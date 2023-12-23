@@ -9,21 +9,21 @@
 return function()
 	local srcWorkspace = script.Parent.Parent.Parent
 	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local Object = LuauPolyfill.Object
 
-	local kitchenSinkQuery = require(srcWorkspace.__fixtures__).kitchenSinkQuery
+	local kitchenSinkQuery = require("../../__fixtures__").kitchenSinkQuery
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Kind = require(script.Parent.Parent.kinds).Kind
-	local parse = require(script.Parent.Parent.parser).parse
-	local visitorExports = require(script.Parent.Parent.visitor)
+	local Kind = require("../kinds").Kind
+	local parse = require("../parser").parse
+	local visitorExports = require("../visitor")
 	local visit = visitorExports.visit
 	local visitInParallel = visitorExports.visitInParallel
 	local BREAK = visitorExports.BREAK
-	local NULL = require(srcWorkspace.luaUtils.null)
+	local NULL = require("../../luaUtils/null")
 	local QueryDocumentKeys = visitorExports.QueryDocumentKeys
 
 	-- ROBLOX deviation: expect cannot be called unless inside of an it

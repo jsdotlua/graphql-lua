@@ -7,22 +7,17 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/error/__tests__/GraphQLError-test.js
 
 return function()
-	local errorWorkspace = script.Parent.Parent
-	local srcWorkspace = errorWorkspace.Parent
-	local languageWorkspace = srcWorkspace.language
-	local Packages = srcWorkspace.Parent
-
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Error = LuauPolyfill.Error
 	local instanceof = LuauPolyfill.instanceof
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
-	local Kind = require(languageWorkspace.kinds).Kind
-	local parse = require(languageWorkspace.parser).parse
-	local Source = require(languageWorkspace.source).Source
-	local GraphQLError = require(errorWorkspace.GraphQLError).GraphQLError
-	local printError = require(errorWorkspace.GraphQLError).printError
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local invariant = require("../../jsutils/invariant").invariant
+	local Kind = require("../../language/kinds").Kind
+	local parse = require("../../language/parser").parse
+	local Source = require("../../language/source").Source
+	local GraphQLError = require("../GraphQLError").GraphQLError
+	local printError = require("../GraphQLError").printError
 
 	local source = Source.new(dedent([[
   {

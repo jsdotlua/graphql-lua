@@ -5,27 +5,23 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/valueFromASTUntyped.js
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local jsUtilsWorkspace = srcWorkspace.jsutils
-local languageWorkspace = srcWorkspace.language
 -- ROBLOX deviation: bring in polyfills
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local coerceToTable = LuauPolyfill.coerceToTable
 type Array<T> = LuauPolyfill.Array<T>
 
-local NULL = require(srcWorkspace.luaUtils.null)
+local NULL = require("../luaUtils/null")
 
-local ObjMapModule = require(jsUtilsWorkspace.ObjMap)
+local ObjMapModule = require("../jsutils/ObjMap")
 type ObjMap<T> = ObjMapModule.ObjMap<T>
 
-local inspect = require(jsUtilsWorkspace.inspect).inspect
-local invariant = require(jsUtilsWorkspace.invariant).invariant
-local keyValMap = require(jsUtilsWorkspace.keyValMap).keyValMap
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
+local keyValMap = require("../jsutils/keyValMap").keyValMap
 
-local Kind = require(languageWorkspace.kinds).Kind
-local astModule = require(languageWorkspace.ast)
+local Kind = require("../language/kinds").Kind
+local astModule = require("../language/ast")
 type ValueNode = astModule.ValueNode
 
 --[[**

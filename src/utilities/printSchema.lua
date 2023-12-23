@@ -6,29 +6,25 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/printSchema.js
 
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-local PackagesWorkspace = rootWorkspace
-
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 local Boolean = LuauPolyfill.Boolean
 
-local inspect = require(script.Parent.Parent.jsutils.inspect).inspect
-local invariant = require(script.Parent.Parent.jsutils.invariant).invariant
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
 
-local print_ = require(script.Parent.Parent.language.printer).print
-local printBlockString = require(script.Parent.Parent.language.blockString).printBlockString
+local print_ = require("../language/printer").print
+local printBlockString = require("../language/blockString").printBlockString
 
-local isIntrospectionType = require(script.Parent.Parent.type.introspection).isIntrospectionType
-local GraphQLString = require(script.Parent.Parent.type.scalars).GraphQLString
-local isSpecifiedScalarType = require(script.Parent.Parent.type.scalars).isSpecifiedScalarType
-local DirectivesModules = require(script.Parent.Parent.type.directives)
+local isIntrospectionType = require("../type/introspection").isIntrospectionType
+local GraphQLString = require("../type/scalars").GraphQLString
+local isSpecifiedScalarType = require("../type/scalars").isSpecifiedScalarType
+local DirectivesModules = require("../type/directives")
 type GraphQLDirective = DirectivesModules.GraphQLDirective
 local DEFAULT_DEPRECATION_REASON = DirectivesModules.DEFAULT_DEPRECATION_REASON
 local isSpecifiedDirective = DirectivesModules.isSpecifiedDirective
-local DefinitionModule = require(script.Parent.Parent.type.definition)
+local DefinitionModule = require("../type/definition")
 local isScalarType = DefinitionModule.isScalarType
 local isObjectType = DefinitionModule.isObjectType
 local isInterfaceType = DefinitionModule.isInterfaceType
@@ -58,15 +54,15 @@ type GraphQLFieldConfigMap<T, V> = DefinitionModule.GraphQLFieldConfigMap<T, V>
 type GraphQLFieldMap<T, V> = DefinitionModule.GraphQLFieldMap<T, V>
 type GraphQLFieldConfigArgumentMap = DefinitionModule.GraphQLFieldConfigArgumentMap
 type GraphQLInputFieldConfigMap = DefinitionModule.GraphQLInputFieldConfigMap
-local SchemaModule = require(script.Parent.Parent.type.schema)
+local SchemaModule = require("../type/schema")
 type GraphQLSchema = SchemaModule.GraphQLSchema
-local astModule = require(script.Parent.Parent.language.ast)
+local astModule = require("../language/ast")
 type StringValueNode = astModule.StringValueNode
 type ValueNode = astModule.ValueNode
 
-local astFromValue = require(script.Parent.astFromValue).astFromValue
-local NULL = require(script.Parent.astFromValue).NULL
-local isNillishModule = require(script.Parent.Parent.luaUtils.isNillish)
+local astFromValue = require("./astFromValue").astFromValue
+local NULL = require("./astFromValue").NULL
+local isNillishModule = require("../luaUtils/isNillish")
 local isNillish = isNillishModule.isNillish
 local isNotNillish = isNillishModule.isNotNillish
 

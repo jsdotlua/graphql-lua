@@ -7,9 +7,8 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/error/__tests__/formatError-test.js
 
 return function()
-	local errorWorkspace = script.Parent.Parent
-	local formatError = require(errorWorkspace.formatError).formatError
-	local GraphQLErrorModule = require(errorWorkspace.GraphQLError)
+	local formatError = require("../formatError").formatError
+	local GraphQLErrorModule = require("../GraphQLError")
 	local GraphQLError = GraphQLErrorModule.GraphQLError
 
 	describe("formatError: default error formatter", function()

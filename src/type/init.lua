@@ -8,10 +8,10 @@
 
 local exports = {}
 
-local PathModule = require(script.Parent.jsutils.Path)
+local PathModule = require("../jsutils/Path")
 export type ResponsePath = PathModule.Path
 
-local schemaModule = require(script.schema)
+local schemaModule = require("./schema")
 -- Predicate
 exports.isSchema = schemaModule.isSchema
 -- Assertion
@@ -22,7 +22,7 @@ exports.GraphQLSchema = schemaModule.GraphQLSchema
 export type GraphQLSchemaConfig = schemaModule.GraphQLSchemaConfig
 export type GraphQLSchema = schemaModule.GraphQLSchema
 
-local definitionModule = require(script.definition)
+local definitionModule = require("./definition")
 -- Predicates
 exports.isType = definitionModule.isType
 exports.isScalarType = definitionModule.isScalarType
@@ -82,7 +82,7 @@ export type GraphQLUnionType = definitionModule.GraphQLUnionType
 export type GraphQLEnumType = definitionModule.GraphQLEnumType
 export type GraphQLInputObjectType = definitionModule.GraphQLInputObjectType
 
-local directivesModule = require(script.directives)
+local directivesModule = require("./directives")
 
 -- Predicate
 exports.isDirective = directivesModule.isDirective
@@ -104,7 +104,7 @@ export type GraphQLDirectiveConfig = directivesModule.GraphQLDirectiveConfig
 export type GraphQLDirective = directivesModule.GraphQLDirective
 
 -- Common built-in scalar instances.
-local scalarsModule = require(script.scalars)
+local scalarsModule = require("./scalars")
 
 -- Predicate
 exports.isSpecifiedScalarType = scalarsModule.isSpecifiedScalarType
@@ -116,7 +116,7 @@ exports.GraphQLString = scalarsModule.GraphQLString
 exports.GraphQLBoolean = scalarsModule.GraphQLBoolean
 exports.GraphQLID = scalarsModule.GraphQLID
 
-local introspectionModule = require(script.introspection)
+local introspectionModule = require("./introspection")
 
 -- Predicate
 exports.isIntrospectionType = introspectionModule.isIntrospectionType
@@ -212,7 +212,7 @@ export type GraphQLScalarLiteralParser<TInternal> = definitionModule.GraphQLScal
 >
 
 -- Validate GraphQL schema.
-local validateModule = require(script.validate)
+local validateModule = require("./validate")
 
 exports.validateSchema = validateModule.validateSchema
 exports.assertValidSchema = validateModule.assertValidSchema

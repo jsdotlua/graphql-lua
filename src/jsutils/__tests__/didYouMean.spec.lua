@@ -7,7 +7,7 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/__tests__/didYouMean-test.js
 return function()
 	local jsutils = script.Parent.Parent
-	local didYouMean = require(jsutils.didYouMean).didYouMean
+	local didYouMean = require("../didYouMean").didYouMean
 
 	describe("didYouMean", function()
 		it("Does accept an empty list", function()

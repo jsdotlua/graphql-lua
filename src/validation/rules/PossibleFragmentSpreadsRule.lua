@@ -6,14 +6,12 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/PossibleFragmentSpreadsRule.js
 
-local root = script.Parent.Parent.Parent
-local inspect = require(root.jsutils.inspect).inspect
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local definition = require(root.type.definition)
+local inspect = require("../../jsutils/inspect").inspect
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local definition = require("../../type/definition")
 local isCompositeType = definition.isCompositeType
-local utilities = root.utilities
-local typeFromAST = require(utilities.typeFromAST).typeFromAST
-local typeComparators = require(utilities.typeComparators)
+local typeFromAST = require("../../utilities/typeFromAST").typeFromAST
+local typeComparators = require("../../utilities/typeComparators")
 local doTypesOverlap = typeComparators.doTypesOverlap
 
 local exports = {}

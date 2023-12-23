@@ -1,36 +1,33 @@
 --upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/abstract-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local Packages = srcWorkspace.Parent
-
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 	local Error = LuauPolyfill.Error
 	local Object = LuauPolyfill.Object
 	local instanceof = LuauPolyfill.instanceof
 
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
-	local NULL = require(srcWorkspace.luaUtils.null)
-	local coerceToPromise = require(srcWorkspace.luaUtils.coerceToPromise).coerceToPromise
-	local Promise = require(Packages.Promise)
+	local inspect = require("../../jsutils/inspect").inspect
+	local NULL = require("../../luaUtils/null")
+	local coerceToPromise = require("../../luaUtils/coerceToPromise").coerceToPromise
+	local Promise = require("@pkg/@jsdotlua/promise")
 	local HttpService = game:GetService("HttpService")
 
-	local parse = require(srcWorkspace.language.parser).parse
+	local parse = require("../../language/parser").parse
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local scalarsModule = require(srcWorkspace.type.scalars)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local scalarsModule = require("../../type/scalars")
 	local GraphQLString = scalarsModule.GraphQLString
 	local GraphQLBoolean = scalarsModule.GraphQLBoolean
-	local definitionModule = require(srcWorkspace.type.definition)
+	local definitionModule = require("../../type/definition")
 	local GraphQLList = definitionModule.GraphQLList
 	local GraphQLObjectType = definitionModule.GraphQLObjectType
 	local GraphQLInterfaceType = definitionModule.GraphQLInterfaceType
 	local GraphQLUnionType = definitionModule.GraphQLUnionType
 
-	local buildSchema = require(srcWorkspace.utilities.buildASTSchema).buildSchema
+	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
 
-	local executeModule = require(srcWorkspace.execution.execute)
+	local executeModule = require("../../execution/execute")
 	local executeSync = executeModule.executeSync
 	local execute = executeModule.execute
 

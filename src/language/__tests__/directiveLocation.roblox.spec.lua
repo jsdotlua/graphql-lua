@@ -13,7 +13,7 @@
 	* limitations under the License.
 ]]
 return function()
-	local directiveLocation = require(script.Parent.Parent.directiveLocation)
+	local directiveLocation = require("../directiveLocation")
 
 	local DirectiveLocation = directiveLocation.DirectiveLocation
 

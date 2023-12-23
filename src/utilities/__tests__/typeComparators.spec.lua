@@ -7,22 +7,19 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/typeComparators-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLString = scalarsImport.GraphQLString
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLFloat = scalarsImport.GraphQLFloat
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLObjectType = definitionImport.GraphQLObjectType
 	local GraphQLInterfaceType = definitionImport.GraphQLInterfaceType
 	local GraphQLUnionType = definitionImport.GraphQLUnionType
 
-	local typeComparatorsImport = require(utilitiesWorkspace.typeComparators)
+	local typeComparatorsImport = require("../typeComparators")
 	local isEqualType = typeComparatorsImport.isEqualType
 	local isTypeSubTypeOf = typeComparatorsImport.isTypeSubTypeOf
 

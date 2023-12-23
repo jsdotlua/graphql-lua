@@ -5,11 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/aa650618426a301e3f0f61ead3adcd755055a627/src/type/schema.js
-local srcWorkspace = script.Parent.Parent
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Map = LuauPolyfill.Map
@@ -18,39 +14,38 @@ type Array<T> = LuauPolyfill.Array<T>
 type Map<T, V> = LuauPolyfill.Map<T, V>
 type Set<T> = LuauPolyfill.Set<T>
 
-local isNillishModule = require(luaUtilsWorkspace.isNillish)
+local isNillishModule = require("../luaUtils/isNillish")
 local isNillish = isNillishModule.isNillish
 local isNotNillish = isNillishModule.isNotNillish
-local NULL = require(luaUtilsWorkspace.null)
+local NULL = require("../luaUtils/null")
 type NULL = typeof(NULL)
 
-local jsutilsWorkspace = srcWorkspace.jsutils
-local inspect = require(jsutilsWorkspace.inspect).inspect
-local toObjMap = require(jsutilsWorkspace.toObjMap).toObjMap
-local devAssert = require(jsutilsWorkspace.devAssert).devAssert
-local instanceOf = require(jsutilsWorkspace.instanceOf)
-local isObjectLike = require(jsutilsWorkspace.isObjectLike).isObjectLike
+local inspect = require("../jsutils/inspect").inspect
+local toObjMap = require("../jsutils/toObjMap").toObjMap
+local devAssert = require("../jsutils/devAssert").devAssert
+local instanceOf = require("../jsutils/instanceOf")
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
 
-local introspectionModule = require(script.Parent.introspection)
+local introspectionModule = require("./introspection")
 local __Schema = introspectionModule.__Schema
 
-local astModule = require(srcWorkspace.language.ast)
+local astModule = require("../language/ast")
 type SchemaDefinitionNode = astModule.SchemaDefinitionNode
 type SchemaExtensionNode = astModule.SchemaExtensionNode
 
-local GraphQLErrorModule = require(srcWorkspace.error.GraphQLError)
+local GraphQLErrorModule = require("../error/GraphQLError")
 type GraphQLError = GraphQLErrorModule.GraphQLError
 
-local directivesModule = require(script.Parent.directives)
+local directivesModule = require("./directives")
 type GraphQLDirective = directivesModule.GraphQLDirective
 local isDirective = directivesModule.isDirective
 local specifiedDirectives = directivesModule.specifiedDirectives
 
-local ObjMapModule = require(jsutilsWorkspace.ObjMap)
+local ObjMapModule = require("../jsutils/ObjMap")
 type ObjMap<T> = ObjMapModule.ObjMap<T>
 type ObjMapLike<T> = ObjMapModule.ObjMapLike<T>
 
-local definitionModule = require(script.Parent.definition)
+local definitionModule = require("./definition")
 type GraphQLType = definitionModule.GraphQLType
 type GraphQLNamedType = definitionModule.GraphQLNamedType
 type GraphQLAbstractType = definitionModule.GraphQLAbstractType

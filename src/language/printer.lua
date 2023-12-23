@@ -6,14 +6,12 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/printer.js
 --!strict
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 local HttpService = game:GetService("HttpService")
 
-local astImport = require(script.Parent.ast)
+local astImport = require("./ast")
 type ASTNode = astImport.ASTNode
 type ArgumentNode = astImport.ArgumentNode
 type ScalarTypeDefinitionNode = astImport.ScalarTypeDefinitionNode
@@ -55,8 +53,8 @@ type NonNullTypeNode = astImport.NonNullTypeNode
 type EnumValueNode = astImport.EnumValueNode
 type SelectionSetNode = astImport.SelectionSetNode
 
-local visit = require(script.Parent.visitor).visit
-local printBlockString = require(script.Parent.blockString).printBlockString
+local visit = require("./visitor").visit
+local printBlockString = require("./blockString").printBlockString
 
 -- ROBLOX deviation: pre-declare functions, with repeat of types due to toposorting issue
 local printDocASTReducer

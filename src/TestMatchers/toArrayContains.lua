@@ -12,10 +12,8 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local inspect = require(Packages.LuauPolyfill).util.inspect
-local arrayContains = require(srcWorkspace.luaUtils.arrayContains)
+local inspect = require("@pkg/@jsdotlua/luau-polyfill").util.inspect
+local arrayContains = require("../luaUtils/arrayContains")
 
 local function toArrayContains(tbl, item, looseEquals)
 	local success = arrayContains(tbl, item, looseEquals)

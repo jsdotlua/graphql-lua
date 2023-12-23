@@ -1,6 +1,6 @@
 return function()
 	local luaUtils = script.Parent.Parent
-	local toUnicodeString = require(luaUtils.toUnicodeString)
+	local toUnicodeString = require("../toUnicodeString")
 
 	describe("toUnicodeString", function()
 		it("returns stringified character code", function()

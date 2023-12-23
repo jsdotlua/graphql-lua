@@ -6,14 +6,12 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/error/formatError.js
 
-local src = script.Parent.Parent
-local rootWorkspace = src.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type Array<T> = LuauPolyfill.Array<T>
-local devAssert = require(src.jsutils.devAssert).devAssert
-local locationModule = require(src.language.location)
+local devAssert = require("../jsutils/devAssert").devAssert
+local locationModule = require("../language/location")
 type SourceLocation = locationModule.SourceLocation
-local GraphQLErrorModule = require(script.Parent.GraphQLError)
+local GraphQLErrorModule = require("./GraphQLError")
 type GraphQLError = GraphQLErrorModule.GraphQLError
 
 local exports = {}

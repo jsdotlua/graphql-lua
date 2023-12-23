@@ -11,23 +11,23 @@ return function()
 	local languageWorkspace = script.Parent.Parent
 	local srcWorkspace = languageWorkspace.Parent
 	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
-	local kitchenSinkQuery = require(srcWorkspace.__fixtures__).kitchenSinkQuery
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local kitchenSinkQuery = require("../../__fixtures__").kitchenSinkQuery
 
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
+	local inspect = require("../../jsutils/inspect").inspect
 
-	local Kind = require(languageWorkspace.kinds).Kind
-	local Source = require(languageWorkspace.source).Source
-	local TokenKind = require(languageWorkspace.tokenKind).TokenKind
-	local parser = require(languageWorkspace.parser)
+	local Kind = require("../kinds").Kind
+	local Source = require("../source").Source
+	local TokenKind = require("../tokenKind").TokenKind
+	local parser = require("../parser")
 	local parse = parser.parse
 	local parseValue = parser.parseValue
 	local parseType = parser.parseType
 
-	local toJSONDeep = require(script.Parent.toJSONDeep).toJSONDeep
+	local toJSONDeep = require("./toJSONDeep").toJSONDeep
 
 	-- ROBLOX deviation: expect cannot be called unless inside of an it
 	-- ROBLOX deviation: pass expect into this function and use local scope

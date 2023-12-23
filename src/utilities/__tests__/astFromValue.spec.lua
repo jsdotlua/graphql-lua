@@ -1,31 +1,27 @@
 --upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/astFromValue-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-	local rootWorkspace = srcWorkspace.Parent
-
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Map = LuauPolyfill.Map
 	local NaN = LuauPolyfill.Number.NaN
 
 	-- ROBLOX deviation: bring in NULL type
-	local NULL = require(utilitiesWorkspace.astFromValue).NULL
+	local NULL = require("../astFromValue").NULL
 
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLID = scalarsImport.GraphQLID
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLFloat = scalarsImport.GraphQLFloat
 	local GraphQLString = scalarsImport.GraphQLString
 	local GraphQLBoolean = scalarsImport.GraphQLBoolean
-	local definitionImport = require(srcWorkspace.type.definition)
+	local definitionImport = require("../../type/definition")
 	local GraphQLList = definitionImport.GraphQLList
 	local GraphQLNonNull = definitionImport.GraphQLNonNull
 	local GraphQLScalarType = definitionImport.GraphQLScalarType
 	local GraphQLEnumType = definitionImport.GraphQLEnumType
 	local GraphQLInputObjectType = definitionImport.GraphQLInputObjectType
 
-	local astFromValue = require(utilitiesWorkspace.astFromValue).astFromValue
+	local astFromValue = require("../astFromValue").astFromValue
 
 	describe("astFromValue", function()
 		it("converts boolean values to ASTs", function()

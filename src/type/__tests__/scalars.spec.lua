@@ -6,14 +6,13 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/type/__tests__/scalars-test.js
 
-local rootWorkspace = script.Parent.Parent.Parent.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local NaN = LuauPolyfill.Number.NaN
 
 local Infinity = math.huge
-local parser = require(script.Parent.Parent.Parent.language.parser)
+local parser = require("../../language/parser")
 local parseValueToAST = parser.parseValue
-local scalars = require(script.Parent.Parent.scalars)
+local scalars = require("../scalars")
 local GraphQLID = scalars.GraphQLID
 local GraphQLInt = scalars.GraphQLInt
 local GraphQLFloat = scalars.GraphQLFloat

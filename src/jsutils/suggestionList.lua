@@ -5,14 +5,11 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/suggestionList.js
-local jsutils = script.Parent
-local graphql = jsutils.Parent
-local Packages = graphql.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
 
-local naturalCompare = require(script.Parent.naturalCompare).naturalCompare
+local naturalCompare = require("./naturalCompare").naturalCompare
 
 type LexicalDistance = {
 	_input: string,

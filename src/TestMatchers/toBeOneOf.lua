@@ -12,7 +12,7 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local toArrayContains = require(script.Parent.toArrayContains)
+local toArrayContains = require("./toArrayContains")
 
 local function toBeOneOf(item, arr)
 	return toArrayContains(arr, item)

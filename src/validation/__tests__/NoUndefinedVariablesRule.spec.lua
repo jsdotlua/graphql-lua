@@ -7,10 +7,9 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/NoUndefinedVariablesRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
 	local NoUndefinedVariablesRule =
-		require(validationWorkspace.rules.NoUndefinedVariablesRule).NoUndefinedVariablesRule
-	local harness = require(script.Parent.harness)
+		require("../rules/NoUndefinedVariablesRule").NoUndefinedVariablesRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 
 	local function expectErrors(expect_, queryStr: string)

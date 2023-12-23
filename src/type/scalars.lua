@@ -12,27 +12,25 @@ local function NumberisFinite(value)
 	return typeof(value) == "number" and value ~= math.huge and value == value
 end
 local parseFloat = parseInt
-local Workspace = script.Parent.Parent
-local Packages = Workspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 local Number = LuauPolyfill.Number
 local Object = LuauPolyfill.Object
 
-local ast = require(script.Parent.Parent.language.ast)
+local ast = require("../language/ast")
 type IntValueNode = ast.IntValueNode
 type FloatValueNode = ast.FloatValueNode
 type StringValueNode = ast.StringValueNode
 type BooleanValueNode = ast.BooleanValueNode
 
-local inspect = require(script.Parent.Parent.jsutils.inspect).inspect
-local isObjectLike = require(script.Parent.Parent.jsutils.isObjectLike).isObjectLike
-local Kind = require(script.Parent.Parent.language.kinds).Kind
-local print_ = require(script.Parent.Parent.language.printer).print
-local GraphQLError = require(script.Parent.Parent.error.GraphQLError).GraphQLError
+local inspect = require("../jsutils/inspect").inspect
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
+local Kind = require("../language/kinds").Kind
+local print_ = require("../language/printer").print
+local GraphQLError = require("../error/GraphQLError").GraphQLError
 
-local DefinitionModule = require(script.Parent.definition)
+local DefinitionModule = require("./definition")
 type GraphQLNamedType = DefinitionModule.GraphQLNamedType
 local GraphQLScalarType = DefinitionModule.GraphQLScalarType
 type GraphQLScalarType<TInternal = any, TExternal = TInternal> = DefinitionModule.GraphQLScalarType<

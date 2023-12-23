@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/Path.js
-local rootWorkspace = script.Parent.Parent.Parent
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
 

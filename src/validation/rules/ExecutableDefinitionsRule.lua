@@ -6,11 +6,9 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/rules/ExecutableDefinitionsRule.js
 
-local root = script.Parent.Parent.Parent
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local Kind = require(language.kinds).Kind
-local isExecutableDefinitionNode = require(language.predicates).isExecutableDefinitionNode
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local Kind = require("../../language/kinds").Kind
+local isExecutableDefinitionNode = require("../../language/predicates").isExecutableDefinitionNode
 
 local exports = {}
 

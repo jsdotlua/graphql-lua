@@ -7,10 +7,8 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/getOperationAST-test.js
 
 return function()
-	local utilities = script.Parent.Parent
-	local language = utilities.Parent.language
-	local parse = require(language.parser).parse
-	local getOperationAST = require(utilities.getOperationAST).getOperationAST
+	local parse = require("../../language/parser").parse
+	local getOperationAST = require("../getOperationAST").getOperationAST
 
 	describe("getOperationAST", function()
 		it("Gets an operation from a simple document", function()

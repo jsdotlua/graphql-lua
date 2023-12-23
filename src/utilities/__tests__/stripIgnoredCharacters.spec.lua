@@ -7,26 +7,22 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/stripIgnoredCharacters-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent.Parent
-	local Array = require(srcWorkspace.Parent.LuauPolyfill).Array
-	local testUtilsWorkspace = script.Parent.Parent.Parent.__testUtils__
-	local languageWorkspace = script.Parent.Parent.Parent.language
+	local Array = require("@pkg/@jsdotlua/luau-polyfill").Array
 
-	local dedent = require(testUtilsWorkspace.dedent).dedent
-	local inspectStr = require(testUtilsWorkspace.inspectStr).inspectStr
-	local kitchenSinkSDL = require(testUtilsWorkspace.kitchenSinkSDL).kitchenSinkSDL
-	local kitchenSinkQuery = require(testUtilsWorkspace.kitchenSinkQuery).kitchenSinkQuery
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local inspectStr = require("../../__testUtils__/inspectStr").inspectStr
+	local kitchenSinkSDL = require("../../__testUtils__/kitchenSinkSDL").kitchenSinkSDL
+	local kitchenSinkQuery = require("../../__testUtils__/kitchenSinkQuery").kitchenSinkQuery
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Lexer = require(languageWorkspace.lexer).Lexer
-	local parse = require(languageWorkspace.parser).parse
-	local Source = require(languageWorkspace.source).Source
+	local Lexer = require("../../language/lexer").Lexer
+	local parse = require("../../language/parser").parse
+	local Source = require("../../language/source").Source
 
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
+	local inspect = require("../../jsutils/inspect").inspect
 
-	local stripIgnoredCharacters =
-		require(script.Parent.Parent.stripIgnoredCharacters).stripIgnoredCharacters
+	local stripIgnoredCharacters = require("../stripIgnoredCharacters").stripIgnoredCharacters
 	local ignoredTokens = {
 		"\u{FEFF}",
 		"\t",

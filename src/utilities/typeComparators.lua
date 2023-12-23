@@ -6,12 +6,10 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/typeComparators.js
 
-local srcRoot = script.Parent.Parent
-local Packages = srcRoot.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
-local definitionImport = require(srcRoot.type.definition)
+local definitionImport = require("../type/definition")
 local isInterfaceType = definitionImport.isInterfaceType
 local isObjectType = definitionImport.isObjectType
 local isListType = definitionImport.isListType

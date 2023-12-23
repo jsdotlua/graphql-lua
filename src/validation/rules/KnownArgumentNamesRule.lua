@@ -6,19 +6,15 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/fe27912e56dc257eca720e07fc84a4370236dd9d/src/validation/rules/KnownArgumentNamesRule.js
 
-local root = script.Parent.Parent.Parent
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local jsutils = root.jsutils
-local didYouMean = require(jsutils.didYouMean).didYouMean
-local suggestionList = require(jsutils.suggestionList).suggestionList
-local Kind = require(language.kinds).Kind
-local specifiedDirectives = require(root.type.directives).specifiedDirectives
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local didYouMean = require("../../jsutils/didYouMean").didYouMean
+local suggestionList = require("../../jsutils/suggestionList").suggestionList
+local Kind = require("../../language/kinds").Kind
+local specifiedDirectives = require("../../type/directives").specifiedDirectives
 
 local exports = {}
 

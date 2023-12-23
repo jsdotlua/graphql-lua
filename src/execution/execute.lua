@@ -5,16 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/execute.js
-local srcWorkspace = script.Parent.Parent
-local jsUtilsWorkspace = srcWorkspace.jsutils
-local errorWorkspace = srcWorkspace.error
-local languageWorkspace = srcWorkspace.language
-local typeWorkspace = srcWorkspace.type
-local utilitiesWorkspace = srcWorkspace.utilities
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-local Packages = srcWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Map = LuauPolyfill.Map
@@ -23,38 +14,38 @@ local instanceof = LuauPolyfill.instanceof
 type Array<T> = LuauPolyfill.Array<T>
 type Map<T, V> = LuauPolyfill.Map<T, V>
 
-local ObjMapImport = require(jsUtilsWorkspace.ObjMap)
+local ObjMapImport = require("../jsutils/ObjMap")
 type ObjMap<T> = ObjMapImport.ObjMap<T>
-local PromiseOrValueImport = require(jsUtilsWorkspace.PromiseOrValue)
+local PromiseOrValueImport = require("../jsutils/PromiseOrValue")
 type PromiseOrValue<T> = PromiseOrValueImport.PromiseOrValue<T>
 
-local Promise = require(srcWorkspace.Parent.Promise)
+local Promise = require("@pkg/@jsdotlua/promise")
 type Promise<T> = LuauPolyfill.Promise<T>
-local NULL = require(luaUtilsWorkspace.null)
-local isNillish = require(luaUtilsWorkspace.isNillish).isNillish
+local NULL = require("../luaUtils/null")
+local isNillish = require("../luaUtils/isNillish").isNillish
 
-local inspect = require(jsUtilsWorkspace.inspect).inspect
-local memoize3 = require(jsUtilsWorkspace.memoize3).memoize3
-local invariant = require(jsUtilsWorkspace.invariant).invariant
-local devAssert = require(jsUtilsWorkspace.devAssert).devAssert
-local isPromise = require(jsUtilsWorkspace.isPromise).isPromise
-local isObjectLike = require(jsUtilsWorkspace.isObjectLike).isObjectLike
-local promiseReduce = require(jsUtilsWorkspace.promiseReduce).promiseReduce
-local promiseForObject = require(jsUtilsWorkspace.promiseForObject).promiseForObject
-local pathImport = require(jsUtilsWorkspace.Path)
+local inspect = require("../jsutils/inspect").inspect
+local memoize3 = require("../jsutils/memoize3").memoize3
+local invariant = require("../jsutils/invariant").invariant
+local devAssert = require("../jsutils/devAssert").devAssert
+local isPromise = require("../jsutils/isPromise").isPromise
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
+local promiseReduce = require("../jsutils/promiseReduce").promiseReduce
+local promiseForObject = require("../jsutils/promiseForObject").promiseForObject
+local pathImport = require("../jsutils/Path")
 type Path = pathImport.Path
 local addPath = pathImport.addPath
 local pathToArray = pathImport.pathToArray
-local isIteratableObject = require(jsUtilsWorkspace.isIteratableObject).isIteratableObject
+local isIteratableObject = require("../jsutils/isIteratableObject").isIteratableObject
 
-local formatErrorImport = require(errorWorkspace.formatError)
+local formatErrorImport = require("../error/formatError")
 type GraphQLFormattedError = formatErrorImport.GraphQLFormattedError
-local graphQLErrorImport = require(errorWorkspace.GraphQLError)
+local graphQLErrorImport = require("../error/GraphQLError")
 type GraphQLError = graphQLErrorImport.GraphQLError
 local GraphQLError = graphQLErrorImport.GraphQLError
-local locatedError = require(errorWorkspace.locatedError).locatedError
+local locatedError = require("../error/locatedError").locatedError
 
-local astImport = require(languageWorkspace.ast)
+local astImport = require("../language/ast")
 type DocumentNode = astImport.DocumentNode
 type OperationDefinitionNode = astImport.OperationDefinitionNode
 type SelectionSetNode = astImport.SelectionSetNode
@@ -63,11 +54,11 @@ type FragmentSpreadNode = astImport.FragmentSpreadNode
 type InlineFragmentNode = astImport.InlineFragmentNode
 type FragmentDefinitionNode = astImport.FragmentDefinitionNode
 type NamedTypeNode = astImport.NamedTypeNode
-local Kind = require(srcWorkspace.language.kinds).Kind
+local Kind = require("../language/kinds").Kind
 
-local schemaImport = require(typeWorkspace.schema)
+local schemaImport = require("../type/schema")
 type GraphQLSchema = schemaImport.GraphQLSchema
-local definitionImport = require(typeWorkspace.definition)
+local definitionImport = require("../type/definition")
 type GraphQLType = definitionImport.GraphQLType
 type GraphQLObjectType = definitionImport.GraphQLObjectType
 type GraphQLOutputType = definitionImport.GraphQLOutputType
@@ -84,12 +75,12 @@ type GraphQLResolveInfo = definitionImport.GraphQLResolveInfo
 type GraphQLTypeResolver<T, V> = definitionImport.GraphQLTypeResolver<T, V>
 type GraphQLList<T> = definitionImport.GraphQLList<T>
 type GraphQLNonNull<T> = definitionImport.GraphQLNonNull<T>
-local assertValidSchema = require(typeWorkspace.validate).assertValidSchema
-local introspectionImport = require(typeWorkspace.introspection)
+local assertValidSchema = require("../type/validate").assertValidSchema
+local introspectionImport = require("../type/introspection")
 local SchemaMetaFieldDef = introspectionImport.SchemaMetaFieldDef
 local TypeMetaFieldDef = introspectionImport.TypeMetaFieldDef
 local TypeNameMetaFieldDef = introspectionImport.TypeNameMetaFieldDef
-local directivesImport = require(typeWorkspace.directives)
+local directivesImport = require("../type/directives")
 local GraphQLIncludeDirective = directivesImport.GraphQLIncludeDirective
 local GraphQLSkipDirective = directivesImport.GraphQLSkipDirective
 local isObjectType = definitionImport.isObjectType
@@ -98,10 +89,10 @@ local isLeafType = definitionImport.isLeafType
 local isListType = definitionImport.isListType
 local isNonNullType = definitionImport.isNonNullType
 
-local typeFromAST = require(utilitiesWorkspace.typeFromAST).typeFromAST
-local getOperationRootType = require(utilitiesWorkspace.getOperationRootType).getOperationRootType
+local typeFromAST = require("../utilities/typeFromAST").typeFromAST
+local getOperationRootType = require("../utilities/getOperationRootType").getOperationRootType
 
-local valuesImport = require(script.Parent.values)
+local valuesImport = require("./values")
 local getVariableValues = valuesImport.getVariableValues
 local getArgumentValues = valuesImport.getArgumentValues
 local getDirectiveValues = valuesImport.getDirectiveValues

@@ -8,8 +8,8 @@
 return function()
 	local jsutils = script.Parent.Parent
 
-	local identityFunc = require(jsutils.identityFunc).identityFunc
-	local isObjectLike = require(jsutils.isObjectLike).isObjectLike
+	local identityFunc = require("../identityFunc").identityFunc
+	local isObjectLike = require("../isObjectLike").isObjectLike
 
 	describe("isObjectLike", function()
 		it("should return `true` for objects", function()

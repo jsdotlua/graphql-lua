@@ -6,14 +6,12 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/rules/UniqueDirectivesPerLocationRule.js
 
-local root = script.Parent.Parent.Parent
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local Kind = require(language.kinds).Kind
-local predicates = require(language.predicates)
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local Kind = require("../../language/kinds").Kind
+local predicates = require("../../language/predicates")
 local isTypeDefinitionNode = predicates.isTypeDefinitionNode
 local isTypeExtensionNode = predicates.isTypeExtensionNode
-local directives = require(root.type.directives)
+local directives = require("../../type/directives")
 local specifiedDirectives = directives.specifiedDirectives
 
 local exports = {}

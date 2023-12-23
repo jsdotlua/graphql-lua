@@ -7,13 +7,10 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/KnownDirectivesRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local buildASTSchema = require(root.utilities.buildASTSchema)
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local KnownDirectivesRule =
-		require(validationWorkspace.rules.KnownDirectivesRule).KnownDirectivesRule
-	local harness = require(script.Parent.harness)
+	local KnownDirectivesRule = require("../rules/KnownDirectivesRule").KnownDirectivesRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors
 

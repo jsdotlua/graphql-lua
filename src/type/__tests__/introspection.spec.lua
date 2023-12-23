@@ -7,13 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/01bcc7d9be982226bcf56b8f983f38fd89dced1b/src/type/__tests__/introspection-test.js
 
 return function()
-	local root = script.Parent.Parent.Parent
-	local jsutils = root.jsutils
-	local invariant = require(jsutils.invariant).invariant
-	local utilities = root.utilities
-	local buildSchema = require(utilities.buildASTSchema).buildSchema
-	local getIntrospectionQuery = require(utilities.getIntrospectionQuery).getIntrospectionQuery
-	local graphql = require(root.graphql)
+	local invariant = require("../../jsutils/invariant").invariant
+	local buildSchema = require("../../utilities/buildASTSchema").buildSchema
+	local getIntrospectionQuery =
+		require("../../utilities/getIntrospectionQuery").getIntrospectionQuery
+	local graphql = require("../../graphql")
 	local graphqlSync = graphql.graphqlSync
 
 	describe("Introspection", function()

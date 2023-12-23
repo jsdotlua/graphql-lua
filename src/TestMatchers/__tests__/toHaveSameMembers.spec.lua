@@ -13,7 +13,7 @@
 	* limitations under the License.
 ]]
 return function()
-	local toHaveSameMembers = require(script.Parent.Parent.toHaveSameMembers)
+	local toHaveSameMembers = require("../toHaveSameMembers")
 
 	describe("toHaveSameMembers", function()
 		describe("strict comparison", function()

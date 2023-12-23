@@ -1,8 +1,8 @@
 return function()
 	local srcWorkspace = script.Parent.Parent.Parent
-	local Promise = require(srcWorkspace.Parent.Promise)
+	local Promise = require("@pkg/@jsdotlua/promise")
 
-	local coerceToPromise = require(script.Parent.Parent.coerceToPromise).coerceToPromise
+	local coerceToPromise = require("../coerceToPromise").coerceToPromise
 
 	describe("coerceToPromise", function()
 		it("returns promise when passed promise", function()

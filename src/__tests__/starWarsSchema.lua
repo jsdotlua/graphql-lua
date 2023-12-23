@@ -5,19 +5,16 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1611bbb08a88f734e9490b14cfe6afea11a838e0/src/__tests__/starWarsSchema.js
-local rootWorkspace = script.Parent.Parent
-local Packages = rootWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Error = LuauPolyfill.Error
 local Map = LuauPolyfill.Map
 type Array<T> = LuauPolyfill.Array<T>
 
-local _invariant = require(rootWorkspace.jsutils.invariant).invariant
+local _invariant = require("../jsutils/invariant").invariant
 
-local GraphQLSchema = require(rootWorkspace.type.schema).GraphQLSchema
-local GraphQLString = require(rootWorkspace.type.scalars).GraphQLString
-local definitionModule = require(rootWorkspace.type.definition)
+local GraphQLSchema = require("../type/schema").GraphQLSchema
+local GraphQLString = require("../type/scalars").GraphQLString
+local definitionModule = require("../type/definition")
 local GraphQLList = definitionModule.GraphQLList
 local GraphQLNonNull = definitionModule.GraphQLNonNull
 local GraphQLEnumType = definitionModule.GraphQLEnumType
@@ -25,7 +22,7 @@ local GraphQLInterfaceType = definitionModule.GraphQLInterfaceType
 local GraphQLObjectType = definitionModule.GraphQLObjectType
 type GraphQLObjectType = definitionModule.GraphQLObjectType
 
-local starWarsDataModule = require(script.Parent.starWarsData)
+local starWarsDataModule = require("./starWarsData")
 local getFriends = starWarsDataModule.getFriends
 local getHero = starWarsDataModule.getHero
 local getHuman = starWarsDataModule.getHuman

@@ -6,11 +6,7 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/error/GraphQLError.js
 
-local srcWorkspace = script.Parent.Parent
-local languageWorkspace = srcWorkspace.language
-local Packages = srcWorkspace.Parent
-
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Error = LuauPolyfill.Error
 local Object = LuauPolyfill.Object
@@ -20,17 +16,17 @@ type void = nil
 
 local HttpService = game:GetService("HttpService")
 
-local isObjectLike = require(srcWorkspace.jsutils.isObjectLike).isObjectLike
+local isObjectLike = require("../jsutils/isObjectLike").isObjectLike
 
-local _astModule = require(languageWorkspace.ast)
+local _astModule = require("../language/ast")
 type ASTNode = _astModule.ASTNode
 type Location = _astModule.Location
-local _sourceModule = require(languageWorkspace.source)
+local _sourceModule = require("../language/source")
 type Source = _sourceModule.Source
-local locationModule = require(languageWorkspace.location)
+local locationModule = require("../language/location")
 type SourceLocation = locationModule.SourceLocation
 local getLocation = locationModule.getLocation
-local printLocationModule = require(languageWorkspace.printLocation)
+local printLocationModule = require("../language/printLocation")
 local printLocation = printLocationModule.printLocation
 local printSourceLocation = printLocationModule.printSourceLocation
 

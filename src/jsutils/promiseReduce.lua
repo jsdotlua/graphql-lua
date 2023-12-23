@@ -5,16 +5,13 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/promiseReduce.js
-local jsutils = script.Parent
-local graphql = jsutils.Parent
-local Packages = graphql.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Promise<T> = LuauPolyfill.Promise<T>
 type Array<T> = LuauPolyfill.Array<T>
-local PromiseOrValueModule = require(jsutils.PromiseOrValue)
+local PromiseOrValueModule = require("./PromiseOrValue")
 type PromiseOrValue<T> = PromiseOrValueModule.PromiseOrValue<T>
-local isPromise = require(jsutils.isPromise).isPromise
+local isPromise = require("./isPromise").isPromise
 
 --[[
  * Similar to Array.prototype.reduce(), however the reducing callback may return

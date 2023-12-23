@@ -8,7 +8,7 @@
 return function()
 	local jsutils = script.Parent.Parent
 
-	local suggestionList = require(jsutils.suggestionList).suggestionList
+	local suggestionList = require("../suggestionList").suggestionList
 
 	describe("suggestionList", function()
 		-- ROBLOX TODO: TestEZ extensions aren't tracked by Luau hard-coded defs, this goes away when we move to jest

@@ -7,19 +7,15 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/getOperationRootType-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
+	local invariant = require("../../jsutils/invariant").invariant
+	local Kind = require("../../language/kinds").Kind
+	local parse = require("../../language/parser").parse
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLString = require("../../type/scalars").GraphQLString
+	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
+	local getOperationRootType = require("../getOperationRootType").getOperationRootType
 
-	local invariant = require(srcWorkspace.jsutils.invariant).invariant
-	local Kind = require(srcWorkspace.language.kinds).Kind
-	local parse = require(srcWorkspace.language.parser).parse
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local GraphQLString = require(srcWorkspace.type.scalars).GraphQLString
-	local GraphQLObjectType = require(srcWorkspace.type.definition).GraphQLObjectType
-	local getOperationRootType =
-		require(utilitiesWorkspace.getOperationRootType).getOperationRootType
-
-	local Object = require(srcWorkspace.Parent.LuauPolyfill).Object
+	local Object = require("@pkg/@jsdotlua/luau-polyfill").Object
 
 	local queryType = GraphQLObjectType.new({
 		name = "FooQuery",

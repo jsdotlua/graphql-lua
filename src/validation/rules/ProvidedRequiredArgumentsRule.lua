@@ -6,23 +6,19 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/ProvidedRequiredArgumentsRule.js
 
-local root = script.Parent.Parent.Parent
-local jsutils = root.jsutils
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 
-local inspect = require(jsutils.inspect).inspect
-local keyMap = require(jsutils.keyMap).keyMap
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local Kind = require(language.kinds).Kind
-local print_ = require(language.printer).print
-local definition = require(root.type.definition)
+local inspect = require("../../jsutils/inspect").inspect
+local keyMap = require("../../jsutils/keyMap").keyMap
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local Kind = require("../../language/kinds").Kind
+local print_ = require("../../language/printer").print
+local definition = require("../../type/definition")
 local isType = definition.isType
 local isRequiredArgument = definition.isRequiredArgument
-local directives = require(root.type.directives)
+local directives = require("../../type/directives")
 local specifiedDirectives = directives.specifiedDirectives
 
 local exports = {}

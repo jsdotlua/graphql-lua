@@ -6,19 +6,15 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/rules/KnownDirectivesRule.js
 
-local root = script.Parent.Parent.Parent
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local language = root.language
-local jsutils = root.jsutils
-local inspect = require(jsutils.inspect).inspect
-local invariant = require(jsutils.invariant).invariant
-local Kind = require(language.kinds).Kind
-local DirectiveLocation = require(language.directiveLocation).DirectiveLocation
-local specifiedDirectives = require(root.type.directives).specifiedDirectives
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local inspect = require("../../jsutils/inspect").inspect
+local invariant = require("../../jsutils/invariant").invariant
+local Kind = require("../../language/kinds").Kind
+local DirectiveLocation = require("../../language/directiveLocation").DirectiveLocation
+local specifiedDirectives = require("../../type/directives").specifiedDirectives
 
 local exports = {}
 

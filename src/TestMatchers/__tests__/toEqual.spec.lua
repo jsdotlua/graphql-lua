@@ -13,7 +13,7 @@
 	* limitations under the License.
 ]]
 return function()
-	local toEqual = require(script.Parent.Parent.toEqual)
+	local toEqual = require("../toEqual")
 
 	it("should fail with a message when args are not equal", function()
 		local result = toEqual(1, 2)

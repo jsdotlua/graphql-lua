@@ -8,7 +8,7 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/__tests__/source-test.js
 
 return function()
-	local Source = require(script.Parent.Parent.source).Source
+	local Source = require("../source").Source
 	describe("Source", function()
 		it("can be Object.toStringified", function()
 			local source = Source.new("")

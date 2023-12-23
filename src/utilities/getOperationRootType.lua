@@ -6,14 +6,14 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/getOperationRootType.js
 
-local GraphQLError = require(script.Parent.Parent.error.GraphQLError).GraphQLError
+local GraphQLError = require("../error/GraphQLError").GraphQLError
 
-local astImport = require(script.Parent.Parent.language.ast)
+local astImport = require("../language/ast")
 type OperationDefinitionNode = astImport.OperationDefinitionNode
 type OperationTypeDefinitionNode = astImport.OperationTypeDefinitionNode
-local definitionImport = require(script.Parent.Parent.type.definition)
+local definitionImport = require("../type/definition")
 type GraphQLObjectType = definitionImport.GraphQLObjectType
-local schemaImport = require(script.Parent.Parent.type.schema)
+local schemaImport = require("../type/schema")
 type GraphQLSchema = schemaImport.GraphQLSchema
 
 --[[*

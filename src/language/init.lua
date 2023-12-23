@@ -7,23 +7,23 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/language/index.js
 --!strict
 
-local locationModule = require(script.location)
-local printLocationModule = require(script.printLocation)
-local kindsModule = require(script.kinds)
-local tokenKindModule = require(script.tokenKind)
-local parserModule = require(script.parser)
-local visitorModule = require(script.visitor)
-local astModule = require(script.ast)
-local predicatesModule = require(script.predicates)
-local directiveLocationModule = require(script.directiveLocation)
-local sourceModule = require(script.source)
+local locationModule = require("./location")
+local printLocationModule = require("./printLocation")
+local kindsModule = require("./kinds")
+local tokenKindModule = require("./tokenKind")
+local parserModule = require("./parser")
+local visitorModule = require("./visitor")
+local astModule = require("./ast")
+local predicatesModule = require("./predicates")
+local directiveLocationModule = require("./directiveLocation")
+local sourceModule = require("./source")
 
 export type SourceLocation = locationModule.SourceLocation
 
 export type KindEnum = kindsModule.KindEnum
 
 export type TokenKindEnum = tokenKindModule.TokenKindEnum
-local lexerModule = require(script.lexer)
+local lexerModule = require("./lexer")
 export type Lexer = lexerModule.Lexer
 
 export type ParseOptions = parserModule.ParseOptions
@@ -112,7 +112,7 @@ return {
 	parse = parserModule.parse,
 	parseValue = parserModule.parseValue,
 	parseType = parserModule.parseType,
-	print = require(script.printer).print,
+	print = require("./printer").print,
 	visit = visitorModule.visit,
 	visitInParallel = visitorModule.visitInParallel,
 	getVisitFn = visitorModule.getVisitFn,

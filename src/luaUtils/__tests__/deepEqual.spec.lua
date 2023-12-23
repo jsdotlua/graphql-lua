@@ -1,6 +1,6 @@
 return function()
-	local deepEqual = require(script.Parent.Parent.deepEqual)
-	local NULL = require(script.Parent.Parent.null)
+	local deepEqual = require("../deepEqual")
+	local NULL = require("../null")
 
 	describe("deepEqual", function()
 		it("should deep equal if objects have same shape and values", function()

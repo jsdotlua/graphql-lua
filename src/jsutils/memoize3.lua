@@ -5,10 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/memoize3.js
-local jsutils = script.Parent
-local srcWorkspace = jsutils.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type Array<T> = LuauPolyfill.Array<T>
 type Function = (...any) -> ...any
 type Object = LuauPolyfill.Object

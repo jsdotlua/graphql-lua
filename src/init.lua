@@ -34,19 +34,19 @@
 local exports = {}
 
 -- The GraphQL.js version info.
-local versionModule = require(script.version)
+local versionModule = require("./version")
 exports.version = versionModule.version
 exports.versionInfo = versionModule.versionInfo
 
 -- The primary entry point into fulfilling a GraphQL request.
-local graphQlModule = require(script.graphql)
+local graphQlModule = require("./graphql")
 exports.graphql = graphQlModule.graphql
 exports.graphqlSync = graphQlModule.graphqlSync
 
 export type GraphQLArgs = graphQlModule.GraphQLArgs
 
 -- Create and operate on GraphQL type definitions and schema.
-local typeModule = require(script.type)
+local typeModule = require("./type")
 
 -- Definitions
 exports.GraphQLSchema = typeModule.GraphQLSchema
@@ -221,7 +221,7 @@ export type GraphQLInputObjectType = typeModule.GraphQLInputObjectType
 export type GraphQLDirective = typeModule.GraphQLDirective
 export type GraphQLSchema = typeModule.GraphQLSchema
 
-local languageModule = require(script.language)
+local languageModule = require("./language")
 
 -- Parse and operate on GraphQL language source files.
 
@@ -337,7 +337,7 @@ export type UnionTypeExtensionNode = languageModule.UnionTypeExtensionNode
 export type EnumTypeExtensionNode = languageModule.EnumTypeExtensionNode
 export type InputObjectTypeExtensionNode = languageModule.InputObjectTypeExtensionNode
 
-local executionModule = require(script.execution)
+local executionModule = require("./execution")
 
 -- Execute GraphQL queries.
 exports.execute = executionModule.execute
@@ -351,13 +351,13 @@ export type ExecutionArgs = executionModule.ExecutionArgs
 export type ExecutionResult = executionModule.ExecutionResult
 export type FormattedExecutionResult = executionModule.FormattedExecutionResult
 
-local subscriptionModule = require(script.subscription)
+local subscriptionModule = require("./subscription")
 exports.subscribe = subscriptionModule.subscribe
 exports.createSourceEventStream = subscriptionModule.createSourceEventStream
 export type SubscriptionArgs = subscriptionModule.SubscriptionArgs
 
 -- Validate GraphQL documents.
-local validationModule = require(script.validation)
+local validationModule = require("./validation")
 
 exports.validate = validationModule.validate
 exports.ValidationContext = validationModule.ValidationContext
@@ -408,7 +408,7 @@ export type SDLValidationContext = validationModule.SDLValidationContext
 export type ValidationContext = validationModule.ValidationContext
 
 -- Create, format, and print GraphQL errors.
-local errorModule = require(script.error)
+local errorModule = require("./error")
 exports.GraphQLError = errorModule.GraphQLError
 exports.syntaxError = errorModule.syntaxError
 exports.locatedError = errorModule.locatedError
@@ -419,7 +419,7 @@ export type GraphQLFormattedError = errorModule.GraphQLFormattedError
 export type GraphQLError = errorModule.GraphQLError
 
 -- Utilities for operating on GraphQL type schema and parsed sources.
-local utilitiesModule = require(script.utilities)
+local utilitiesModule = require("./utilities")
 
 -- Produce the GraphQL query recommended for a full schema introspection.
 -- Accepts optional IntrospectionOptions.
@@ -511,9 +511,9 @@ export type DangerousChange = utilitiesModule.DangerousChange
 export type TypeInfo = utilitiesModule.TypeInfo
 
 -- ROBLOX comment: reexport NULL
-exports.NULL = require(script.luaUtils.null)
+exports.NULL = require("./luaUtils/null")
 
 -- ROBLOX comment: export stringify
-exports.stringify = require(script.luaUtils.stringify)
+exports.stringify = require("./luaUtils/stringify")
 
 return exports

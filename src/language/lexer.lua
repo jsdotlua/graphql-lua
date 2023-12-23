@@ -5,26 +5,23 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/lexer.js
-local language = script.Parent
-local src = language.Parent
-local Packages = src.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Number = LuauPolyfill.Number
 local String = LuauPolyfill.String
 local isNaN = Number.isNaN
 local HttpService = game:GetService("HttpService")
 
-local syntaxError = require(src.error.syntaxError).syntaxError
-local sourceImport = require(script.Parent.source)
+local syntaxError = require("../error/syntaxError").syntaxError
+local sourceImport = require("./source")
 type Source = sourceImport.Source
-local tokenKindImport = require(language.tokenKind)
+local tokenKindImport = require("./tokenKind")
 type TokenKindEnum = tokenKindImport.TokenKindEnum
-local astImport = require(language.ast)
+local astImport = require("./ast")
 local Token = astImport.Token
 local TokenKind = tokenKindImport.TokenKind
 type Token = astImport.Token
-local toUnicodeString = require(src.luaUtils.toUnicodeString)
-local dedentBlockStringValue = require(language.blockString).dedentBlockStringValue
+local toUnicodeString = require("../luaUtils/toUnicodeString")
+local dedentBlockStringValue = require("./blockString").dedentBlockStringValue
 
 -- deviation: pre-declare functions
 local readBlockString

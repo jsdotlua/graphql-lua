@@ -7,14 +7,11 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/UniqueDirectivesPerLocationRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local parse = require(root.language.parser).parse
-	local extendSchema = require(root.utilities.extendSchema).extendSchema
-	local UniqueDirectivesPerLocationRule = require(
-		validationWorkspace.rules.UniqueDirectivesPerLocationRule
-	).UniqueDirectivesPerLocationRule
-	local harness = require(script.Parent.harness)
+	local parse = require("../../language/parser").parse
+	local extendSchema = require("../../utilities/extendSchema").extendSchema
+	local UniqueDirectivesPerLocationRule =
+		require("../rules/UniqueDirectivesPerLocationRule").UniqueDirectivesPerLocationRule
+	local harness = require("./harness")
 	local testSchema = harness.testSchema
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema
 	local expectSDLValidationErrors = harness.expectSDLValidationErrors

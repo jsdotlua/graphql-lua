@@ -6,10 +6,10 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/getOperationAST.js
 
-local astImport = require(script.Parent.Parent.language.ast)
+local astImport = require("../language/ast")
 type DocumentNode = astImport.DocumentNode
 type OperationDefinitionNode = astImport.OperationDefinitionNode
-local Kind = require(script.Parent.Parent.language.kinds).Kind
+local Kind = require("../language/kinds").Kind
 
 local exports = {}
 

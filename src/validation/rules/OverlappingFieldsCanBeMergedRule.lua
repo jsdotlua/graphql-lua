@@ -6,29 +6,25 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/05b8d0716ea513a7efc88cd173a2a15a8aba5bbc/src/validation/rules/OverlappingFieldsCanBeMergedRule.js
 
-local root = script.Parent.Parent.Parent
-local PackagesWorkspace = root.Parent
-local LuauPolyfill = require(PackagesWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Map = LuauPolyfill.Map
 local Object = LuauPolyfill.Object
 type Map<T, V> = LuauPolyfill.Map<T, V>
 
-local NULL = require(root.luaUtils.null)
-local jsutils = root.jsutils
-local language = root.language
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local inspect = require(jsutils.inspect).inspect
-local Kind = require(language.kinds).Kind
-local print_ = require(language.printer).print
-local definition = require(root.type.definition)
+local NULL = require("../../luaUtils/null")
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local inspect = require("../../jsutils/inspect").inspect
+local Kind = require("../../language/kinds").Kind
+local print_ = require("../../language/printer").print
+local definition = require("../../type/definition")
 local getNamedType = definition.getNamedType
 local isNonNullType = definition.isNonNullType
 local isLeafType = definition.isLeafType
 local isObjectType = definition.isObjectType
 local isListType = definition.isListType
 local isInterfaceType = definition.isInterfaceType
-local typeFromAST = require(root.utilities.typeFromAST).typeFromAST
+local typeFromAST = require("../../utilities/typeFromAST").typeFromAST
 
 local exports = {}
 

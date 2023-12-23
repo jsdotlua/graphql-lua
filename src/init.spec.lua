@@ -13,17 +13,15 @@
 	* limitations under the License.
 ]]
 return function()
-	local TestMatchers = script.Parent.TestMatchers
-	local toEqual = require(TestMatchers.toEqual)
-	local toArrayContains = require(TestMatchers.toArrayContains)
-	local toHaveSameMembers = require(TestMatchers.toHaveSameMembers)
-	local toArrayEqual = require(TestMatchers.toArrayEqual)
-	local toObjectContain = require(TestMatchers.toObjectContain)
-	local toBeOneOf = require(TestMatchers.toBeOneOf)
-	local toThrow = require(TestMatchers.toThrow)
-	local toBeNaN = require(TestMatchers.toBeNaN)
-	local Packages = script.Parent.Parent
-	local JestGlobals = require(Packages.Dev.JestGlobals)
+	local toEqual = require("./TestMatchers/toEqual")
+	local toArrayContains = require("./TestMatchers/toArrayContains")
+	local toHaveSameMembers = require("./TestMatchers/toHaveSameMembers")
+	local toArrayEqual = require("./TestMatchers/toArrayEqual")
+	local toObjectContain = require("./TestMatchers/toObjectContain")
+	local toBeOneOf = require("./TestMatchers/toBeOneOf")
+	local toThrow = require("./TestMatchers/toThrow")
+	local toBeNaN = require("./TestMatchers/toBeNaN")
+	local JestGlobals = require("@pkg/@jsdotlua/jest-globals")
 	local jestExpect = JestGlobals.expect
 
 	beforeAll(function()

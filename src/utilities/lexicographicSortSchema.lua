@@ -6,30 +6,27 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/lexicographicSortSchema.js
 
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Map = LuauPolyfill.Map
 local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
 type Map<T, V> = LuauPolyfill.Map<T, V>
 
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
-local invariant = require(srcWorkspace.jsutils.invariant).invariant
-local keyValMap = require(srcWorkspace.jsutils.keyValMap).keyValMap
-local naturalCompare = require(srcWorkspace.jsutils.naturalCompare).naturalCompare
+local inspect = require("../jsutils/inspect").inspect
+local invariant = require("../jsutils/invariant").invariant
+local keyValMap = require("../jsutils/keyValMap").keyValMap
+local naturalCompare = require("../jsutils/naturalCompare").naturalCompare
 
-local SchemaModule = require(srcWorkspace.type.schema)
+local SchemaModule = require("../type/schema")
 local GraphQLSchema = SchemaModule.GraphQLSchema
 -- ROBLOX deviation: bring in types separately
 type GraphQLSchema = SchemaModule.GraphQLSchema
-local directivesImport = require(srcWorkspace.type.directives)
+local directivesImport = require("../type/directives")
 local GraphQLDirective = directivesImport.GraphQLDirective
 type GraphQLDirective = directivesImport.GraphQLDirective
 
-local DefinitionModule = require(srcWorkspace.type.definition)
+local DefinitionModule = require("../type/definition")
 type GraphQLType = DefinitionModule.GraphQLType
 type GraphQLList<T> = DefinitionModule.GraphQLList<T>
 type GraphQLNonNull<T> = DefinitionModule.GraphQLNonNull<T>
@@ -43,14 +40,14 @@ type GraphQLInterfaceType = DefinitionModule.GraphQLInterfaceType
 type GraphQLUnionType = DefinitionModule.GraphQLUnionType
 type GraphQLEnumType = DefinitionModule.GraphQLEnumType
 type GraphQLInputObjectType = DefinitionModule.GraphQLInputObjectType
-local _astImport = require(srcWorkspace.language.ast)
+local _astImport = require("../language/ast")
 type ListTypeNode = _astImport.ListTypeNode
 type NamedTypeNode = _astImport.NamedTypeNode
 type NonNullTypeNode = _astImport.NonNullTypeNode
 
 -- ROBLOX deviation END
 
-local isIntrospectionType = require(srcWorkspace.type.introspection).isIntrospectionType
+local isIntrospectionType = require("../type/introspection").isIntrospectionType
 local GraphQLList = DefinitionModule.GraphQLList
 local GraphQLNonNull = DefinitionModule.GraphQLNonNull
 local GraphQLObjectType = DefinitionModule.GraphQLObjectType

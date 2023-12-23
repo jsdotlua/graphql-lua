@@ -5,26 +5,23 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/separateOperations.js
-local srcWorkspace = script.Parent.Parent
-local rootWorkspace = srcWorkspace.Parent
-
-local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Set = LuauPolyfill.Set
 type Array<T> = LuauPolyfill.Array<T>
 type Set<T> = LuauPolyfill.Set<T>
 
-local ObjMapModule = require(srcWorkspace.jsutils.ObjMap) -- type { ObjMap } from '../jsutils/ObjMap';
+local ObjMapModule = require("../jsutils/ObjMap") -- type { ObjMap } from '../jsutils/ObjMap';
 type ObjMap<T> = ObjMapModule.ObjMap<T>
 
-local languageAstModule = require(srcWorkspace.language.ast)
+local languageAstModule = require("../language/ast")
 type DocumentNode = languageAstModule.DocumentNode
 type OperationDefinitionNode = languageAstModule.OperationDefinitionNode
 type FragmentDefinitionNode = languageAstModule.FragmentDefinitionNode
 type SelectionSetNode = languageAstModule.SelectionSetNode
 
-local Kind = require(srcWorkspace.language.kinds).Kind
-local visit = require(srcWorkspace.language.visitor).visit
+local Kind = require("../language/kinds").Kind
+local visit = require("../language/visitor").visit
 
 local collectDependencies
 local collectTransitiveDependencies

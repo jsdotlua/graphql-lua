@@ -6,10 +6,7 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/type/validate.js
 --# selene: allow(if_same_then_else)
-local srcWorkspace = script.Parent.Parent
-local root = srcWorkspace.Parent
-
-local LuauPolyfill = require(root.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Boolean = LuauPolyfill.Boolean
 local Error = LuauPolyfill.Error
@@ -17,29 +14,29 @@ type Array<T> = LuauPolyfill.Array<T>
 type Map<T, U> = LuauPolyfill.Map<T, U>
 type Set<T> = LuauPolyfill.Set<T>
 
-local isNotNillish = require(srcWorkspace.luaUtils.isNillish).isNotNillish
+local isNotNillish = require("../luaUtils/isNillish").isNotNillish
 
-local inspect = require(script.Parent.Parent.jsutils.inspect).inspect
-local GraphQLErrorModule = require(script.Parent.Parent.error.GraphQLError)
+local inspect = require("../jsutils/inspect").inspect
+local GraphQLErrorModule = require("../error/GraphQLError")
 local GraphQLError = GraphQLErrorModule.GraphQLError
 type GraphQLError = GraphQLErrorModule.GraphQLError
-local locatedError = require(script.Parent.Parent.error).locatedError
+local locatedError = require("../error").locatedError
 
-local astModule = require(srcWorkspace.language.ast)
+local astModule = require("../language/ast")
 type ASTNode = astModule.ASTNode
 type NamedTypeNode = astModule.NamedTypeNode
 type DirectiveNode = astModule.DirectiveNode
 type OperationTypeNode = astModule.OperationTypeNode
 
-local isValidNameError = require(srcWorkspace.utilities.assertValidName).isValidNameError
-local typeComparators = require(script.Parent.Parent.utilities.typeComparators)
+local isValidNameError = require("../utilities/assertValidName").isValidNameError
+local typeComparators = require("../utilities/typeComparators")
 local isEqualType = typeComparators.isEqualType
 local isTypeSubTypeOf = typeComparators.isTypeSubTypeOf
-local schemaModule = require(script.Parent.schema)
+local schemaModule = require("./schema")
 local assertSchema = schemaModule.assertSchema
 type GraphQLSchema = schemaModule.GraphQLSchema
 
-local definitionModule = require(script.Parent.definition)
+local definitionModule = require("./definition")
 type GraphQLArgument = definitionModule.GraphQLArgument
 type GraphQLInputField = definitionModule.GraphQLInputField
 type GraphQLObjectType = definitionModule.GraphQLObjectType
@@ -48,8 +45,8 @@ type GraphQLUnionType = definitionModule.GraphQLUnionType
 type GraphQLEnumType = definitionModule.GraphQLEnumType
 type GraphQLInputObjectType = definitionModule.GraphQLInputObjectType
 
-local isIntrospectionType = require(script.Parent.introspection).isIntrospectionType
-local directives = require(script.Parent.directives)
+local isIntrospectionType = require("./introspection").isIntrospectionType
+local directives = require("./directives")
 local isDirective = directives.isDirective
 local GraphQLDeprecatedDirective = directives.GraphQLDeprecatedDirective
 local isObjectType = definitionModule.isObjectType

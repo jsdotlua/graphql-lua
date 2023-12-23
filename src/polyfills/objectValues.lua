@@ -12,9 +12,7 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local graphql = script.Parent.Parent
-local Packages = graphql.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 
 return {
 	objectValues = LuauPolyfill.Object.values,

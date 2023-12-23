@@ -7,13 +7,10 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/__testUtils__/__tests__/dedent-test.js
 
 return function()
-	local testUtilsWorkspace = script.Parent.Parent
-	local srcWorkspace = testUtilsWorkspace.Parent
-	local Packages = srcWorkspace.Parent
-	local LuauPolyfill = require(Packages.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local Array = LuauPolyfill.Array
 
-	local dedent = require(testUtilsWorkspace.dedent).dedent
+	local dedent = require("../dedent").dedent
 
 	describe("dedent", function()
 		it("removes indentation in typical usage", function()

@@ -1,6 +1,6 @@
 local HttpService = game:GetService("HttpService")
 return function()
-	local NULL = require(script.Parent.Parent.null)
+	local NULL = require("../null")
 
 	describe("NULL", function()
 		it("should stringify correclty", function()

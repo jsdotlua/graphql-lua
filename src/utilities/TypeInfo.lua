@@ -6,20 +6,14 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/TypeInfo.js
 --!strict
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
-local luaUtilsWorkspace = srcWorkspace.luaUtils
-local NULL = require(luaUtilsWorkspace.null)
+local NULL = require("../luaUtils/null")
 type NULL = typeof(NULL)
 
-local language = srcWorkspace.language
-local typeWorkspace = srcWorkspace.type
-
-local visitorImport = require(language.visitor)
-local astImport = require(language.ast)
+local visitorImport = require("../language/visitor")
+local astImport = require("../language/ast")
 -- ROBLOX deviation: Luau can't do default type args, so we inline here
 type Visitor<T> = visitorImport.Visitor<T, any>
 -- ROBLOX TODO: looks like a type violation in upstream, not all members of ASTNode union have 'name' or 'value' fields
@@ -37,15 +31,15 @@ type NamedTypeNode = astImport.NamedTypeNode
 type ASTNode = astImport.ASTNode
 type ASTKindToNode = astImport.ASTKindToNode
 type FieldNode = astImport.FieldNode
-local Kind = require(language.kinds).Kind
+local Kind = require("../language/kinds").Kind
 local isNode = astImport.isNode
 local getVisitFn = visitorImport.getVisitFn
 
-local schemaImport = require(typeWorkspace.schema)
+local schemaImport = require("../type/schema")
 type GraphQLSchema = schemaImport.GraphQLSchema
-local _directivesImport = require(typeWorkspace.directives)
+local _directivesImport = require("../type/directives")
 type GraphQLDirective = _directivesImport.GraphQLDirective
-local definitionImport = require(typeWorkspace.definition)
+local definitionImport = require("../type/definition")
 type GraphQLType = definitionImport.GraphQLType
 type GraphQLInputType = definitionImport.GraphQLInputType
 type GraphQLNamedType = definitionImport.GraphQLNamedType
@@ -67,12 +61,12 @@ local isInputType = definitionImport.isInputType
 local isOutputType = definitionImport.isOutputType
 local getNullableType = definitionImport.getNullableType
 local getNamedType = definitionImport.getNamedType
-local introspectionImport = require(typeWorkspace.introspection)
+local introspectionImport = require("../type/introspection")
 local SchemaMetaFieldDef = introspectionImport.SchemaMetaFieldDef
 local TypeMetaFieldDef = introspectionImport.TypeMetaFieldDef
 local TypeNameMetaFieldDef = introspectionImport.TypeNameMetaFieldDef
 
-local typeFromAST = require(srcWorkspace.utilities.typeFromAST).typeFromAST
+local typeFromAST = require("../utilities/typeFromAST").typeFromAST
 
 -- ROBLOX deviation: use the following table as a symbol to represent
 -- a `null` value within the arrays
@@ -91,11 +85,11 @@ end
 --  */
 export type TypeInfo = {
 	_schema: GraphQLSchema,
-	_typeStack: Array<GraphQLOutputType? | NULL>,
-	_parentTypeStack: Array<GraphQLCompositeType? | NULL>,
-	_inputTypeStack: Array<GraphQLInputType? | NULL>,
-	_fieldDefStack: Array<GraphQLField<any, any>? | NULL>,
-	_defaultValueStack: Array<any? | NULL>,
+	_typeStack: Array<NULL | GraphQLOutputType?>,
+	_parentTypeStack: Array<NULL | GraphQLCompositeType?>,
+	_inputTypeStack: Array<NULL | GraphQLInputType?>,
+	_fieldDefStack: Array<NULL | GraphQLField<any, any>?>,
+	_defaultValueStack: Array<NULL | any?>,
 	_directive: GraphQLDirective?,
 	_argument: GraphQLArgument?,
 	_enumValue: GraphQLEnumValue?,

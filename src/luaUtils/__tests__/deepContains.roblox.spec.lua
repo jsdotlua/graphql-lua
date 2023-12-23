@@ -1,6 +1,6 @@
 return function()
-	local deepContains = require(script.Parent.Parent.deepContains)
-	local NULL = require(script.Parent.Parent.null)
+	local deepContains = require("../deepContains")
+	local NULL = require("../null")
 
 	describe("deepContains", function()
 		it("contain empty object", function()

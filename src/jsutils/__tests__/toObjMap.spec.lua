@@ -8,7 +8,7 @@
 return function()
 	-- local jsutils = script.Parent.Parent
 
-	-- local toObjMap = require(jsutils.toObjMap).toObjMap
+	-- local toObjMap = require("../toObjMap").toObjMap
 
 	describe("toObjMap", function()
 		-- deviation: usage of JavaScript prototype and

@@ -7,10 +7,10 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/jsutils/__tests__/isIteratableObject-test.js
 return function()
 	local rootWorkspace = script.Parent.Parent.Parent.Parent
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	local NaN = LuauPolyfill.Number.NaN
 
-	local isIteratableObject = require(script.Parent.Parent.isIteratableObject).isIteratableObject
+	local isIteratableObject = require("../isIteratableObject").isIteratableObject
 
 	describe("isIteratableObject", function()
 		it("should return `true` for collections", function()

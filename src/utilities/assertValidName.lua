@@ -6,9 +6,8 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/assertValidName.js
 
-local srcWorkspace = script.Parent.Parent
-local devAssert = require(srcWorkspace.jsutils.devAssert).devAssert
-local graphqlErrorImport = require(srcWorkspace.error.GraphQLError)
+local devAssert = require("../jsutils/devAssert").devAssert
+local graphqlErrorImport = require("../error/GraphQLError")
 local GraphQLError = graphqlErrorImport.GraphQLError
 type GraphQLError = graphqlErrorImport.GraphQLError
 

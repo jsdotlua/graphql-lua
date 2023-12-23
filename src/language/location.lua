@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/language/location.js
-local Packages = script.Parent.Parent.Parent
-local String = require(Packages.LuauPolyfill).String
+local String = require("@pkg/@jsdotlua/luau-polyfill").String
 
-local Source = require(script.Parent.source)
+local Source = require("./source")
 type Source = Source.Source
 
 -- /**

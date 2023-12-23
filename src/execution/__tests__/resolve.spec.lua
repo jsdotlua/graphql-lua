@@ -7,21 +7,18 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/__tests__/resolve-test.js
 
 return function()
-	local executionWorkspace = script.Parent.Parent
-	local srcWorkspace = executionWorkspace.Parent
-
 	-- ROBLOX deviation: utils
-	local inspect = require(srcWorkspace.jsutils.inspect).inspect
+	local inspect = require("../../jsutils/inspect").inspect
 
-	local parse = require(srcWorkspace.language.parser).parse
+	local parse = require("../../language/parser").parse
 
-	local GraphQLSchema = require(srcWorkspace.type.schema).GraphQLSchema
-	local scalarsImport = require(srcWorkspace.type.scalars)
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local scalarsImport = require("../../type/scalars")
 	local GraphQLInt = scalarsImport.GraphQLInt
 	local GraphQLString = scalarsImport.GraphQLString
-	local GraphQLObjectType = require(srcWorkspace.type.definition).GraphQLObjectType
+	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
 
-	local executeSync = require(executionWorkspace.execute).executeSync
+	local executeSync = require("../execute").executeSync
 
 	describe("Execute: resolve function", function()
 		local function testSchema(testField)

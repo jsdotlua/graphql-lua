@@ -5,16 +5,15 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1611bbb08a88f734e9490b14cfe6afea11a838e0/src/__tests__/starWarsIntrospection-test.js
-local Packages = script.Parent.Parent.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Object = LuauPolyfill.Object
 type Array<T> = LuauPolyfill.Array<T>
-local NULL = require(script.Parent.Parent.luaUtils.null)
-local objMap = require(script.Parent.Parent.jsutils.ObjMap)
+local NULL = require("../luaUtils/null")
+local objMap = require("../jsutils/ObjMap")
 type ObjMap<T> = objMap.ObjMap<T>
-local graphql = require(script.Parent.Parent.graphql)
+local graphql = require("../graphql")
 local graphqlSync = graphql.graphqlSync
-local starWarsSchema = require(script.Parent.starWarsSchema)
+local starWarsSchema = require("./starWarsSchema")
 local StarWarsSchema = starWarsSchema.StarWarsSchema
 
 return function()

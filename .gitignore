@@ -15,3 +15,9 @@ Packages/*
 debug.log
 .idea
 .vscode/launch.json
+
+**/sourcemap.json
+**/node_modules
+/build
+/roblox
+.yarn

@@ -5,15 +5,12 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/promiseForObject.js
-local jsutils = script.Parent
-local graphql = jsutils.Parent
-local Packages = graphql.Parent
-local Promise = require(Packages.Promise)
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local Promise = require("@pkg/@jsdotlua/promise")
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 local Object = LuauPolyfill.Object
 
-local ObjMapModule = require(script.Parent.ObjMap)
+local ObjMapModule = require("./ObjMap")
 type ObjMap<T> = ObjMapModule.ObjMap<T>
 
 local function promiseForObject(object: ObjMap<any>)

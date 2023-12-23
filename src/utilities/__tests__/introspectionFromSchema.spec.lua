@@ -7,22 +7,18 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/utilities/__tests__/introspectionFromSchema-test.js
 
 return function()
-	local utilitiesWorkspace = script.Parent.Parent
-	local srcWorkspace = utilitiesWorkspace.Parent
-	local typeWorkspace = srcWorkspace.type
+	local dedent = require("../../__testUtils__/dedent").dedent
 
-	local dedent = require(srcWorkspace.__testUtils__.dedent).dedent
+	local GraphQLSchema = require("../../type/schema").GraphQLSchema
+	local GraphQLString = require("../../type/scalars").GraphQLString
+	local GraphQLObjectType = require("../../type/definition").GraphQLObjectType
 
-	local GraphQLSchema = require(typeWorkspace.schema).GraphQLSchema
-	local GraphQLString = require(typeWorkspace.scalars).GraphQLString
-	local GraphQLObjectType = require(typeWorkspace.definition).GraphQLObjectType
-
-	local getIntrospectionQueryModule = require(utilitiesWorkspace.getIntrospectionQuery)
+	local getIntrospectionQueryModule = require("../getIntrospectionQuery")
 	type IntrospectionQuery = getIntrospectionQueryModule.IntrospectionQuery
 	local introspectionFromSchema =
-		require(srcWorkspace.utilities.introspectionFromSchema).introspectionFromSchema
-	local printSchema = require(utilitiesWorkspace.printSchema).printSchema
-	local buildClientSchema = require(utilitiesWorkspace.buildClientSchema).buildClientSchema
+		require("../../utilities/introspectionFromSchema").introspectionFromSchema
+	local printSchema = require("../printSchema").printSchema
+	local buildClientSchema = require("../buildClientSchema").buildClientSchema
 
 	local function introspectionToSDL(introspection: IntrospectionQuery): string
 		return printSchema(buildClientSchema(introspection))

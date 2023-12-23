@@ -1,5 +1,5 @@
 local HttpService = game:GetService("HttpService")
-local NULL = require(script.Parent.null)
+local NULL = require("./null")
 local encodedNull = HttpService:JSONEncode(NULL)
 
 local function stringify(obj: any): string

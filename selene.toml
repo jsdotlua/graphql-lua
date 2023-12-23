@@ -1,5 +1,6 @@
-std = "roblox+testez"
+std = "selene_definitions+testez"
 
 # to be removed - only helpful while scaffolding in dev
 [rules]
 unused_variable = "allow"
+bad_string_escape = "allow"

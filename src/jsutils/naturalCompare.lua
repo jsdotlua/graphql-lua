@@ -13,8 +13,7 @@
  *
  ]]
 
-local Packages = script.Parent.Parent.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Number = LuauPolyfill.Number
 local String = LuauPolyfill.String
 local isNaN = Number.isNaN

@@ -12,9 +12,7 @@
 	* See the License for the specific language governing permissions and
 	* limitations under the License.
 ]]
-local srcWorkspace = script.Parent.Parent
-local Packages = srcWorkspace.Parent
-local inspect = require(Packages.LuauPolyfill).util.inspect
+local inspect = require("@pkg/@jsdotlua/luau-polyfill").util.inspect
 
 local function devPrint(...)
 	local inspected = {}

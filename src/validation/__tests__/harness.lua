@@ -6,20 +6,17 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/validation/__tests__/harness.js
 
-local validationWorkspace = script.Parent.Parent
-local srcWorkspace = validationWorkspace.Parent
-local Packages = srcWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Array = LuauPolyfill.Array
 
-local parse = require(srcWorkspace.language.parser).parse
+local parse = require("../../language/parser").parse
 
-local _schemaImport = require(srcWorkspace.type.schema)
+local _schemaImport = require("../../type/schema")
 type GraphQLSchema = _schemaImport.GraphQLSchema
 
-local buildSchema = require(srcWorkspace.utilities.buildASTSchema).buildSchema
+local buildSchema = require("../../utilities/buildASTSchema").buildSchema
 
-local validateImport = require(validationWorkspace.validate)
+local validateImport = require("../validate")
 local validate = validateImport.validate
 local validateSDL = validateImport.validateSDL
 

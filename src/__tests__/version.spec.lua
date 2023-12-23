@@ -7,11 +7,9 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/__tests__/version-test.js
 
 return function()
-	local srcWorkspace = script.Parent.Parent
+	local Object = require("@pkg/@jsdotlua/luau-polyfill").Object
 
-	local Object = require(srcWorkspace.Parent.LuauPolyfill).Object
-
-	local versionModule = require(script.Parent.Parent.version)
+	local versionModule = require("../version")
 	local version = versionModule.version
 	local versionInfo = versionModule.versionInfo
 

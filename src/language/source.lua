@@ -5,12 +5,9 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/language/source.js
-local language = script.Parent
-local src = language.Parent
-
-local inspect = require(src.jsutils.inspect).inspect
-local devAssert = require(src.jsutils.devAssert).devAssert
-local instanceOf = require(src.jsutils.instanceOf)
+local inspect = require("../jsutils/inspect").inspect
+local devAssert = require("../jsutils/devAssert").devAssert
+local instanceOf = require("../jsutils/instanceOf")
 
 type Location = {
 	line: number,

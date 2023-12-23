@@ -15,7 +15,7 @@
 -- ROBLOX deviation: no upstream tests
 
 return function()
-	local valuesImport = require(script.Parent.Parent.values)
+	local valuesImport = require("../values")
 	local getVariableValues = valuesImport.getVariableValues
 	local getArgumentValues = valuesImport.getArgumentValues
 	local getDirectiveValues = valuesImport.getDirectiveValues

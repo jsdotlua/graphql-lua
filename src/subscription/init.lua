@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/v15.5.1/src/subscription/index.js
-local subscribeModule = require(script.subscribe)
+local subscribeModule = require("./subscribe")
 local subscribe = subscribeModule.subscribe
 local createSourceEventStream = subscribeModule.createSourceEventStream
 

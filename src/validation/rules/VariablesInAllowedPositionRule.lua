@@ -6,15 +6,13 @@
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/7b3241329e1ff49fb647b043b80568f0cf9e1a7c/src/validation/rules/VariablesInAllowedPositionRule.js
 
-local root = script.Parent.Parent.Parent
-local inspect = require(root.jsutils.inspect).inspect
-local GraphQLError = require(root.error.GraphQLError).GraphQLError
-local Kind = require(root.language.kinds).Kind
-local definition = require(root.type.definition)
+local inspect = require("../../jsutils/inspect").inspect
+local GraphQLError = require("../../error/GraphQLError").GraphQLError
+local Kind = require("../../language/kinds").Kind
+local definition = require("../../type/definition")
 local isNonNullType = definition.isNonNullType
-local utilities = root.utilities
-local typeFromAST = require(utilities.typeFromAST).typeFromAST
-local isTypeSubTypeOf = require(utilities.typeComparators).isTypeSubTypeOf
+local typeFromAST = require("../../utilities/typeFromAST").typeFromAST
+local isTypeSubTypeOf = require("../../utilities/typeComparators").isTypeSubTypeOf
 
 local exports = {}
 

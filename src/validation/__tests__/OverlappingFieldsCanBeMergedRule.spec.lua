@@ -7,14 +7,13 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/bbd8429b85594d9ee8cc632436e2d0f900d703ef/src/validation/__tests__/OverlappingFieldsCanBeMergedRule-test.js
 
 return function()
-	local validationWorkspace = script.Parent.Parent
-	local root = validationWorkspace.Parent
-	local buildASTSchema = require(root.utilities.buildASTSchema)
+	local buildASTSchema = require("../../utilities/buildASTSchema")
 	local buildSchema = buildASTSchema.buildSchema
-	local OverlappingFieldsCanBeMergedRule = require(
-		validationWorkspace.rules.OverlappingFieldsCanBeMergedRule
-	).OverlappingFieldsCanBeMergedRule
-	local harness = require(script.Parent.harness)
+	local OverlappingFieldsCanBeMergedRule =
+		require(
+			"../rules/OverlappingFieldsCanBeMergedRule"
+		).OverlappingFieldsCanBeMergedRule
+	local harness = require("./harness")
 	local expectValidationErrors = harness.expectValidationErrors
 	local expectValidationErrorsWithSchema = harness.expectValidationErrorsWithSchema
 

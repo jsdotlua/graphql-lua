@@ -5,33 +5,30 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/graphql.js
-local rootWorkspace = script.Parent
-
-local Packages = rootWorkspace.Parent
-local LuauPolyfill = require(Packages.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 local Error = LuauPolyfill.Error
-local Promise = require(Packages.Promise)
+local Promise = require("@pkg/@jsdotlua/promise")
 type Promise<T> = LuauPolyfill.Promise<T>
-local PromiseOrValueModule = require(rootWorkspace.jsutils.PromiseOrValue)
+local PromiseOrValueModule = require("./jsutils/PromiseOrValue")
 type PromiseOrValue<T> = PromiseOrValueModule.PromiseOrValue<T>
 
-local isPromise = require(rootWorkspace.jsutils.isPromise).isPromise
+local isPromise = require("./jsutils/isPromise").isPromise
 
-local sourceModule = require(rootWorkspace.language.source)
+local sourceModule = require("./language/source")
 type Source = sourceModule.Source
-local parse = require(rootWorkspace.language.parser).parse
+local parse = require("./language/parser").parse
 
-local definitionModule = require(rootWorkspace.type.definition)
+local definitionModule = require("./type/definition")
 -- ROBLOX deviation: Luau doesn't currently support default type args, so add the third one here until it does
 type GraphQLFieldResolver<T, V> = definitionModule.GraphQLFieldResolver<T, V, any>
 type GraphQLTypeResolver<T, V> = definitionModule.GraphQLTypeResolver<T, V>
-local schemaModule = require(rootWorkspace.type.schema)
+local schemaModule = require("./type/schema")
 type GraphQLSchema = schemaModule.GraphQLSchema
-local validate = require(rootWorkspace.validation.validate).validate
+local validate = require("./validation/validate").validate
 
-local validateSchema = require(rootWorkspace.type.validate).validateSchema
+local validateSchema = require("./type/validate").validateSchema
 
-local executeModule = require(rootWorkspace.execution.execute)
+local executeModule = require("./execution/execute")
 local execute = executeModule.execute
 type ExecutionResult = executeModule.ExecutionResult
 

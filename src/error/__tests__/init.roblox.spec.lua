@@ -17,27 +17,27 @@
 return function()
 	describe("Error - init", function()
 		it("should contain GraphQLError table", function()
-			local GraphQLError = require(script.Parent.Parent).GraphQLError
+			local GraphQLError = require("../init").GraphQLError
 			expect(GraphQLError).to.be.a("table")
 		end)
 
 		it("should contain printError function", function()
-			local printError = require(script.Parent.Parent).printError
+			local printError = require("../init").printError
 			expect(printError).to.be.a("function")
 		end)
 
 		it("should contain syntaxError function", function()
-			local syntaxError = require(script.Parent.Parent).syntaxError
+			local syntaxError = require("../init").syntaxError
 			expect(syntaxError).to.be.a("function")
 		end)
 
 		it("should contain locatedError function", function()
-			local locatedError = require(script.Parent.Parent).locatedError
+			local locatedError = require("../init").locatedError
 			expect(locatedError).to.be.a("function")
 		end)
 
 		it("should contain formatError function", function()
-			local formatError = require(script.Parent.Parent).formatError
+			local formatError = require("../init").formatError
 			expect(formatError).to.be.a("function")
 		end)
 	end)

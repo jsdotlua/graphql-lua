@@ -5,51 +5,46 @@
  * LICENSE file in the root directory of this source tree.
 ]]
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/00d4efea7f5b44088356798afff0317880605f4d/src/execution/values.js
-local srcWorkspace = script.Parent.Parent
-
-local root = srcWorkspace.Parent
-local LuauPolyfill = require(root.LuauPolyfill)
+local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 type void = nil
 local Array = LuauPolyfill.Array
 type Array<T> = LuauPolyfill.Array<T>
-local NULL = require(srcWorkspace.luaUtils.null)
-local isNillish = require(srcWorkspace.luaUtils.isNillish).isNillish
+local NULL = require("../luaUtils/null")
+local isNillish = require("../luaUtils/isNillish").isNillish
 
-local objMapImport = require(srcWorkspace.jsutils.ObjMap)
+local objMapImport = require("../jsutils/ObjMap")
 type ObjMap<T> = objMapImport.ObjMap<T>
-local keyMap = require(srcWorkspace.jsutils.keyMap).keyMap
-local inspect = require(srcWorkspace.jsutils.inspect).inspect
-local printPathArray = require(srcWorkspace.jsutils.printPathArray).printPathArray
+local keyMap = require("../jsutils/keyMap").keyMap
+local inspect = require("../jsutils/inspect").inspect
+local printPathArray = require("../jsutils/printPathArray").printPathArray
 
-local graphqlErrorImport = require(srcWorkspace.error.GraphQLError)
+local graphqlErrorImport = require("../error/GraphQLError")
 local GraphQLError = graphqlErrorImport.GraphQLError
 type GraphQLError = graphqlErrorImport.GraphQLError
 
-local languageWorkspace = srcWorkspace.language
-local astImport = require(languageWorkspace.ast)
+local astImport = require("../language/ast")
 type ArgumentNode = astImport.ArgumentNode
 type FieldNode = astImport.FieldNode
 type DirectiveNode = astImport.DirectiveNode
 type VariableDefinitionNode = astImport.VariableDefinitionNode
 type ASTNode = astImport.ASTNode
-local Kind = require(languageWorkspace.kinds).Kind
-local print_ = require(languageWorkspace.printer).print
+local Kind = require("../language/kinds").Kind
+local print_ = require("../language/printer").print
 
-local typeWorkspace = srcWorkspace.type
-local schemaImport = require(typeWorkspace.schema)
+local schemaImport = require("../type/schema")
 type GraphQLSchema = schemaImport.GraphQLSchema
-local definitionImport = require(typeWorkspace.definition)
+local definitionImport = require("../type/definition")
 type GraphQLField<TSource, TContext> = definitionImport.GraphQLField<TSource, TContext>
-local directivesImport = require(typeWorkspace.directives)
+local directivesImport = require("../type/directives")
 type GraphQLDirective = directivesImport.GraphQLDirective
 
-local definition = require(srcWorkspace.type.definition)
+local definition = require("../type/definition")
 local isInputType = definition.isInputType
 local isNonNullType = definition.isNonNullType
 
-local typeFromAST = require(srcWorkspace.utilities.typeFromAST).typeFromAST
-local valueFromAST = require(srcWorkspace.utilities.valueFromAST).valueFromAST
-local coerceInputValue = require(srcWorkspace.utilities.coerceInputValue).coerceInputValue
+local typeFromAST = require("../utilities/typeFromAST").typeFromAST
+local valueFromAST = require("../utilities/valueFromAST").valueFromAST
+local coerceInputValue = require("../utilities/coerceInputValue").coerceInputValue
 
 -- ROBLOX deviation: predeclare functions
 local getVariableValues

@@ -1,8 +1,8 @@
 return function()
 	local luaUtils = script.Parent.Parent
-	local isNillish = require(luaUtils.isNillish).isNillish
-	local isNotNillish = require(luaUtils.isNillish).isNotNillish
-	local NULL = require(luaUtils.null)
+	local isNillish = require("../isNillish").isNillish
+	local isNotNillish = require("../isNillish").isNotNillish
+	local NULL = require("../null")
 
 	describe("isNillish", function()
 		it("returns true when nil", function()

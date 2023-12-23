@@ -7,13 +7,13 @@
 -- ROBLOX upstream: https://github.com/graphql/graphql-js/blob/1951bce42092123e844763b6a8e985a8a3327511/src/jsutils/__tests__/inspect-test.js
 return function()
 	local rootWorkspace = script.Parent.Parent.Parent.Parent
-	local LuauPolyfill = require(rootWorkspace.LuauPolyfill)
+	local LuauPolyfill = require("@pkg/@jsdotlua/luau-polyfill")
 	type Array<T> = LuauPolyfill.Array<T>
 	local NaN = LuauPolyfill.Number.NaN
 
 	local jsutils = script.Parent.Parent
-	local inspect = require(jsutils.inspect).inspect
-	local invariant = require(jsutils.invariant).invariant
+	local inspect = require("../inspect").inspect
+	local invariant = require("../invariant").invariant
 
 	describe("inspect", function()
 		-- it("undefined", function()

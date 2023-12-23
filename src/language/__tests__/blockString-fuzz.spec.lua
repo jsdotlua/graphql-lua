@@ -11,15 +11,15 @@ return function()
 	local language = script.Parent.Parent
 	local src = language.Parent
 
-	local dedent = require(src.__testUtils__.dedent).dedent
-	local inspectStr = require(src.__testUtils__.inspectStr).inspectStr
-	local genFuzzStrings = require(src.__testUtils__.genFuzzStrings).genFuzzStrings
+	local dedent = require("../../__testUtils__/dedent").dedent
+	local inspectStr = require("../../__testUtils__/inspectStr").inspectStr
+	local genFuzzStrings = require("../../__testUtils__/genFuzzStrings").genFuzzStrings
 
-	local invariant = require(src.jsutils.invariant).invariant
+	local invariant = require("../../jsutils/invariant").invariant
 
-	local Lexer = require(language.lexer).Lexer
-	local Source = require(language.source).Source
-	local printBlockString = require(language.blockString).printBlockString
+	local Lexer = require("../lexer").Lexer
+	local Source = require("../source").Source
+	local printBlockString = require("../blockString").printBlockString
 
 	local function lexValue(str: string)
 		local lexer = Lexer.new(Source.new(str))
