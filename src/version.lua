@@ -16,7 +16,7 @@ local Object = require("@pkg/@jsdotlua/luau-polyfill").Object
 --[[
  * A string containing the version of the GraphQL.js library
  *]]
-local version = "15.6.1"
+local version = "15.62.2"
 
 --[[
  * An object containing the components of the GraphQL.js version string
