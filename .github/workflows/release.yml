@@ -30,11 +30,14 @@ jobs:
           cache: "yarn"
           cache-dependency-path: "yarn.lock"
 
-      - name: Update yarn
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Update Yarn
         run: yarn set version stable
 
       - name: Install packages
-        run: yarn install # --immutable
+        run: yarn install --immutable
 
       - name: Run npmluau
         run: yarn run prepare
