@@ -27,8 +27,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "latest"
-          cache: "yarn"
-          cache-dependency-path: "yarn.lock"
+          # cache: "yarn"
+          # cache-dependency-path: "yarn.lock"
 
       - name: Install Yarn
         run: npm install -g yarn
