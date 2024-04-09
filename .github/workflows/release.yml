@@ -27,11 +27,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "latest"
-          cache: "yarn"
-          cache-dependency-path: "yarn.lock"
 
-      - name: Update yarn
-        run: yarn set version stable
+      - name: Install Yarn
+        run: npm install -g yarn
 
       - name: Install packages
         run: yarn install --immutable
