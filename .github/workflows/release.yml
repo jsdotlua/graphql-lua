@@ -24,16 +24,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: "latest"
-          # cache: "yarn"
-          # cache-dependency-path: "yarn.lock"
+          cache: "yarn"
+          cache-dependency-path: "yarn.lock"
 
-      - name: Install Yarn
-        run: npm install -g yarn
-
-      - name: Update Yarn
+      - name: Update yarn
         run: yarn set version stable
 
       - name: Install packages
