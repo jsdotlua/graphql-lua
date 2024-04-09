@@ -28,8 +28,8 @@ jobs:
         with:
           node-version: "latest"
 
-      - name: Install Yarn
-        run: npm install -g yarn
+      - name: Use project-specific Yarn version
+        run: yarn set version stable
 
       - name: Install packages
         run: yarn install --immutable
