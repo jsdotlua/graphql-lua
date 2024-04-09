@@ -73,7 +73,9 @@ jobs:
         run: yarn set version stable
 
       - name: Install packages
-        run: yarn install --immutable
+        run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
       - name: Run npmluau
         run: yarn run prepare
@@ -158,9 +160,11 @@ jobs:
 
       - name: Update yarn
         run: yarn set version stable
-
+        
       - name: Install packages
-        run: yarn install --immutable
+        run: yarn install
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
       - name: Run npmluau
         run: yarn run prepare
